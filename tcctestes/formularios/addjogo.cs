@@ -15,6 +15,7 @@ namespace tcctestes.formularios
         public addjogo()
         {
             InitializeComponent();
+            
         }
 
         private void addjogo_Load(object sender, EventArgs e)
@@ -32,6 +33,52 @@ namespace tcctestes.formularios
                 {
                     pictureBox1.Image = Image.FromFile(opf.FileName);
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try { 
+                using (OpenFileDialog opf = new OpenFileDialog())
+                {
+                    opf.Filter = "Executaveis|*.exe;*.lnk;*.*";
+
+                    opf.ShowDialog();
+                    string nome = System.IO.Path.GetFileNameWithoutExtension(opf.FileName);
+                    if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text == "nome") {
+                        textBox1.Text = nome;
+                    }
+                    textBox3.Text = opf.FileName;
+                
+                }
+            }  
+            catch (Exception ex) {
+                MessageBox.Show("Erro: " + ex, "Erro", MessageBoxButtons.OK);
+            }
+            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox1.Text)) { }
+            if(textBox1.Text == "nome") { textBox1.Text = ""; }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text)) {
+                textBox1.Text = "nome";
+                textBox1.ForeColor = Color.Gray;
             }
         }
     }
