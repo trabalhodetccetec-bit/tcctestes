@@ -12,19 +12,18 @@ using System.IO;
 
 namespace tcctestes.formularios
 {
-    public partial class addjogo : Form
+    public partial class adicionarjog : Form
     {
         string cam = "";
-        public addjogo()
+        public adicionarjog()
         {
             InitializeComponent();
-
         }
-
-        private void addjogo_Load(object sender, EventArgs e)
+        private void adicionarjog_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 1;
             comboBox2.SelectedIndex = 0;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -63,58 +62,10 @@ namespace tcctestes.formularios
             {
                 MessageBox.Show("Erro: " + ex, "Erro", MessageBoxButtons.OK);
             }
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(textBox1.Text)) { }
-            if (textBox1.Text == "Nome") { textBox1.Text = ""; textBox1.ForeColor = Color.Black; }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                textBox1.Text = "Nome";
-                textBox1.ForeColor = Color.Gray;
-            }
-        }
-
-        private void textBox2_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(textBox2.Text)) { }
-            if (textBox2.Text == "Descrição") { textBox2.Text = ""; textBox2.ForeColor = Color.Black; }
-
-        }
-
-        private void textBox2_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(textBox2.Text))
-            {
-                textBox2.Text = "Descrição";
-                textBox2.ForeColor = Color.Gray;
-            }
         }
 
         private void adicionar_Click(object sender, EventArgs e)
         {
-
             dados dad = new dados();
             dad.Nome = textBox1.Text;
             dad.Descricao = textBox2.Text;
@@ -127,7 +78,7 @@ namespace tcctestes.formularios
             if (jaze.Checked) { dad.zerou = jaze.Text; }
             else { dad.zerou = naoze.Text; }
             List<dados> listjog = new List<dados>();
-            string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dados", "dados.json");
+            string caminho = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "dados.json");
 
             if (File.Exists(caminho))
             {
@@ -149,21 +100,39 @@ namespace tcctestes.formularios
             Directory.CreateDirectory(Path.GetDirectoryName(caminho));
             File.WriteAllText(caminho, novoJson);
             MessageBox.Show("Jogo salvo com sucesso!");
-            MessageBox.Show(caminho);
         }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox1.Text)) { }
+            if (textBox1.Text == "Nome") { textBox1.Text = ""; textBox1.ForeColor = Color.Black; }
+
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                textBox1.Text = "Nome";
+                textBox1.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox2.Text)) { }
+            if (textBox2.Text == "Descrição") { textBox2.Text = ""; textBox2.ForeColor = Color.Black; }
+
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                textBox2.Text = "Descrição";
+                textBox2.ForeColor = Color.Gray;
+            }
+        }
+      
     }
-
-    public class dados
-    {
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
-        public string pathexe { get; set; }
-        public string Categoria { get; set; }
-        public string zerou { get; set; }
-        public string jogou { get; set; }
-        public string pathimage { get; set; }
-        public string aval { get; set; }
-
-    }
-
 }

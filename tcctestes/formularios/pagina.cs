@@ -10,34 +10,38 @@ using System.Windows.Forms;
 
 namespace tcctestes
 {
-    public partial class Form1 : Form
+    public partial class pagina : Form
     {
-        formularios.addjogo adjog = new formularios.addjogo();
-        formularios.excjogo exjog = new formularios.excjogo();
-        formularios.jogos all = new formularios.jogos();
-        public Form1()
+        
+        public pagina()
         {
             InitializeComponent();
+            
         }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            formularios.adicionarjog adjog = new formularios.adicionarjog();
             adjog.Show();
         }
 
         private void verTodosOsJogosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            formularios.jogos all = new formularios.jogos();
+            this.Hide();
             all.Show();
         }
 
         private void removerJogosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            formularios.login exjog = new formularios.login();
             exjog.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            
             
         }
 

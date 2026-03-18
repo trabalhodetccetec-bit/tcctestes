@@ -1,7 +1,7 @@
 ﻿
 namespace tcctestes.formularios
 {
-    partial class excjogo
+    partial class login
     {
         /// <summary>
         /// Required designer variable.

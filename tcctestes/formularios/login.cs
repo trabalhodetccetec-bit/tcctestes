@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace tcctestes.formularios
 {
-    public partial class excjogo : Form
+    public partial class login : Form
     {
-        public excjogo()
+        public login()
         {
             InitializeComponent();
         }

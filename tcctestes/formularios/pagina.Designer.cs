@@ -1,7 +1,7 @@
 ﻿
 namespace tcctestes
 {
-    partial class Form1
+    partial class pagina
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -40,7 +40,6 @@ namespace tcctestes
             this.jogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verTodosOsJogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removerJogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comoAdicionarJogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,8 +118,7 @@ namespace tcctestes
             // 
             this.jogosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adicionarToolStripMenuItem,
-            this.verTodosOsJogosToolStripMenuItem,
-            this.removerJogosToolStripMenuItem});
+            this.verTodosOsJogosToolStripMenuItem});
             this.jogosToolStripMenuItem.Name = "jogosToolStripMenuItem";
             this.jogosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.jogosToolStripMenuItem.Text = "Jogos";
@@ -128,23 +126,16 @@ namespace tcctestes
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.adicionarToolStripMenuItem.Text = "adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // verTodosOsJogosToolStripMenuItem
             // 
             this.verTodosOsJogosToolStripMenuItem.Name = "verTodosOsJogosToolStripMenuItem";
-            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verTodosOsJogosToolStripMenuItem.Text = "ver todos os jogos";
             this.verTodosOsJogosToolStripMenuItem.Click += new System.EventHandler(this.verTodosOsJogosToolStripMenuItem_Click);
-            // 
-            // removerJogosToolStripMenuItem
-            // 
-            this.removerJogosToolStripMenuItem.Name = "removerJogosToolStripMenuItem";
-            this.removerJogosToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.removerJogosToolStripMenuItem.Text = "remover jogos";
-            this.removerJogosToolStripMenuItem.Click += new System.EventHandler(this.removerJogosToolStripMenuItem_Click);
             // 
             // ajudaToolStripMenuItem
             // 
@@ -218,7 +209,6 @@ namespace tcctestes
         private System.Windows.Forms.ToolStripMenuItem jogosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adicionarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verTodosOsJogosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem removerJogosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comoAdicionarJogosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
