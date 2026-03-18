@@ -145,7 +145,9 @@ namespace tcctestes.formularios
             Directory.CreateDirectory(Path.GetDirectoryName(caminho));
             File.WriteAllText(caminho, novoJson);
             MessageBox.Show("Jogo salvo com sucesso!");
+            MessageBox.Show(caminho);
         }
+    }
     }
     public class dados {
         public string Nome { get; set; }
