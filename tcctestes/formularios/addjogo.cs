@@ -43,21 +43,24 @@ namespace tcctestes.formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 using (OpenFileDialog opf = new OpenFileDialog())
                 {
                     opf.Filter = "Executaveis|*.exe;*.lnk;*.*";
 
                     opf.ShowDialog();
                     string nome = System.IO.Path.GetFileNameWithoutExtension(opf.FileName);
-                    if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text == "nome") {
+                    if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text == "nome")
+                    {
                         textBox1.Text = nome;
                     }
                     textBox3.Text = opf.FileName;
 
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Erro: " + ex, "Erro", MessageBoxButtons.OK);
             }
 
@@ -81,7 +84,8 @@ namespace tcctestes.formularios
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text)) {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
                 textBox1.Text = "Nome";
                 textBox1.ForeColor = Color.Gray;
             }
@@ -110,7 +114,7 @@ namespace tcctestes.formularios
 
         private void adicionar_Click(object sender, EventArgs e)
         {
-            
+
             dados dad = new dados();
             dad.Nome = textBox1.Text;
             dad.Descricao = textBox2.Text;
@@ -148,8 +152,9 @@ namespace tcctestes.formularios
             MessageBox.Show(caminho);
         }
     }
-    }
-    public class dados {
+
+    public class dados
+    {
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public string pathexe { get; set; }
@@ -160,4 +165,5 @@ namespace tcctestes.formularios
         public string aval { get; set; }
 
     }
+
 }
