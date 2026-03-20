@@ -62,7 +62,7 @@ namespace tcctestes.formularios
                     if (!dataGridView1.Columns.Contains("btnJogar"))
                     {
                         DataGridViewButtonColumn botaoJogar = new DataGridViewButtonColumn();
-                        botaoJogar.HeaderText = "Ação";
+                        botaoJogar.HeaderText = "";
                         botaoJogar.Text = "JOGAR";
                         botaoJogar.Name = "btnJogar";
                         botaoJogar.UseColumnTextForButtonValue = true; // Faz o texto "JOGAR" aparecer no botão
