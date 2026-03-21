@@ -64,16 +64,7 @@ namespace tcctestes.formularios
                     dataGridView1.Columns["pathexe"].Visible = false;
                     dataGridView1.Columns["Descricao"].Visible = false;
                     dataGridView1.Columns["frec"].Visible = false;
-                    if (!dataGridView1.Columns.Contains("btnJogar"))
-                    {
-                        DataGridViewButtonColumn botaoJogar = new DataGridViewButtonColumn();
-                        botaoJogar.HeaderText = "";
-                        botaoJogar.Text = "JOGAR";
-                        botaoJogar.Name = "btnJogar";
-                        botaoJogar.UseColumnTextForButtonValue = true; // Faz o texto "JOGAR" aparecer no botão
-
-                        dataGridView1.Columns.Add(botaoJogar);
-                    }
+                    
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
             }
