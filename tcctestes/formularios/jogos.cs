@@ -25,7 +25,7 @@ namespace tcctestes.formularios
 
         private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void paginaInicialToolStripMenuItem_Click(object sender, EventArgs e)
