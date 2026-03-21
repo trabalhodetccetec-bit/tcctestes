@@ -18,6 +18,7 @@ namespace tcctestes.formularios
         public adicionarjog()
         {
             InitializeComponent();
+            toolTip1.SetToolTip(this.pictureBox1,"dê preferencia a imagens altas e não largas");
         }
         private void adicionarjog_Load(object sender, EventArgs e)
         {
@@ -133,6 +134,10 @@ namespace tcctestes.formularios
                 textBox2.ForeColor = Color.Gray;
             }
         }
-      
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }

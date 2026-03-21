@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.Json;
 using System.IO;
+using System.Diagnostics;
 
 namespace tcctestes.formularios
 {
     public partial class jogos : Form
     {
-        
-       
-        
+
+
+
         public jogos()
         {
             InitializeComponent();
@@ -28,13 +29,15 @@ namespace tcctestes.formularios
         }
 
         private void paginaInicialToolStripMenuItem_Click(object sender, EventArgs e)
-        {   pagina form = new pagina();
+        {
+            pagina form = new pagina();
             form.Show();
             this.Close();
         }
 
         private void adicionarJogosToolStripMenuItem_Click(object sender, EventArgs e)
-        {formularios.adicionarjog adjog = new formularios.adicionarjog();
+        {
+            formularios.adicionarjog adjog = new formularios.adicionarjog();
             adjog.Show();
         }
 
@@ -59,16 +62,8 @@ namespace tcctestes.formularios
                     dataGridView1.DataSource = listaDeJogos;
                     dataGridView1.Columns["pathimage"].Visible = false;
                     dataGridView1.Columns["pathexe"].Visible = false;
-                    if (!dataGridView1.Columns.Contains("btnJogar"))
-                    {
-                        DataGridViewButtonColumn botaoJogar = new DataGridViewButtonColumn();
-                        botaoJogar.HeaderText = "Ação";
-                        botaoJogar.Text = "JOGAR";
-                        botaoJogar.Name = "btnJogar";
-                        botaoJogar.UseColumnTextForButtonValue = true; // Faz o texto "JOGAR" aparecer no botão
-
-                        dataGridView1.Columns.Add(botaoJogar);
-                    }
+                    dataGridView1.Columns["Descricao"].Visible = false;
+                    dataGridView1.Columns["frec"].Visible = false;
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
             }
@@ -76,15 +71,53 @@ namespace tcctestes.formularios
             {
                 MessageBox.Show("Erro ao carregar os dados: " + ex.Message);
             }
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string caminhoParaAbrir = dataGridView1.Rows[e.RowIndex].Cells["pathexe"].Value.ToString();
+            
 
-            System.Diagnostics.Process.Start(caminhoParaAbrir);
+
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    dados dad = new dados();
+                    var listaNoGrid = (List<dados>)dataGridView1.DataSource;
+                    var jogoSelecionado = listaNoGrid[e.RowIndex];
+                    jogoSelecionado.frec = DateTime.Now;
+                    salvarjson.SalvarNoJson(listaNoGrid);
+                    string caminhoParaAbrir = dataGridView1.Rows[e.RowIndex].Cells["pathexe"].Value.ToString();
+                    ProcessStartInfo psi = new ProcessStartInfo
+                    {
+                        FileName = caminhoParaAbrir,
+                        UseShellExecute = true,
+                        CreateNoWindow = false,
+                        WorkingDirectory = Path.GetDirectoryName(caminhoParaAbrir)
+                    };
+
+                    Process.Start(psi);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void jogos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            pagina sla = new pagina();
+            sla.Show();
         }
     }
-    
+
 }
+

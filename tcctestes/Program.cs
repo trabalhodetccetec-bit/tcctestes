@@ -17,7 +17,10 @@ namespace tcctestes
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new pagina());
+
         }
+
+
     }
     public class dados
     {
@@ -29,6 +32,7 @@ namespace tcctestes
         public string jogou { get; set; }
         public string pathimage { get; set; }
         public string aval { get; set; }
-
+        public DateTime frec { get; set; }
     }
+
 }
