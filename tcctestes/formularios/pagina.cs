@@ -8,16 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Data.SQLite;
+using System.IO;
 
 namespace tcctestes
 {
     public partial class pagina : Form
     {
-        
+        string cam, camab;
         public pagina()
         {
             InitializeComponent();
-            
+            pictureBox1.Click += AbrirJogoRecente;
+            pictureBox2.Click += AbrirJogoRecente;
+            pictureBox3.Click += AbrirJogoRecente;
+
         }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,28 +46,50 @@ namespace tcctestes
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string caminhosql = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+        "DadosJogos",
+        "prim.db"
+    );
 
-            List<dados> lista = salvarjson.CarregarDoArquivo();
-
-            var ordenados = lista.OrderByDescending(x => x.frec).ToList();
-
-            if (ordenados.Count >= 1)
+            try
             {
-                pictureBox1.ImageLocation = ordenados[0].pathimage;
-                pictureBox1.Tag = ordenados[0].pathexe;
-            }
-            if (ordenados.Count >= 2)
-            {
-                pictureBox2.ImageLocation = ordenados[1].pathimage;
-                pictureBox2.Tag = ordenados[1].pathexe;
-            }
-            if (ordenados.Count >= 3)
-            {
-                pictureBox3.ImageLocation = ordenados[2].pathimage;
-                pictureBox3.Tag = ordenados[2].pathexe;
-            }
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    string sql = @"
+                SELECT Caminhoimg, IDJogo
+                FROM Jogos
+                ORDER BY freq DESC
+                LIMIT 3;";
 
+                    conn.Open();
 
+                    using (var comando = new SQLiteCommand(sql, conn))
+                    using (var reader = comando.ExecuteReader())
+                    {
+                        PictureBox[] imagens = { pictureBox1, pictureBox2, pictureBox3 };
+                        
+
+                        int i = 0;
+
+                        while (reader.Read() && i < 3)
+                        {
+                            string caminhoImagem = reader["Caminhoimg"].ToString();
+                            imagens[i].Tag = reader["IDJogo"];
+                            if (File.Exists(caminhoImagem))
+                            {
+                                imagens[i].Image = Image.FromFile(caminhoImagem);
+                            }
+
+                            i++;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -72,17 +99,94 @@ namespace tcctestes
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            
+        }
+        private void AbrirJogoRecente(object sender, EventArgs e)
+        {
+            try
+            {
+                PictureBox pb = (PictureBox)sender;
 
+                if (pb.Tag == null)
+                {
+                    MessageBox.Show("Este jogo não possui ID associado.");
+                    return;
+                }
+
+                int idJogo = Convert.ToInt32(pb.Tag);
+
+                string caminhosql = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    "DadosJogos",
+                    "prim.db"
+                );
+
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    conn.Open();
+
+                    string sql = @"SELECT Caminho FROM Jogos WHERE IDJogo = @id";
+
+                    string caminhoExe = "";
+
+                    using (var comando = new SQLiteCommand(sql, conn))
+                    {
+                        comando.Parameters.AddWithValue("@id", idJogo);
+
+                        object resultado = comando.ExecuteScalar();
+
+                        if (resultado != null)
+                            caminhoExe = resultado.ToString();
+                    }
+
+                    if (string.IsNullOrWhiteSpace(caminhoExe) || !File.Exists(caminhoExe))
+                    {
+                        MessageBox.Show("Executável não encontrado.");
+                        return;
+                    }
+
+                    ProcessStartInfo psi = new ProcessStartInfo
+                    {
+                        FileName = caminhoExe,
+                        UseShellExecute = true,
+                        WorkingDirectory = Path.GetDirectoryName(caminhoExe)
+                    };
+
+                    Process.Start(psi);
+
+                    string sqlUpdate = @"
+                UPDATE Jogos
+                SET freq = @data
+                WHERE IDJogo = @id";
+
+                    using (var update = new SQLiteCommand(sqlUpdate, conn))
+                    {
+                        update.Parameters.AddWithValue(
+                            "@data",
+                            DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                        );
+
+                        update.Parameters.AddWithValue("@id", idJogo);
+
+                        update.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao abrir jogo: " + ex.Message);
+            }
         }
     }
-}
+    }
+

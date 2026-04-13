@@ -10,14 +10,15 @@ using System.Windows.Forms;
 using System.Text.Json;
 using System.IO;
 using System.Diagnostics;
+using System.Data.SQLite;
 
 namespace tcctestes.formularios
 {
     public partial class jogos : Form
     {
-        
 
-        
+        bool a = false;
+        string cam, camab;
         public jogos()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace tcctestes.formularios
 
         private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void paginaInicialToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,26 +48,11 @@ namespace tcctestes.formularios
 
         private void jogos_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            btnsalvar.Enabled = false;
             try
             {
-
-                string pasta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "dados.json");
-
-                if (File.Exists(pasta))
-                {
-                    string json = File.ReadAllText(pasta);
-
-
-                    List<dados> listaDeJogos = JsonSerializer.Deserialize<List<dados>>(json);
-
-                    dataGridView1.DataSource = listaDeJogos;
-                    dataGridView1.Columns["pathimage"].Visible = false;
-                    dataGridView1.Columns["pathexe"].Visible = false;
-                    dataGridView1.Columns["Descricao"].Visible = false;
-                    dataGridView1.Columns["frec"].Visible = false;
-                    
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                }
+                CarregarDados();
             }
             catch (Exception ex)
             {
@@ -77,7 +63,7 @@ namespace tcctestes.formularios
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
 
 
 
@@ -87,38 +73,325 @@ namespace tcctestes.formularios
         {
             try
             {
-                if (e.RowIndex >= 0)
+                painel.Enabled = true;
+
+                string caminhosql = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
+
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
-                    dados dad = new dados();
-                    var listaNoGrid = (List<dados>)dataGridView1.DataSource;
-                    var jogoSelecionado = listaNoGrid[e.RowIndex];
-                    jogoSelecionado.frec = DateTime.Now;
-                    salvarjson.SalvarNoJson(listaNoGrid);
-                    string caminhoParaAbrir = dataGridView1.Rows[e.RowIndex].Cells["pathexe"].Value.ToString();
-                    ProcessStartInfo psi = new ProcessStartInfo
+                    conn.Open();
+
+                    string sql = @"SELECT Nome, Caminho, cate, aval, Caminhoimg, zerei, joguei, Desc FROM Jogos WHERE IDJogo = @id";
+
+                    using (var cmdsql = new SQLiteCommand(sql, conn))
                     {
-                        FileName = caminhoParaAbrir,
-                        UseShellExecute = true,
-                        CreateNoWindow = false,
-                        WorkingDirectory = Path.GetDirectoryName(caminhoParaAbrir)
-                    };
+                        int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
+                        cmdsql.Parameters.AddWithValue("@id", idSelecionado);
 
-                    Process.Start(psi);
+                        using (var reader = cmdsql.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                cam = reader["Caminhoimg"].ToString();
 
+                                if (pictureBox1.Image != null)
+
+                                {
+
+                                    pictureBox1.Image.Dispose();
+
+                                    pictureBox1.Image = null;
+
+                                }
+
+
+                                pictureBox1.Image = Image.FromFile(cam);
+                                pictureBox1.Refresh();
+                                nome.Text = reader["Nome"].ToString();
+                                path.Text = reader["Caminho"].ToString();
+                                descricao.Text = reader["Desc"].ToString();
+                                aval.Text = reader["aval"].ToString();
+                                cat.Text = reader["cate"].ToString();
+
+                                string joguei = reader["joguei"].ToString();
+                                string zerei = reader["zerei"].ToString();
+
+                                jajog.Checked = joguei == "Já joguei";
+                                naojog.Checked = !jajog.Checked;
+
+                                jaze.Checked = zerei == "Já zerei";
+                                naoze.Checked = !jaze.Checked;
+                            }
+                        }
+                    }
                 }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void jogos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            pagina sla = new pagina();
-            sla.Show();
+
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (jajog.Checked) { painelop2.Enabled = true; }
+            else { painelop2.Enabled = false; naoze.Checked = true; }
+            btnsalvar.Enabled = true;
+        }
+
+        private void btnalt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog opf = new OpenFileDialog())
+                {
+                    opf.Filter = "Executaveis|*.exe;*.lnk;*.*";
+
+                    opf.ShowDialog();
+                    string nome = Path.GetFileNameWithoutExtension(opf.FileName);
+                    path.Text = opf.FileName;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex, "Erro", MessageBoxButtons.OK);
+            }
+        }
+
+        private void nome_TextChanged(object sender, EventArgs e)
+        {
+            btnsalvar.Enabled = true;
+            if (jajog.Checked) { painelop2.Enabled = true; }
+            else { painelop2.Enabled = false; }
+        }
+
+        private void path_TextChanged(object sender, EventArgs e)
+        {
+            btnsalvar.Enabled = true;
+        }
+
+        private void descricao_TextChanged(object sender, EventArgs e)
+        {
+            btnsalvar.Enabled = true;
+        }
+
+        private void aval_TextChanged(object sender, EventArgs e)
+        {
+            btnsalvar.Enabled = true;
+        }
+
+        private void cat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnsalvar.Enabled = true;
+        }
+
+        private void btnsalvar_Click(object sender, EventArgs e)
+        {
+            //codigo de UPDATE TABLE
+
+            string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
+            try
+            {
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
+                    string sql = @"";
+                    sql = @"SELECT Caminhoimg FROM Jogos WHERE IDJogo = @id";
+                    conn.Open();
+                    dados dad = new dados();
+                    dad.Nome = nome.Text;
+                    dad.Descricao = descricao.Text;
+                    dad.pathexe = path.Text;
+                    dad.Categoria = cat.SelectedItem.ToString();
+                    dad.aval = aval.SelectedItem.ToString();
+                    if (string.IsNullOrEmpty(cam))
+                    {
+                        using (var comando = new SQLiteCommand(sql, conn))
+                        {
+                            comando.Parameters.AddWithValue("@id", idSelecionado);
+                            using (var reader = comando.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    cam = (reader["Caminhoimg"].ToString());
+                                }
+                            }
+                        }
+                    }
+                    dad.pathimage = cam;
+                    if (jajog.Checked) { dad.jogou = jajog.Text; }
+                    else { dad.jogou = naojog.Text; }
+                    if (jaze.Checked) { dad.zerou = jaze.Text; }
+                    else { dad.zerou = naoze.Text; }
+                    sql = @" 
+                        UPDATE Jogos 
+                        SET 
+                        Nome = @nome, Caminho = @exe, cate = @cat, 
+                        aval = @aval, Caminhoimg = @img, zerei = @zer, 
+                        joguei = @jog, Desc = @Des 
+                        WHERE IDJogo = @id";
+                    using (var comando = new SQLiteCommand(sql, conn))
+                    {
+                        comando.Parameters.AddWithValue("@nome", dad.Nome);
+                        comando.Parameters.AddWithValue("@exe", dad.pathexe);
+                        comando.Parameters.AddWithValue("@cat", dad.Categoria);
+                        comando.Parameters.AddWithValue("@aval", dad.aval);
+                        comando.Parameters.AddWithValue("@img", dad.pathimage);
+                        comando.Parameters.AddWithValue("@zer", dad.zerou);
+                        comando.Parameters.AddWithValue("@jog", dad.jogou);
+                        comando.Parameters.AddWithValue("@Des", dad.Descricao);
+
+                        comando.Parameters.AddWithValue("@id", idSelecionado);
+
+                        comando.ExecuteNonQuery();
+                    }
+                }
+                CarregarDados();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            btnsalvar.Enabled = false;
+            a = true; //pra usar o exe updeitado
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog opf = new OpenFileDialog())
+            {
+                opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
+
+                if (opf.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image = Image.FromFile(opf.FileName);
+                    cam = opf.FileName;
+                }
+            }
+            btnsalvar.Enabled = true;
+        }
+
+        private void painel_EnabledChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btnabrir_Click(object sender, EventArgs e)
+        {
+            string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
+            try
+            {
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    string sql = @"SELECT Caminho FROM Jogos WHERE IDJogo = @id";
+                    int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
+                    conn.Open();
+                    using (var comando = new SQLiteCommand(sql, conn))
+                    {
+                        comando.Parameters.AddWithValue("@id", idSelecionado);
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                camab = (reader["Caminho"].ToString());
+                            }
+                        }
+                    }
+                    Process.Start(camab);
+                    string sqlUpdate = @"UPDATE Jogos SET freq = @data WHERE IDJogo = @id";
+                    using (var Update = new SQLiteCommand(sqlUpdate, conn))
+                    {
+                        Update.Parameters.AddWithValue("@data", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        Update.Parameters.AddWithValue("@id", idSelecionado);
+                        Update.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnexc_Click(object sender, EventArgs e)
+        {
+            string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
+            try
+            {
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
+                    string sql = @"DELETE FROM Jogos WHERE IDJOgo = @id";
+                    conn.Open();
+                    if (MessageBox.Show( "Deseja realmente excluir este jogo?",  "Confirmar exclusão",  MessageBoxButtons.YesNo,  MessageBoxIcon.Warning) != DialogResult.Yes)
+                    {
+                        return;
+                    }
+                    using (var comando = new SQLiteCommand(sql, conn))
+                    {
+                        comando.Parameters.AddWithValue("@id", idSelecionado);
+                        comando.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            CarregarDados();
+        }
+
+        private void CarregarDados()
+        {
+            string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
+            using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+            {
+                conn.Open();
+                string sql = "SELECT IDJogo, Nome, cate, joguei, zerei, aval FROM Jogos";
+                using (var dt = new SQLiteDataAdapter(sql, conn))
+                {
+                    DataTable tabela = new DataTable();
+                    dt.Fill(tabela);
+                    dataGridView1.DataSource = tabela;
+                }
+            }
+        }
+
+        // Chame CarregarDados() no final do btnsalvar_Click
     }
 
 }
 
+/*
+string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
+try
+{
+    using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+    {
+        int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
+        string sql = @"";
+        conn.Open();
+using (var comando = new SQLiteCommand(sql, conn))
+                        {
+                            comando.Parameters.AddWithValue("@id", idSelecionado);
+                            using (var reader = comando.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    cam = (reader["Caminhoimg"].ToString());
+                                }
+                            }
+                        }
+    }
+}
+catch (Exception ex)
+{
+    MessageBox.Show(ex.Message);
+}
+*/

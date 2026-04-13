@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.Json;
 using System.IO;
+using System.Data.SQLite;
+
 
 namespace tcctestes.formularios
 {
@@ -18,13 +20,12 @@ namespace tcctestes.formularios
         public adicionarjog()
         {
             InitializeComponent();
-            toolTip1.SetToolTip(this.pictureBox1,"dê preferencia a imagens altas e não largas");
+            toolTip1.SetToolTip(this.pictureBox1, "dê preferencia a imagens altas e não largas");
         }
         private void adicionarjog_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 1;
             comboBox2.SelectedIndex = 0;
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -78,28 +79,38 @@ namespace tcctestes.formularios
             else { dad.jogou = naojog.Text; }
             if (jaze.Checked) { dad.zerou = jaze.Text; }
             else { dad.zerou = naoze.Text; }
-            List<dados> listjog = new List<dados>();
-            string caminho = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "dados.json");
-
-            if (File.Exists(caminho))
+            string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
+            try
             {
-                string json = File.ReadAllText(caminho);
-
-                if (!string.IsNullOrWhiteSpace(json))
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
-                    listjog = JsonSerializer.Deserialize<List<dados>>(json);
+                    conn.Open();
+
+                    string sql = @"";
+                    sql = "INSERT INTO Jogos (Nome, Caminho, cate, aval, Caminhoimg, zerei, joguei, Desc) VALUES (@nome, @exe, @cat, @aval, @img, @zer, @jog, @Des)";
+                    using (var comando = new SQLiteCommand(sql, conn))
+                    {
+                        comando.Parameters.AddWithValue("@nome", $@"{dad.Nome}");
+                        comando.Parameters.AddWithValue("@exe", $@"{dad.pathexe}");
+                        comando.Parameters.AddWithValue("@cat", $@"{dad.Categoria}");
+                        comando.Parameters.AddWithValue("@aval", $@"{dad.aval}");
+                        comando.Parameters.AddWithValue("@img", $@"{dad.pathimage}");
+                        comando.Parameters.AddWithValue("@zer", $@"{dad.zerou}");
+                        comando.Parameters.AddWithValue("@jog", $@"{dad.jogou}");
+                        comando.Parameters.AddWithValue("@Des", $@"{dad.Descricao}");
+                        comando.ExecuteNonQuery();
+
+                    }
                 }
             }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
 
-            listjog.Add(dad);
 
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true
-            };
-            string novoJson = JsonSerializer.Serialize(listjog, options);
-            Directory.CreateDirectory(Path.GetDirectoryName(caminho));
-            File.WriteAllText(caminho, novoJson);
+
+
+
             MessageBox.Show("Jogo salvo com sucesso!");
         }
 
@@ -109,6 +120,8 @@ namespace tcctestes.formularios
             if (textBox1.Text == "Nome") { textBox1.Text = ""; textBox1.ForeColor = Color.Black; }
 
         }
+
+
 
         private void textBox1_Leave(object sender, EventArgs e)
         {

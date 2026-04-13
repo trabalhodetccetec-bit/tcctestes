@@ -26,7 +26,6 @@ namespace tcctestes
             {
                 return new List<dados>();
             }
-            int a = 1;
 
             string json = File.ReadAllText(pasta);
             return JsonSerializer.Deserialize<List<dados>>(json);
