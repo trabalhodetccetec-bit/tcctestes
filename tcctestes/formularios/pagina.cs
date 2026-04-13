@@ -163,7 +163,7 @@ namespace tcctestes
                     };
 
                     Process.Start(psi);
-
+                    int a = 0;
                     string sqlUpdate = @"
                 UPDATE Jogos
                 SET freq = @data
