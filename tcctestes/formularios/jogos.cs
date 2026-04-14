@@ -31,7 +31,7 @@ namespace tcctestes.formularios
 
         private void paginaInicialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pagina form = new pagina();
+            paginaInicial form = new paginaInicial();
             form.Show();
             this.Close();
         }

@@ -63,13 +63,15 @@ namespace tcctestes.formularios
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Silver;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.jogosToolStripMenuItem,
             this.ajudaToolStripMenuItem,
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(744, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,34 +81,34 @@ namespace tcctestes.formularios
             this.adicionarJogosToolStripMenuItem,
             this.paginaInicialToolStripMenuItem});
             this.jogosToolStripMenuItem.Name = "jogosToolStripMenuItem";
-            this.jogosToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.jogosToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.jogosToolStripMenuItem.Text = "jogos";
             // 
             // adicionarJogosToolStripMenuItem
             // 
             this.adicionarJogosToolStripMenuItem.Name = "adicionarJogosToolStripMenuItem";
             this.adicionarJogosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.adicionarJogosToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.adicionarJogosToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.adicionarJogosToolStripMenuItem.Text = "adicionar jogos";
             this.adicionarJogosToolStripMenuItem.Click += new System.EventHandler(this.adicionarJogosToolStripMenuItem_Click);
             // 
             // paginaInicialToolStripMenuItem
             // 
             this.paginaInicialToolStripMenuItem.Name = "paginaInicialToolStripMenuItem";
-            this.paginaInicialToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.paginaInicialToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.paginaInicialToolStripMenuItem.Text = "pagina inicial";
             this.paginaInicialToolStripMenuItem.Click += new System.EventHandler(this.paginaInicialToolStripMenuItem_Click);
             // 
             // ajudaToolStripMenuItem
             // 
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.ajudaToolStripMenuItem.Text = "ajuda";
             // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(54, 21);
             this.sobreToolStripMenuItem.Text = "sobre";
             this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
             // 
@@ -114,10 +116,10 @@ namespace tcctestes.formularios
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Info;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 32);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 64);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(544, 371);
+            this.dataGridView1.Size = new System.Drawing.Size(544, 339);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -138,6 +140,7 @@ namespace tcctestes.formularios
             this.painel.Controls.Add(this.btnsalvar);
             this.painel.Controls.Add(this.pictureBox1);
             this.painel.Enabled = false;
+            this.painel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.painel.Location = new System.Drawing.Point(559, 32);
             this.painel.Name = "painel";
             this.painel.Size = new System.Drawing.Size(180, 371);
@@ -170,7 +173,7 @@ namespace tcctestes.formularios
             "Ritmo"});
             this.cat.Location = new System.Drawing.Point(93, 275);
             this.cat.Name = "cat";
-            this.cat.Size = new System.Drawing.Size(80, 21);
+            this.cat.Size = new System.Drawing.Size(80, 22);
             this.cat.TabIndex = 11;
             this.cat.SelectedIndexChanged += new System.EventHandler(this.cat_SelectedIndexChanged);
             // 
@@ -185,7 +188,7 @@ namespace tcctestes.formularios
             "Amei"});
             this.aval.Location = new System.Drawing.Point(6, 275);
             this.aval.Name = "aval";
-            this.aval.Size = new System.Drawing.Size(84, 21);
+            this.aval.Size = new System.Drawing.Size(84, 22);
             this.aval.TabIndex = 10;
             this.aval.TextChanged += new System.EventHandler(this.aval_TextChanged);
             // 
@@ -203,7 +206,7 @@ namespace tcctestes.formularios
             this.naoze.AutoSize = true;
             this.naoze.Location = new System.Drawing.Point(3, 20);
             this.naoze.Name = "naoze";
-            this.naoze.Size = new System.Drawing.Size(70, 17);
+            this.naoze.Size = new System.Drawing.Size(71, 18);
             this.naoze.TabIndex = 1;
             this.naoze.TabStop = true;
             this.naoze.Text = "Não zerei";
@@ -214,7 +217,7 @@ namespace tcctestes.formularios
             this.jaze.AutoSize = true;
             this.jaze.Location = new System.Drawing.Point(3, 3);
             this.jaze.Name = "jaze";
-            this.jaze.Size = new System.Drawing.Size(61, 17);
+            this.jaze.Size = new System.Drawing.Size(63, 18);
             this.jaze.TabIndex = 0;
             this.jaze.TabStop = true;
             this.jaze.Text = "Já zerei";
@@ -234,7 +237,7 @@ namespace tcctestes.formularios
             this.jajog.AutoSize = true;
             this.jajog.Location = new System.Drawing.Point(3, 3);
             this.jajog.Name = "jajog";
-            this.jajog.Size = new System.Drawing.Size(67, 17);
+            this.jajog.Size = new System.Drawing.Size(67, 18);
             this.jajog.TabIndex = 0;
             this.jajog.TabStop = true;
             this.jajog.Text = "Já joguei";
@@ -246,7 +249,7 @@ namespace tcctestes.formularios
             this.naojog.AutoSize = true;
             this.naojog.Location = new System.Drawing.Point(3, 20);
             this.naojog.Name = "naojog";
-            this.naojog.Size = new System.Drawing.Size(76, 17);
+            this.naojog.Size = new System.Drawing.Size(75, 18);
             this.naojog.TabIndex = 1;
             this.naojog.TabStop = true;
             this.naojog.Text = "Não joguei";

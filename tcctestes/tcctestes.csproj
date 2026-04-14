@@ -94,17 +94,17 @@
     <Compile Include="formularios\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="formularios\pagina.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formularios\pagina.Designer.cs">
-      <DependentUpon>pagina.cs</DependentUpon>
-    </Compile>
     <Compile Include="formularios\jogos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formularios\jogos.Designer.cs">
       <DependentUpon>jogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\paginaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\paginaInicial.Designer.cs">
+      <DependentUpon>paginaInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,11 +112,11 @@
     <EmbeddedResource Include="formularios\adicionarjog.resx">
       <DependentUpon>adicionarjog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formularios\pagina.resx">
-      <DependentUpon>pagina.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formularios\jogos.resx">
       <DependentUpon>jogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\paginaInicial.resx">
+      <DependentUpon>paginaInicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

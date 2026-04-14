@@ -16,7 +16,7 @@ namespace tcctestes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new pagina());
+            Application.Run(new formularios.paginaInicial());
 
         }
 
