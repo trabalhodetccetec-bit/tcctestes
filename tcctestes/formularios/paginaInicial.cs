@@ -106,6 +106,32 @@ namespace tcctestes.formularios
             Conectar();
         }
 
+        private static void nomeecategoria()
+        {
+            string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
+            try
+            {
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    string sql = @"";
+                    conn.Open();
+                    using (var comando = new SQLiteCommand(sql, conn))
+                    {
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // cam = (reader["Caminhoimg"].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formularios.adicionarjog adjog = new formularios.adicionarjog();
@@ -189,8 +215,9 @@ namespace tcctestes.formularios
             panel3.BackColor = Color.LightGray;
         }
 
-        private void Conectar() {
-            
+        private void Conectar()
+        {
+
             string caminhosql = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             "DadosJogos",
@@ -202,7 +229,7 @@ namespace tcctestes.formularios
                 using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
                     string sql = @"
-                SELECT Caminhoimg, IDJogo
+                SELECT Caminhoimg, IDJogo, Nome, cate
                 FROM Jogos
                 ORDER BY freq DESC
                 LIMIT 3;";
@@ -212,6 +239,8 @@ namespace tcctestes.formularios
                     using (var comando = new SQLiteCommand(sql, conn))
                     using (var reader = comando.ExecuteReader())
                     {
+                        Label[] titulos = { label1, label2, label3 };
+                        Label[] categorias = { label4, label5, label6 };
                         PictureBox[] imagens = { pictureBox1, pictureBox2, pictureBox3 };
 
 
@@ -220,16 +249,24 @@ namespace tcctestes.formularios
                         while (reader.Read() && i < 3)
                         {
                             string caminhoImagem = reader["Caminhoimg"].ToString();
+
                             imagens[i].Tag = reader["IDJogo"];
+                            titulos[i].Tag = reader["IDJogo"];
+                            categorias[i].Tag = reader["IDJogo"];
+
                             if (File.Exists(caminhoImagem))
                             {
                                 imagens[i].Image = Image.FromFile(caminhoImagem);
                             }
 
+                            titulos[i].Text = reader["Nome"].ToString();
+                            categorias[i].Text = reader["cate"].ToString();
+
                             i++;
                         }
                     }
                 }
+
             }
             catch (Exception ex)
             {

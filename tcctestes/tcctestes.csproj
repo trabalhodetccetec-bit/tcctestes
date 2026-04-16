@@ -147,6 +147,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="imgs\addimage.png" />
+    <Content Include="imgs\filtro%281%29.png" />
+    <Content Include="imgs\filtro.png" />
+    <None Include="Resources\filtro%281%29.png" />
+    <None Include="Resources\filtro.png" />
     <None Include="Resources\addimage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

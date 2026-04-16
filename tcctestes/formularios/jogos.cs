@@ -347,6 +347,149 @@ namespace tcctestes.formularios
             CarregarDados();
         }
 
+        private void txtfiltros_Click(object sender, EventArgs e)
+        {
+            txtfiltros.Enabled = false;
+            panel1.Visible = true;
+            fltjog.Checked = true;
+        }
+
+        private void filtrar_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            txtfiltros.Enabled = true;
+            string caminhosql = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "DadosJogos",
+            "prim.db"
+            );
+
+            try
+            {
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    conn.Open();
+
+                    string sql = @"SELECT IDJogo, Nome, cate, joguei, zerei, aval FROM Jogos WHERE 1=1";
+
+                    SQLiteCommand cmd = new SQLiteCommand(conn);
+
+                    // via escrever
+                    if (!string.IsNullOrWhiteSpace(txtproc.Text) &&
+                        txtproc.Text != "Buscar...")
+                    {
+                        sql += " AND Nome LIKE @nome";
+                        cmd.Parameters.AddWithValue("@nome", "%" + txtproc.Text + "%");
+                    }
+
+                    // raiobuttons
+                    if (fltjog.Checked)
+                    {
+                        sql += " AND joguei = 'Já joguei'";
+                    }
+                    else if (fltnaojog.Checked)
+                    {
+                        sql += " AND joguei = 'Não joguei'";
+                    }
+
+                    // checkbuttons
+                    if (fltzercheck.Checked && !fltnaozercheck.Checked)
+                    {
+                        sql += " AND zerei = 'Já zerei'";
+                    }
+                    else if (!fltzercheck.Checked && fltnaozercheck.Checked)
+                    {
+                        sql += " AND zerei = 'Não zerei'";
+                    }
+
+                    // categorias
+                    if (comboBox2.SelectedIndex != -1)
+                    {
+                        sql += " AND cate = @categoria";
+                        cmd.Parameters.AddWithValue("@categoria", comboBox2.Text);
+                    }
+
+                    // avaliações
+                    if (comboBox1.SelectedIndex != -1)
+                    {
+                        sql += " AND aval = @aval";
+                        cmd.Parameters.AddWithValue("@aval", comboBox1.Text);
+                    }
+
+                    cmd.CommandText = sql;
+                    a = true;
+                    using (var dt = new SQLiteDataAdapter(cmd))
+                    {
+                        DataTable tabela = new DataTable();
+                        dt.Fill(tabela);
+                        dataGridView1.DataSource = tabela;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao filtrar: " + ex.Message);
+            }
+        }
+
+        private void fltjog_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fltjog.Checked)
+            {
+                panel3.Enabled = true;
+                fltnaozercheck.Checked = false;
+            }
+        }
+
+        private void fltnaojog_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fltnaojog.Checked) {
+                panel3.Enabled = false;
+                fltnaozercheck.Checked = true;
+            }
+        }
+
+        private void txtproc_TextChanged(object sender, EventArgs e)
+        {
+            filtrar_Click(sender, e);
+        }
+
+        private void txtproc_ChangeUICues(object sender, UICuesEventArgs e)
+        {
+
+        }
+
+        private void txtproc_Click(object sender, EventArgs e)
+        {
+            if (txtproc.Text == "Buscar...")
+            {
+                txtproc.Text = "";
+                txtproc.ForeColor = Color.Black;
+            }
+            else { }
+            
+        }
+
+        private void txtproc_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtproc.Text)) { txtproc.ForeColor = Color.Gray; txtproc.Text = "Buscar..."; }
+           
+
+        }
+
+        private void lmpfiltro_Click(object sender, EventArgs e)
+        {
+            txtproc.Text = "Buscar...";
+            fltjog.Checked = false;
+            fltnaojog.Checked = false;
+            fltzercheck.Checked = false;
+            fltnaozercheck.Checked = false;
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+
+            CarregarDados();
+        }
+
         private void CarregarDados()
         {
             string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
@@ -359,11 +502,10 @@ namespace tcctestes.formularios
                     DataTable tabela = new DataTable();
                     dt.Fill(tabela);
                     dataGridView1.DataSource = tabela;
+                    dataGridView1.Columns["IDJogo"].Visible = false;
                 }
             }
         }
-
-        // Chame CarregarDados() no final do btnsalvar_Click
     }
 
 }
