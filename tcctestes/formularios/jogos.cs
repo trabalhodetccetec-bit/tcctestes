@@ -16,7 +16,7 @@ namespace tcctestes.formularios
 {
     public partial class jogos : Form
     {
-
+        int b = 1;
         bool a = false;
         string cam, camab;
         public jogos()
