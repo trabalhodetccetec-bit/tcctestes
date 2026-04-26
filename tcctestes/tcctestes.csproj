@@ -137,6 +137,9 @@
     <EmbeddedResource Include="formularios\jogos.resx">
       <DependentUpon>jogos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formularios\login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formularios\paginaInicial.resx">
       <DependentUpon>paginaInicial.cs</DependentUpon>
     </EmbeddedResource>
