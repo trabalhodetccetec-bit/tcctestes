@@ -15,7 +15,6 @@ namespace tcctestes.formularios
 {
     public partial class paginaInicial : Form
     {
-        string cam, camab;
         public paginaInicial()
         {
             InitializeComponent();

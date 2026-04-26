@@ -16,7 +16,6 @@ namespace tcctestes.formularios
 {
     public partial class jogos : Form
     {
-        int b = 1;
         bool a = false;
         string cam, camab;
         public jogos()
@@ -205,7 +204,7 @@ namespace tcctestes.formularios
                     string sql = @"";
                     sql = @"SELECT Caminhoimg FROM Jogos WHERE IDJogo = @id";
                     conn.Open();
-                    dados dad = new dados();
+                    MODELS.Dados dad = new MODELS.Dados();
                     dad.Nome = nome.Text;
                     dad.Descricao = descricao.Text;
                     dad.pathexe = path.Text;

@@ -68,7 +68,7 @@ namespace tcctestes.formularios
 
         private void adicionar_Click(object sender, EventArgs e)
         {
-            dados dad = new dados();
+            MODELS.Dados dad = new MODELS.Dados();
             dad.Nome = textBox1.Text;
             dad.Descricao = textBox2.Text;
             dad.pathexe = textBox3.Text;
@@ -151,6 +151,18 @@ namespace tcctestes.formularios
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
 
+        }
+
+        private void naojog_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox2.Enabled = false;
+            naoze.Checked = true;
+        }
+
+        private void jajog_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox2.Enabled = true;
+            naoze.Checked = false;
         }
     }
 }

@@ -152,6 +152,7 @@ namespace tcctestes.formularios
             this.naojog.TabStop = true;
             this.naojog.Text = "Não Joguei";
             this.naojog.UseVisualStyleBackColor = true;
+            this.naojog.CheckedChanged += new System.EventHandler(this.naojog_CheckedChanged);
             // 
             // jajog
             // 
@@ -163,6 +164,7 @@ namespace tcctestes.formularios
             this.jajog.TabStop = true;
             this.jajog.Text = "Já joguei";
             this.jajog.UseVisualStyleBackColor = true;
+            this.jajog.CheckedChanged += new System.EventHandler(this.jajog_CheckedChanged);
             // 
             // comboBox1
             // 
