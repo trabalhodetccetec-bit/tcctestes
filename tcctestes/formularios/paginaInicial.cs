@@ -215,6 +215,13 @@ namespace tcctestes.formularios
             panel3.BackColor = Color.LightGray;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            formularios.login all = new formularios.login();
+            this.Hide();
+            all.Show();
+        }
+
         private void Conectar()
         {
 

@@ -490,6 +490,16 @@ namespace tcctestes.formularios
             CarregarDados();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void painel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void CarregarDados()
         {
             string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
