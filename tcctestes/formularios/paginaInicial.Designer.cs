@@ -72,11 +72,10 @@ namespace tcctestes.formularios
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usrstats,
             this.dhstats});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 689);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 541);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.statusStrip1.Size = new System.Drawing.Size(993, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(745, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -84,13 +83,13 @@ namespace tcctestes.formularios
             // 
             this.usrstats.Name = "usrstats";
             this.usrstats.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.usrstats.Size = new System.Drawing.Size(75, 23);
+            this.usrstats.Size = new System.Drawing.Size(58, 17);
             this.usrstats.Text = "usuario: ";
             // 
             // dhstats
             // 
             this.dhstats.Name = "dhstats";
-            this.dhstats.Size = new System.Drawing.Size(86, 23);
+            this.dhstats.Size = new System.Drawing.Size(66, 17);
             this.dhstats.Text = "data/hora";
             // 
             // menuStrip1
@@ -104,7 +103,8 @@ namespace tcctestes.formularios
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(993, 31);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(745, 25);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -114,20 +114,20 @@ namespace tcctestes.formularios
             this.adicionarToolStripMenuItem,
             this.verTodosOsJogosToolStripMenuItem});
             this.jogosToolStripMenuItem.Name = "jogosToolStripMenuItem";
-            this.jogosToolStripMenuItem.Size = new System.Drawing.Size(67, 27);
+            this.jogosToolStripMenuItem.Size = new System.Drawing.Size(55, 21);
             this.jogosToolStripMenuItem.Text = "Jogos";
             // 
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(233, 28);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.adicionarToolStripMenuItem.Text = "adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // verTodosOsJogosToolStripMenuItem
             // 
             this.verTodosOsJogosToolStripMenuItem.Name = "verTodosOsJogosToolStripMenuItem";
-            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(233, 28);
+            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.verTodosOsJogosToolStripMenuItem.Text = "ver todos os jogos";
             this.verTodosOsJogosToolStripMenuItem.Click += new System.EventHandler(this.verTodosOsJogosToolStripMenuItem_Click);
             // 
@@ -136,19 +136,19 @@ namespace tcctestes.formularios
             this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.comoAdicionarJogosToolStripMenuItem});
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(66, 27);
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.ajudaToolStripMenuItem.Text = "ajuda";
             // 
             // comoAdicionarJogosToolStripMenuItem
             // 
             this.comoAdicionarJogosToolStripMenuItem.Name = "comoAdicionarJogosToolStripMenuItem";
-            this.comoAdicionarJogosToolStripMenuItem.Size = new System.Drawing.Size(258, 28);
+            this.comoAdicionarJogosToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.comoAdicionarJogosToolStripMenuItem.Text = "como adicionar jogos";
             // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(66, 27);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(54, 21);
             this.sobreToolStripMenuItem.Text = "sobre";
             // 
             // timer1
@@ -161,10 +161,9 @@ namespace tcctestes.formularios
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(234, 251);
+            this.pictureBox1.Size = new System.Drawing.Size(176, 204);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -175,10 +174,9 @@ namespace tcctestes.formularios
             // 
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 10);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 8);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(234, 251);
+            this.pictureBox3.Size = new System.Drawing.Size(176, 204);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -189,10 +187,9 @@ namespace tcctestes.formularios
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 8);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(234, 251);
+            this.pictureBox2.Size = new System.Drawing.Size(176, 204);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -207,10 +204,9 @@ namespace tcctestes.formularios
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(71, 94);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(53, 76);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 363);
+            this.panel1.Size = new System.Drawing.Size(200, 295);
             this.panel1.TabIndex = 3;
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
@@ -219,10 +215,9 @@ namespace tcctestes.formularios
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 322);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(9, 262);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 19);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "label4";
             // 
@@ -230,10 +225,9 @@ namespace tcctestes.formularios
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 289);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(8, 235);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 25);
+            this.label1.Size = new System.Drawing.Size(50, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
@@ -245,10 +239,9 @@ namespace tcctestes.formularios
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(364, 94);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(273, 76);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(266, 363);
+            this.panel2.Size = new System.Drawing.Size(200, 295);
             this.panel2.TabIndex = 4;
             this.panel2.MouseEnter += new System.EventHandler(this.panel2_MouseEnter);
             this.panel2.MouseLeave += new System.EventHandler(this.panel2_MouseLeave);
@@ -258,20 +251,18 @@ namespace tcctestes.formularios
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 322);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(9, 262);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 19);
+            this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "label5";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 292);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(9, 237);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 23);
+            this.label2.Size = new System.Drawing.Size(43, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "label2";
             // 
@@ -283,10 +274,9 @@ namespace tcctestes.formularios
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(657, 94);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(493, 76);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(266, 363);
+            this.panel3.Size = new System.Drawing.Size(200, 295);
             this.panel3.TabIndex = 5;
             this.panel3.MouseEnter += new System.EventHandler(this.panel3_MouseEnter);
             this.panel3.MouseLeave += new System.EventHandler(this.panel3_MouseLeave);
@@ -295,20 +285,18 @@ namespace tcctestes.formularios
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 322);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(9, 262);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 19);
+            this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 4;
             this.label6.Text = "label6";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 292);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(9, 237);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 23);
+            this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "label3";
             // 
@@ -317,10 +305,9 @@ namespace tcctestes.formularios
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(333, 49);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(250, 40);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(317, 37);
+            this.label7.Size = new System.Drawing.Size(247, 30);
             this.label7.TabIndex = 6;
             this.label7.Text = "Jogados recentemente";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -328,9 +315,10 @@ namespace tcctestes.formularios
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(849, 0);
+            this.button1.Location = new System.Drawing.Point(637, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 31);
+            this.button1.Size = new System.Drawing.Size(82, 25);
             this.button1.TabIndex = 7;
             this.button1.Text = "login";
             this.button1.UseVisualStyleBackColor = true;
@@ -338,10 +326,11 @@ namespace tcctestes.formularios
             // 
             // paginaInicial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(993, 718);
+            this.ClientSize = new System.Drawing.Size(745, 563);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel3);
@@ -350,7 +339,7 @@ namespace tcctestes.formularios
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "paginaInicial";
             this.Text = "TEstes";
             this.Load += new System.EventHandler(this.paginaInicial_Load);
