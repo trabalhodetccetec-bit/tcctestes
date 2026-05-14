@@ -499,6 +499,10 @@ namespace tcctestes.formularios
 
         }
 
+        private void jogos_SizeChanged(object sender, EventArgs e)
+        {
+        }
+
         private void CarregarDados()
         {
             string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
