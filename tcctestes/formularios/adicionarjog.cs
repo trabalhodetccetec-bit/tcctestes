@@ -87,7 +87,7 @@ namespace tcctestes.formularios
                     conn.Open();
 
                     string sql = @"";
-                    sql = "INSERT INTO Jogos (Nome, Caminho, cate, aval, Caminhoimg, zerei, joguei, Desc) VALUES (@nome, @exe, @cat, @aval, @img, @zer, @jog, @Des)";
+                    sql = "INSERT INTO Jogos (Nome, Caminho, cate, aval, Caminhoimg, zerei, joguei, Desc, sync) VALUES (@nome, @exe, @cat, @aval, @img, @zer, @jog, @Des, @Sync)";
                     using (var comando = new SQLiteCommand(sql, conn))
                     {
                         comando.Parameters.AddWithValue("@nome", $@"{dad.Nome}");
@@ -98,6 +98,8 @@ namespace tcctestes.formularios
                         comando.Parameters.AddWithValue("@zer", $@"{dad.zerou}");
                         comando.Parameters.AddWithValue("@jog", $@"{dad.jogou}");
                         comando.Parameters.AddWithValue("@Des", $@"{dad.Descricao}");
+                        comando.Parameters.AddWithValue("@Sync", $@"NAOSINCROINZADO");
+
                         comando.ExecuteNonQuery();
 
                     }

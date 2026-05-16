@@ -8,14 +8,10 @@ using System.Data.SQLite;
 
 namespace tcctestes.BancodeDados
 {
-    class criarbanco
+    class criarbanco : bancoConexao
     {
         public static void InicializarBanco()
         {
-            string pasta = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "DadosJogos"
-            );
             if (!Directory.Exists(pasta)) { Directory.CreateDirectory(pasta); }
 
             string caminhoDb = Path.Combine(pasta, "prim.db");

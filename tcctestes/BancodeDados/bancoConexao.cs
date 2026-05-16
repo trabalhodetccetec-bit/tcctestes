@@ -8,7 +8,10 @@ using System.Data.SQLite;
 
 namespace tcctestes.BancodeDados
 {
-    class bancoConexao
+    public class bancoConexao
     {
+        public static string pasta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos");
+
+       public static string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
     }
 }
