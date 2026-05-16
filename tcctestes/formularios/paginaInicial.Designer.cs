@@ -316,7 +316,11 @@ namespace tcctestes.formularios
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(637, 0);
+<<<<<<< HEAD
             this.button1.Margin = new System.Windows.Forms.Padding(2);
+=======
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+>>>>>>> aca45c1203c3a95dfcab0387f40a86c6fdf2442f
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 25);
             this.button1.TabIndex = 7;
