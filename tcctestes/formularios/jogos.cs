@@ -16,7 +16,7 @@ namespace tcctestes.formularios
 {
     public partial class jogos : Form
     {
-        string cam, camab;
+        string cam;
         public jogos()
         {
             InitializeComponent();
@@ -68,14 +68,38 @@ namespace tcctestes.formularios
             {
                 painel.Enabled = true;
 
-                MODELS.Dados dados = new MODELS.Dados();
                 BancodeDados.SQL sql = new BancodeDados.SQL();
 
                 int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
-                dados.idselecionado = idSelecionado;
 
-                sql.BuscarPorId(dados.idselecionado);
+                MODELS.Dados dados = sql.Mostrar(idSelecionado);
 
+                nome.Text = dados.Nome;
+                descricao.Text = dados.Descricao;
+                pictureBox1.Image = Image.FromFile(dados.pathimage);
+                path.Text = dados.pathexe;
+                if (dados.jogou == "Já joguei")
+                {
+                    jajoguei.Checked = true;
+                    painelop2.Enabled = true;
+                }
+                else
+                {
+                    naojoguei.Checked = true;
+                    painelop2.Enabled = false;
+                }
+                if (dados.zerou == "Já zerei")
+                {
+                    jaze.Checked = true;
+                    naoze.Checked = false;
+                }
+                else
+                {
+                    naoze.Checked = true;
+                    jaze.Checked = false;
+                }
+                aval.Text = dados.aval;
+                cat.Text = dados.Categoria;
             }
             catch (Exception ex)
             {
@@ -88,13 +112,6 @@ namespace tcctestes.formularios
 
             paginaInicial form = new paginaInicial();
             form.Show();
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (jajog.Checked) { painelop2.Enabled = true; }
-            else { painelop2.Enabled = false; naoze.Checked = true; }
-            btnsalvar.Enabled = true;
         }
 
         private void btnalt_Click(object sender, EventArgs e)
@@ -119,8 +136,6 @@ namespace tcctestes.formularios
         private void nome_TextChanged(object sender, EventArgs e)
         {
             btnsalvar.Enabled = true;
-            if (jajog.Checked) { painelop2.Enabled = true; }
-            else { painelop2.Enabled = false; }
         }
 
         private void path_TextChanged(object sender, EventArgs e)
@@ -157,14 +172,15 @@ namespace tcctestes.formularios
                 dados.Categoria = cat.SelectedItem.ToString();
                 dados.aval = aval.SelectedItem.ToString();
                 dados.pathimage = cam;
+                dados.sync = "ALTERADO";
 
-                if (jajog.Checked) { dados.jogou = jajog.Text; }
-                else { dados.jogou = naojog.Text; }
+                if (jajoguei.Checked) { dados.jogou = jajoguei.Text; }
+                else { dados.jogou = naojoguei.Text; }
                 if (jaze.Checked) { dados.zerou = jaze.Text; }
                 else { dados.zerou = naoze.Text; }
 
                 BancodeDados.SQL sql = new BancodeDados.SQL();
-                sql.Salvar();
+                sql.Salvar(dados);
                 dataGridView1.DataSource = sql.CarregarDados();
                 dataGridView1.Columns["IDJogo"].Visible = false;
             }
@@ -185,7 +201,7 @@ namespace tcctestes.formularios
                 if (opf.ShowDialog() == DialogResult.OK)
                 {
                     pictureBox1.Image = Image.FromFile(opf.FileName);
-                    dados.cam = opf.FileName;
+                    dados.pathimage = opf.FileName;
                 }
             }
             btnsalvar.Enabled = true;
@@ -193,9 +209,16 @@ namespace tcctestes.formularios
 
         private void btnabrir_Click(object sender, EventArgs e)
         {
-            BancodeDados.SQL sql = new BancodeDados.SQL();
-            sql.Abrir();
-            Process.Start(MODELS.informacoes.camab);
+            try
+            {
+                BancodeDados.SQL sql = new BancodeDados.SQL();
+                sql.Abrir();
+                Process.Start(path.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message);
+            }
         }
 
         private void btnexc_Click(object sender, EventArgs e)
@@ -206,9 +229,9 @@ namespace tcctestes.formularios
             {
                 return;
             }
-            else 
+            else
             {
-                sql.Excluir();
+                sql.Excluir(Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value));
             }
             dataGridView1.DataSource = sql.CarregarDados();
             dataGridView1.Columns["IDJogo"].Visible = false;
@@ -216,10 +239,11 @@ namespace tcctestes.formularios
 
         private void txtfiltros_Click(object sender, EventArgs e)
         {
+            //botão pra abrir a tela de filtro
             txtfiltros.Enabled = false;
             panel4.Visible = true;
             panel1.Visible = true;
-            fltjog.Checked = true;
+            fltjog.Checked = false;
         }
 
         private void filtrar_Click(object sender, EventArgs e)
@@ -227,18 +251,20 @@ namespace tcctestes.formularios
             panel4.Visible = false;
             panel1.Visible = false;
             txtfiltros.Enabled = true;
-            MODELS.informacoes.txtprocurar = txtproc.Text;
-            MODELS.informacoes.filtrojogado = fltjog.Checked;
-            MODELS.informacoes.filtrozerado = fltzercheck.Checked;
-            MODELS.informacoes.filtronaozerado = fltnaozercheck.Checked;
-            MODELS.informacoes.posicaocombobox1 = comboBox1.SelectedIndex;
-            MODELS.informacoes.combobox1 = comboBox1.Text;
-            MODELS.informacoes.posicaocombobox2 = comboBox2.SelectedIndex;
-            MODELS.informacoes.combobox2 = comboBox2.Text;
+            MODELS.Filtro info = new MODELS.Filtro();
+            info.txtprocurar = txtproc.Text;
+            info.filtrojogado = fltjog.Checked;
+            info.filtronaojogado = fltnaojog.Checked;
+            info.filtrozerado = fltzercheck.Checked;
+            info.filtronaozerado = fltnaozercheck.Checked;
+            info.posicaocombobox1 = comboBox1.SelectedIndex;
+            info.combobox1 = comboBox1.Text;
+            info.posicaocombobox2 = comboBox2.SelectedIndex;
+            info.combobox2 = comboBox2.Text;
             try
             {
                 BancodeDados.SQL sql = new BancodeDados.SQL();
-                dataGridView1.DataSource = sql.Filtro();
+                dataGridView1.DataSource = sql.Filtro(info);
                 dataGridView1.Columns["IDJogo"].Visible = false;
             }
             catch (Exception ex)
@@ -298,7 +324,7 @@ namespace tcctestes.formularios
         private void lmpfiltro_Click(object sender, EventArgs e)
         {
             txtproc.Text = "Buscar...";
-            fltjog.Checked = true;
+            fltjog.Checked = false;
             fltnaojog.Checked = false;
             fltzercheck.Checked = false;
             fltnaozercheck.Checked = false;
@@ -307,8 +333,19 @@ namespace tcctestes.formularios
             filtrar_Click(sender, e);
         }
 
+        private void jajoguei_CheckedChanged(object sender, EventArgs e)
+        {
+            if (jajoguei.Checked)
+            {
+                painelop2.Enabled = true;
+            }
+            else
+            {
+                painelop2.Enabled = false;
+                naoze.Checked = true;
+            }
+        }
     }
-
-
+    
 
 }

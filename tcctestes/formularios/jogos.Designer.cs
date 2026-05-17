@@ -36,6 +36,9 @@ namespace tcctestes.formularios
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.painel = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.naojoguei = new System.Windows.Forms.RadioButton();
+            this.jajoguei = new System.Windows.Forms.RadioButton();
             this.descricao = new System.Windows.Forms.TextBox();
             this.cat = new System.Windows.Forms.ComboBox();
             this.aval = new System.Windows.Forms.ComboBox();
@@ -72,6 +75,7 @@ namespace tcctestes.formularios
             this.panel4 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.painel.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.painelop2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -139,6 +143,7 @@ namespace tcctestes.formularios
             this.painel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.painel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.painel.Controls.Add(this.panel5);
             this.painel.Controls.Add(this.descricao);
             this.painel.Controls.Add(this.cat);
             this.painel.Controls.Add(this.aval);
@@ -156,6 +161,38 @@ namespace tcctestes.formularios
             this.painel.Name = "painel";
             this.painel.Size = new System.Drawing.Size(180, 371);
             this.painel.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.naojoguei);
+            this.panel5.Controls.Add(this.jajoguei);
+            this.panel5.Location = new System.Drawing.Point(6, 231);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(84, 40);
+            this.panel5.TabIndex = 13;
+            // 
+            // naojoguei
+            // 
+            this.naojoguei.AutoSize = true;
+            this.naojoguei.Location = new System.Drawing.Point(4, 20);
+            this.naojoguei.Name = "naojoguei";
+            this.naojoguei.Size = new System.Drawing.Size(78, 18);
+            this.naojoguei.TabIndex = 1;
+            this.naojoguei.TabStop = true;
+            this.naojoguei.Text = "Não Joguei";
+            this.naojoguei.UseVisualStyleBackColor = true;
+            // 
+            // jajoguei
+            // 
+            this.jajoguei.AutoSize = true;
+            this.jajoguei.Location = new System.Drawing.Point(4, 4);
+            this.jajoguei.Name = "jajoguei";
+            this.jajoguei.Size = new System.Drawing.Size(67, 18);
+            this.jajoguei.TabIndex = 0;
+            this.jajoguei.TabStop = true;
+            this.jajoguei.Text = "Já joguei";
+            this.jajoguei.UseVisualStyleBackColor = true;
+            this.jajoguei.CheckedChanged += new System.EventHandler(this.jajoguei_CheckedChanged);
             // 
             // descricao
             // 
@@ -331,27 +368,17 @@ namespace tcctestes.formularios
             // 
             // jajog
             // 
-            this.jajog.AutoSize = true;
-            this.jajog.Location = new System.Drawing.Point(3, 3);
+            this.jajog.Location = new System.Drawing.Point(0, 0);
             this.jajog.Name = "jajog";
-            this.jajog.Size = new System.Drawing.Size(67, 18);
+            this.jajog.Size = new System.Drawing.Size(104, 24);
             this.jajog.TabIndex = 0;
-            this.jajog.TabStop = true;
-            this.jajog.Text = "Já joguei";
-            this.jajog.UseVisualStyleBackColor = true;
-            this.jajog.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // naojog
             // 
-            this.naojog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.naojog.AutoSize = true;
-            this.naojog.Location = new System.Drawing.Point(2, 17);
+            this.naojog.Location = new System.Drawing.Point(0, 0);
             this.naojog.Name = "naojog";
-            this.naojog.Size = new System.Drawing.Size(75, 18);
-            this.naojog.TabIndex = 1;
-            this.naojog.TabStop = true;
-            this.naojog.Text = "Não joguei";
-            this.naojog.UseVisualStyleBackColor = true;
+            this.naojog.Size = new System.Drawing.Size(104, 24);
+            this.naojog.TabIndex = 0;
             // 
             // txtproc
             // 
@@ -601,6 +628,8 @@ namespace tcctestes.formularios
             this.menuStrip1.PerformLayout();
             this.painel.ResumeLayout(false);
             this.painel.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.painelop2.ResumeLayout(false);
             this.painelop2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -660,5 +689,8 @@ namespace tcctestes.formularios
         private System.Windows.Forms.Button lmpfiltro;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.RadioButton naojoguei;
+        private System.Windows.Forms.RadioButton jajoguei;
     }
 }

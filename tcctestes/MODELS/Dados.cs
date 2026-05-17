@@ -19,18 +19,18 @@ namespace tcctestes.MODELS
         public DateTime frec { get; set; }
         public string sync { get; set; }
         public int idselecionado { get; set; }
-        public string cam { get; set; }
     }
-    public static class informacoes
+    class Filtro
     {
-        public static string txtprocurar { get; set; }
-        public static bool filtrojogado { get; set; }
-        public static bool filtrozerado { get; set; }
-        public static bool filtronaozerado { get; set; }
-        public static int posicaocombobox1 { get; set; }
-        public static int posicaocombobox2 { get; set; }
-        public static string combobox1 { get; set; }
-        public static string combobox2 { get; set; }
-        public static string camab { get; set; }
+        public string txtprocurar { get; set; }
+        public bool filtrojogado { get; set; }
+        public bool filtronaojogado { get; set; }
+        public bool filtrozerado { get; set; }
+        public bool filtronaozerado { get; set; }
+        public int posicaocombobox1 { get; set; }
+        public int posicaocombobox2 { get; set; }
+        public string combobox1 { get; set; }
+        public string combobox2 { get; set; }
+        public string camab { get; set; }
     }
 }

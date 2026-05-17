@@ -32,13 +32,12 @@ namespace tcctestes.BancodeDados
                 }
             }
         }
-        public DataTable Filtro() 
+        public DataTable Filtro(MODELS.Filtro info)
         {
-            
-            
             try
             {
-                using (var conn = new SQLiteConnection($"Data Source={BancodeDados.bancoConexao.caminhosql}"))
+
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
                     conn.Open();
 
@@ -47,55 +46,63 @@ namespace tcctestes.BancodeDados
                     SQLiteCommand cmd = new SQLiteCommand(conn);
 
                     // via escrever
-                    if (!string.IsNullOrWhiteSpace(MODELS.informacoes.txtprocurar) &&
-                        MODELS.informacoes.txtprocurar != "Buscar...")
+                    if (!string.IsNullOrWhiteSpace(info.txtprocurar) &&
+                        info.txtprocurar != "Buscar...")
                     {
                         sql += " AND Nome LIKE @nome";
-                        cmd.Parameters.AddWithValue("@nome", "%" + MODELS.informacoes.txtprocurar + "%");
+                        cmd.Parameters.AddWithValue("@nome", "%" + info.txtprocurar + "%");
                     }
 
                     // raiobuttons
                     // radiobuttons
-                    if (MODELS.informacoes.filtrojogado)
+                    if (info.filtrojogado)
                     {
                         sql += " AND joguei = 'Já joguei'";
                     }
-                    else if (!MODELS.informacoes.filtrojogado)
+                    if (info.filtronaojogado)
                     {
-                        sql += " AND joguei = 'Não joguei'";
+                        sql += " AND joguei = 'Não Joguei'";
                     }
 
                     // checkbuttons
-                    if (MODELS.informacoes.filtrozerado && !MODELS.informacoes.filtronaozerado)
+                    if (info.filtrozerado)
                     {
                         sql += " AND zerei = 'Já zerei'";
                     }
-                    else if (!MODELS.informacoes.filtrozerado && MODELS.informacoes.filtronaozerado)
+                    if (info.filtronaozerado)
                     {
                         sql += " AND zerei = 'Não zerei'";
                     }
 
                     // categorias
-                    if (MODELS.informacoes.posicaocombobox2 != -1)
+                    if (info.posicaocombobox2 != -1)
                     {
                         sql += " AND cate = @categoria";
-                        cmd.Parameters.AddWithValue("@categoria", MODELS.informacoes.combobox2);
+                        cmd.Parameters.AddWithValue("@categoria", info.combobox2);
                     }
 
                     // avaliações
-                    if (MODELS.informacoes.posicaocombobox1 != -1)
+                    if (info.posicaocombobox1 != -1)
                     {
                         sql += " AND aval = @aval";
-                        cmd.Parameters.AddWithValue("@aval", MODELS.informacoes.combobox1);
+                        cmd.Parameters.AddWithValue("@aval", info.combobox1);
                     }
-
+                    MessageBox.Show(
+                        "Busca: " + info.txtprocurar +
+                        "\nJogado: " + info.filtrojogado +
+                        "\nNaoJogado: " + info.filtronaojogado +
+                        "\nZerado: " + info.filtrozerado +
+                        "\nNaoZerado: " + info.filtronaozerado +
+                        "\nCombo1: " + info.combobox1 +
+                        "\nCombo2: " + info.combobox2
+                    );
                     cmd.CommandText = sql;
 
                     using (var dt = new SQLiteDataAdapter(cmd))
                     {
                         DataTable tabela = new DataTable();
                         dt.Fill(tabela);
-
+                        MessageBox.Show(tabela.Rows.Count.ToString());
                         return tabela;
                     }
                 }
@@ -106,40 +113,48 @@ namespace tcctestes.BancodeDados
                 return null;
             }
         }
-        public void Salvar() 
+        public void Salvar(MODELS.Dados dados)
         {
             try
             {
-                MODELS.Dados dados = new MODELS.Dados();
-                string img = dados.cam;
-                using (var conn = new SQLiteConnection($"Data Source={BancodeDados.bancoConexao.caminhosql}"))
+                string img = dados.pathimage;
+
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
-                    string sql = @"";
-                    sql = @"SELECT Caminhoimg FROM Jogos WHERE IDJogo = @id";
+                    string sql = @"SELECT Caminhoimg FROM Jogos WHERE IDJogo = @id";
+
                     conn.Open();
-                    
+
                     if (string.IsNullOrEmpty(img))
                     {
                         using (var comando = new SQLiteCommand(sql, conn))
                         {
                             comando.Parameters.AddWithValue("@id", dados.idselecionado);
+
                             using (var reader = comando.ExecuteReader())
                             {
                                 if (reader.Read())
                                 {
-                                    img = (reader["Caminhoimg"].ToString());
+                                    img = reader["Caminhoimg"].ToString();
                                 }
                             }
                         }
                     }
+
                     dados.pathimage = img;
-                    sql = @" 
-                        UPDATE Jogos 
-                        SET 
-                        Nome = @nome, Caminho = @exe, cate = @cat, 
-                        aval = @aval, Caminhoimg = @img, zerei = @zer, 
-                        joguei = @jog, Desc = @Des 
-                        WHERE IDJogo = @id";
+
+                    sql = @"UPDATE Jogos 
+                    SET 
+                    Nome = @nome,
+                    Caminho = @exe,
+                    cate = @cat,
+                    aval = @aval,
+                    Caminhoimg = @img,
+                    zerei = @zer,
+                    joguei = @jog,
+                    Desc = @Des
+                    WHERE IDJogo = @id";
+
                     using (var comando = new SQLiteCommand(sql, conn))
                     {
                         comando.Parameters.AddWithValue("@nome", dados.Nome);
@@ -150,7 +165,6 @@ namespace tcctestes.BancodeDados
                         comando.Parameters.AddWithValue("@zer", dados.zerou);
                         comando.Parameters.AddWithValue("@jog", dados.jogou);
                         comando.Parameters.AddWithValue("@Des", dados.Descricao);
-
                         comando.Parameters.AddWithValue("@id", dados.idselecionado);
 
                         comando.ExecuteNonQuery();
@@ -162,7 +176,8 @@ namespace tcctestes.BancodeDados
                 MessageBox.Show(ex.Message);
             }
         }
-        public void Excluir() {
+        public void Excluir(int id)
+        {
             try
             {
                 MODELS.Dados dados = new MODELS.Dados();
@@ -172,7 +187,7 @@ namespace tcctestes.BancodeDados
                     conn.Open();
                     using (var comando = new SQLiteCommand(sql, conn))
                     {
-                        comando.Parameters.AddWithValue("@id", dados.idselecionado);
+                        comando.Parameters.AddWithValue("@id", id);
                         comando.ExecuteNonQuery();
                     }
                 }
@@ -182,26 +197,14 @@ namespace tcctestes.BancodeDados
                 MessageBox.Show(ex.Message);
             }
         }
-        public void Abrir() 
+        public void Abrir()
         {
             try
             {
                 MODELS.Dados dados = new MODELS.Dados();
-                using (var conn = new SQLiteConnection($"Data Source={BancodeDados.bancoConexao.caminhosql}"))
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
-                    string sql = @"SELECT Caminho FROM Jogos WHERE IDJogo = @id";
                     conn.Open();
-                    using (var comando = new SQLiteCommand(sql, conn))
-                    {
-                        comando.Parameters.AddWithValue("@id", dados.idselecionado);
-                        using (var reader = comando.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                MODELS.informacoes.camab = (reader["Caminho"].ToString());
-                            }
-                        }
-                    }
                     string sqlUpdate = @"UPDATE Jogos SET freq = @data WHERE IDJogo = @id";
                     using (var Update = new SQLiteCommand(sqlUpdate, conn))
                     {
@@ -216,7 +219,7 @@ namespace tcctestes.BancodeDados
                 MessageBox.Show(ex.Message);
             }
         }
-        public MODELS.Dados BuscarPorId(int id)
+        public MODELS.Dados Mostrar(int id)
         {
             using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
             {
