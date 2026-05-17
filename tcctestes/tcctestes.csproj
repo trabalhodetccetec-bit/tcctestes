@@ -180,9 +180,7 @@
     <None Include="Resources\addimage.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="INFRAESTRUTURA\" />
     <Folder Include="SERVICOS\" />
-    <Folder Include="UTEIS\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
