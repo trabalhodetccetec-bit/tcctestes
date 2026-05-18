@@ -111,12 +111,6 @@
     <Compile Include="formularios\adicionarjog.Designer.cs">
       <DependentUpon>adicionarjog.cs</DependentUpon>
     </Compile>
-    <Compile Include="formularios\login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formularios\login.Designer.cs">
-      <DependentUpon>login.cs</DependentUpon>
-    </Compile>
     <Compile Include="formularios\jogos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,9 +131,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\jogos.resx">
       <DependentUpon>jogos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formularios\login.resx">
-      <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\paginaInicial.resx">
       <DependentUpon>paginaInicial.cs</DependentUpon>
@@ -175,9 +166,18 @@
     <Content Include="imgs\addimage.png" />
     <Content Include="imgs\filtro%281%29.png" />
     <Content Include="imgs\filtro.png" />
-    <None Include="Resources\filtro%281%29.png" />
-    <None Include="Resources\filtro.png" />
-    <None Include="Resources\addimage.png" />
+    <Content Include="Resources\usuario.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\filtro%281%29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\filtro.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\addimage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SERVICOS\" />

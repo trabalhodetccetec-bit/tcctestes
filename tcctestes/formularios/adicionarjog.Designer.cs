@@ -57,7 +57,6 @@ namespace tcctestes.formularios
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "Categoria",
             "Aventura",
             "Ação",
             "FPS",
@@ -155,10 +154,10 @@ namespace tcctestes.formularios
             this.naojog.AutoSize = true;
             this.naojog.Location = new System.Drawing.Point(80, 20);
             this.naojog.Name = "naojog";
-            this.naojog.Size = new System.Drawing.Size(79, 17);
+            this.naojog.Size = new System.Drawing.Size(76, 17);
             this.naojog.TabIndex = 1;
             this.naojog.TabStop = true;
-            this.naojog.Text = "Não Joguei";
+            this.naojog.Text = "Não joguei";
             this.naojog.UseVisualStyleBackColor = true;
             this.naojog.CheckedChanged += new System.EventHandler(this.naojog_CheckedChanged);
             // 
@@ -234,10 +233,6 @@ namespace tcctestes.formularios
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // toolTip1
-            // 
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
-            // 
             // adicionarjog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,6 +252,7 @@ namespace tcctestes.formularios
             this.MaximizeBox = false;
             this.Name = "adicionarjog";
             this.Text = "adicionarjog";
+            this.Load += new System.EventHandler(this.adicionarjog_Load_1);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

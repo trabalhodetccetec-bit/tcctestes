@@ -29,7 +29,7 @@ namespace tcctestes.BancodeDados
                     CREATE TABLE IF NOT EXISTS Jogos 
                     (
                         IDJogo INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Nome TEXT NOT NULL,
+                        Nome TEXT NOT NULL UNIQUE,
                         Caminho TEXT NOT NULL,
                         cate TEXT NOT NULL,
                         aval TEXT NOT NULL,

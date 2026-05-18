@@ -21,13 +21,11 @@ namespace tcctestes.BancodeDados
             using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
             {
                 conn.Open();
-                string sql = "SELECT IDJogo, Nome, cate, joguei, zerei, aval FROM Jogos";
+                string sql = "SELECT IDJogo, Nome, cate, joguei, zerei, aval, sync FROM Jogos";
                 using (var dt = new SQLiteDataAdapter(sql, conn))
                 {
-
                     DataTable tabela = new DataTable();
                     dt.Fill(tabela);
-
                     return tabela;
                 }
             }
@@ -61,7 +59,7 @@ namespace tcctestes.BancodeDados
                     }
                     if (info.filtronaojogado)
                     {
-                        sql += " AND joguei = 'Não Joguei'";
+                        sql += " AND joguei = 'Não joguei'";
                     }
 
                     // checkbuttons
@@ -256,6 +254,130 @@ namespace tcctestes.BancodeDados
 
             return null;
         }
+        public void Adicionar(MODELS.Dados dados)
+        {
+            try
+            {
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    conn.Open();
 
+                    string sql = @"";
+                    sql = "INSERT INTO Jogos (Nome, Caminho, cate, aval, Caminhoimg, zerei, joguei, Desc, sync) VALUES (@nome, @exe, @cat, @aval, @img, @zer, @jog, @Des, @Sync)";
+                    using (var comando = new SQLiteCommand(sql, conn))
+                    {
+                        comando.Parameters.AddWithValue("@nome", dados.Nome);
+                        comando.Parameters.AddWithValue("@exe", dados.pathexe);
+                        comando.Parameters.AddWithValue("@cat", dados.Categoria);
+                        comando.Parameters.AddWithValue("@aval", dados.aval);
+                        comando.Parameters.AddWithValue("@img", dados.pathimage);
+                        comando.Parameters.AddWithValue("@zer", dados.zerou);
+                        comando.Parameters.AddWithValue("@jog", dados.jogou);
+                        comando.Parameters.AddWithValue("@Des", dados.Descricao);
+                        comando.Parameters.AddWithValue("@Sync", "NAOSINCRONIZADO");
+
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Jogo salvo com sucesso!");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("O jogo não foi salvo! Erro: " + ex.Message);
+            }
+        }
+        public List<MODELS.Paginanicial> Recentes()
+        {
+            List<MODELS.Paginanicial> lista = new List<MODELS.Paginanicial>();
+
+            try
+            {
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    string sql = @"
+                        SELECT Caminhoimg, IDJogo, Nome, cate
+                        FROM Jogos
+                        ORDER BY freq DESC
+                        LIMIT 3";
+
+                    conn.Open();
+
+                    using (var comando = new SQLiteCommand(sql, conn))
+                    using (var reader = comando.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new MODELS.Paginanicial
+                            {
+                                Id = Convert.ToInt32(reader["IDJogo"]),
+                                Nome = reader["Nome"].ToString(),
+                                Categoria = reader["cate"].ToString(),
+                                CaminhoImagem = reader["Caminhoimg"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return lista;
+        }
+
+        public void AbrirRecente(int id) 
+        {
+            using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+            {
+                conn.Open();
+
+                string sql = @"SELECT Caminho FROM Jogos WHERE IDJogo = @id";
+
+                string caminhoExe = "";
+
+                using (var comando = new SQLiteCommand(sql, conn))
+                {
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    object resultado = comando.ExecuteScalar();
+
+                    if (resultado != null)
+                        caminhoExe = resultado.ToString();
+                }
+
+                if (string.IsNullOrWhiteSpace(caminhoExe) || !File.Exists(caminhoExe))
+                {
+                    MessageBox.Show("Executável não encontrado.");
+                    return;
+                }
+
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = caminhoExe,
+                    UseShellExecute = true,
+                    WorkingDirectory = Path.GetDirectoryName(caminhoExe)
+                };
+
+                Process.Start(psi);
+                string sqlUpdate = @"
+                        UPDATE Jogos
+                        SET freq = @data
+                        WHERE IDJogo = @id";
+
+                using (var update = new SQLiteCommand(sqlUpdate, conn))
+                {
+                    update.Parameters.AddWithValue(
+                        "@data",
+                        DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                    );
+
+                    update.Parameters.AddWithValue("@id", id);
+
+                    update.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

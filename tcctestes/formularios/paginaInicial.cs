@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Data.SQLite;
@@ -17,6 +11,7 @@ namespace tcctestes.formularios
     {
         public paginaInicial()
         {
+
             InitializeComponent();
         }
 
@@ -32,6 +27,7 @@ namespace tcctestes.formularios
         {
             try
             {
+                BancodeDados.SQL sql = new BancodeDados.SQL();
                 PictureBox pb = (PictureBox)sender;
 
                 if (pb.Tag == null)
@@ -41,62 +37,8 @@ namespace tcctestes.formularios
                 }
 
                 int idJogo = Convert.ToInt32(pb.Tag);
-
-                string caminhosql = Path.Combine(
-                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                    "DadosJogos",
-                    "prim.db"
-                );
-
-                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
-                {
-                    conn.Open();
-
-                    string sql = @"SELECT Caminho FROM Jogos WHERE IDJogo = @id";
-
-                    string caminhoExe = "";
-
-                    using (var comando = new SQLiteCommand(sql, conn))
-                    {
-                        comando.Parameters.AddWithValue("@id", idJogo);
-
-                        object resultado = comando.ExecuteScalar();
-
-                        if (resultado != null)
-                            caminhoExe = resultado.ToString();
-                    }
-
-                    if (string.IsNullOrWhiteSpace(caminhoExe) || !File.Exists(caminhoExe))
-                    {
-                        MessageBox.Show("Executável não encontrado.");
-                        return;
-                    }
-
-                    ProcessStartInfo psi = new ProcessStartInfo
-                    {
-                        FileName = caminhoExe,
-                        UseShellExecute = true,
-                        WorkingDirectory = Path.GetDirectoryName(caminhoExe)
-                    };
-
-                    Process.Start(psi);
-                    string sqlUpdate = @"
-                UPDATE Jogos
-                SET freq = @data
-                WHERE IDJogo = @id";
-
-                    using (var update = new SQLiteCommand(sqlUpdate, conn))
-                    {
-                        update.Parameters.AddWithValue(
-                            "@data",
-                            DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                        );
-
-                        update.Parameters.AddWithValue("@id", idJogo);
-
-                        update.ExecuteNonQuery();
-                    }
-                }
+                sql.AbrirRecente(idJogo);
+               
             }
             catch (Exception ex)
             {
@@ -105,32 +47,7 @@ namespace tcctestes.formularios
             Conectar();
         }
 
-        private static void nomeecategoria()
-        {
-            string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
-            try
-            {
-                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
-                {
-                    string sql = @"";
-                    conn.Open();
-                    using (var comando = new SQLiteCommand(sql, conn))
-                    {
-                        using (var reader = comando.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                // cam = (reader["Caminhoimg"].ToString());
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formularios.adicionarjog adjog = new formularios.adicionarjog();
@@ -144,11 +61,6 @@ namespace tcctestes.formularios
             all.Show();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            dhstats.Text = DateTime.Now.ToString("HH:mm:ss");
-        }
-
         private void panel1_MouseEnter(object sender, EventArgs e)
         {
             panel1.BackColor = Color.LightGray;
@@ -157,11 +69,6 @@ namespace tcctestes.formularios
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
             panel1.BackColor = Color.WhiteSmoke;
-        }
-
-        private void panel2_MouseHover(object sender, EventArgs e)
-        {
-            // não usar, fica estranho
         }
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
@@ -223,56 +130,30 @@ namespace tcctestes.formularios
 
         private void Conectar()
         {
-
-            string caminhosql = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "DadosJogos",
-            "prim.db"
-         );
-
             try
             {
-                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                BancodeDados.SQL sql = new BancodeDados.SQL();
+
+                var jogos = sql.Recentes();
+
+                Label[] titulos = { label1, label2, label3 };
+                Label[] categorias = { label4, label5, label6 };
+                PictureBox[] imagens = { pictureBox1, pictureBox2, pictureBox3 };
+
+                for (int i = 0; i < jogos.Count; i++)
                 {
-                    string sql = @"
-                SELECT Caminhoimg, IDJogo, Nome, cate
-                FROM Jogos
-                ORDER BY freq DESC
-                LIMIT 3;";
+                    titulos[i].Text = jogos[i].Nome;
+                    categorias[i].Text = jogos[i].Categoria;
 
-                    conn.Open();
+                    titulos[i].Tag = jogos[i].Id;
+                    categorias[i].Tag = jogos[i].Id;
+                    imagens[i].Tag = jogos[i].Id;
 
-                    using (var comando = new SQLiteCommand(sql, conn))
-                    using (var reader = comando.ExecuteReader())
+                    if (File.Exists(jogos[i].CaminhoImagem))
                     {
-                        Label[] titulos = { label1, label2, label3 };
-                        Label[] categorias = { label4, label5, label6 };
-                        PictureBox[] imagens = { pictureBox1, pictureBox2, pictureBox3 };
-
-
-                        int i = 0;
-
-                        while (reader.Read() && i < 3)
-                        {
-                            string caminhoImagem = reader["Caminhoimg"].ToString();
-
-                            imagens[i].Tag = reader["IDJogo"];
-                            titulos[i].Tag = reader["IDJogo"];
-                            categorias[i].Tag = reader["IDJogo"];
-
-                            if (File.Exists(caminhoImagem))
-                            {
-                                imagens[i].Image = Image.FromFile(caminhoImagem);
-                            }
-
-                            titulos[i].Text = reader["Nome"].ToString();
-                            categorias[i].Text = reader["cate"].ToString();
-
-                            i++;
-                        }
+                        imagens[i].Image = Image.FromFile(jogos[i].CaminhoImagem);
                     }
                 }
-
             }
             catch (Exception ex)
             {

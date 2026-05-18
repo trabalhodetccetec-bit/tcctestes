@@ -68,52 +68,39 @@ namespace tcctestes.formularios
 
         private void adicionar_Click(object sender, EventArgs e)
         {
-            MODELS.Dados dad = new MODELS.Dados();
-            dad.Nome = textBox1.Text;
-            dad.Descricao = textBox2.Text;
-            dad.pathexe = textBox3.Text;
-            dad.Categoria = comboBox2.SelectedItem.ToString();
-            dad.aval = comboBox1.SelectedItem.ToString();
-            dad.pathimage = cam;
-            if (jajog.Checked) { dad.jogou = jajog.Text; }
-            else { dad.jogou = naojog.Text; }
-            if (jaze.Checked) { dad.zerou = jaze.Text; }
-            else { dad.zerou = naoze.Text; }
-            string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
-            try
+            try {
+                MODELS.Dados dad = new MODELS.Dados();
+                BancodeDados.SQL sql = new BancodeDados.SQL();
+                dad.Nome = textBox1.Text;
+                dad.Descricao = textBox2.Text;
+                dad.pathexe = textBox3.Text;
+                dad.Categoria = comboBox2.SelectedItem.ToString();
+                dad.aval = comboBox1.SelectedItem.ToString();
+                dad.pathimage = cam;
+                if (jajog.Checked) { dad.jogou = jajog.Text; }
+                else { dad.jogou = naojog.Text; }
+                if (jaze.Checked) { dad.zerou = jaze.Text; }
+                else { dad.zerou = naoze.Text; }
+                sql.Adicionar(dad);
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                comboBox2.SelectedIndex = 1;
+                comboBox1.SelectedIndex = 0;
+                cam = "";
+                pictureBox1.Image = null;
+                jajog.Checked = false;
+                naojog.Checked = false;
+                jaze.Checked = false;
+                naoze.Checked = false;
+
+            }
+            catch (Exception ex) 
             {
-                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
-                {
-                    conn.Open();
-
-                    string sql = @"";
-                    sql = "INSERT INTO Jogos (Nome, Caminho, cate, aval, Caminhoimg, zerei, joguei, Desc, sync) VALUES (@nome, @exe, @cat, @aval, @img, @zer, @jog, @Des, @Sync)";
-                    using (var comando = new SQLiteCommand(sql, conn))
-                    {
-                        comando.Parameters.AddWithValue("@nome", $@"{dad.Nome}");
-                        comando.Parameters.AddWithValue("@exe", $@"{dad.pathexe}");
-                        comando.Parameters.AddWithValue("@cat", $@"{dad.Categoria}");
-                        comando.Parameters.AddWithValue("@aval", $@"{dad.aval}");
-                        comando.Parameters.AddWithValue("@img", $@"{dad.pathimage}");
-                        comando.Parameters.AddWithValue("@zer", $@"{dad.zerou}");
-                        comando.Parameters.AddWithValue("@jog", $@"{dad.jogou}");
-                        comando.Parameters.AddWithValue("@Des", $@"{dad.Descricao}");
-                        comando.Parameters.AddWithValue("@Sync", $@"NAOSINCROINZADO");
-
-                        comando.ExecuteNonQuery();
-
-                    }
-                }
+                MessageBox.Show("Houve um erro na comunicação com o banco. Erro: " + ex.Message);
             }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-
-
-
-
-
-            MessageBox.Show("Jogo salvo com sucesso!");
+            
+            
         }
 
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
@@ -150,11 +137,6 @@ namespace tcctestes.formularios
             }
         }
 
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
-
         private void naojog_CheckedChanged(object sender, EventArgs e)
         {
             groupBox2.Enabled = false;
@@ -165,6 +147,12 @@ namespace tcctestes.formularios
         {
             groupBox2.Enabled = true;
             naoze.Checked = false;
+        }
+
+        private void adicionarjog_Load_1(object sender, EventArgs e)
+        {
+            comboBox2.SelectedIndex = 1;
+            comboBox1.SelectedIndex = 1;
         }
     }
 }

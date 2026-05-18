@@ -29,10 +29,8 @@ namespace tcctestes.formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.usrstats = new System.Windows.Forms.ToolStripStatusLabel();
-            this.dhstats = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.jogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +38,6 @@ namespace tcctestes.formularios
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comoAdicionarJogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -54,7 +51,6 @@ namespace tcctestes.formularios
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -70,9 +66,8 @@ namespace tcctestes.formularios
             this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usrstats,
-            this.dhstats});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 541);
+            this.usrstats});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 417);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.statusStrip1.Size = new System.Drawing.Size(745, 22);
@@ -85,12 +80,6 @@ namespace tcctestes.formularios
             this.usrstats.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.usrstats.Size = new System.Drawing.Size(58, 17);
             this.usrstats.Text = "usuario: ";
-            // 
-            // dhstats
-            // 
-            this.dhstats.Name = "dhstats";
-            this.dhstats.Size = new System.Drawing.Size(66, 17);
-            this.dhstats.Text = "data/hora";
             // 
             // menuStrip1
             // 
@@ -150,12 +139,6 @@ namespace tcctestes.formularios
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(54, 21);
             this.sobreToolStripMenuItem.Text = "sobre";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pictureBox1
             // 
@@ -245,7 +228,6 @@ namespace tcctestes.formularios
             this.panel2.TabIndex = 4;
             this.panel2.MouseEnter += new System.EventHandler(this.panel2_MouseEnter);
             this.panel2.MouseLeave += new System.EventHandler(this.panel2_MouseLeave);
-            this.panel2.MouseHover += new System.EventHandler(this.panel2_MouseHover);
             // 
             // label5
             // 
@@ -312,27 +294,13 @@ namespace tcctestes.formularios
             this.label7.Text = "Jogados recentemente";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(637, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 25);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // paginaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(745, 563);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(745, 439);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -366,7 +334,6 @@ namespace tcctestes.formularios
 
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel usrstats;
-        private System.Windows.Forms.ToolStripStatusLabel dhstats;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem jogosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adicionarToolStripMenuItem;
@@ -377,7 +344,6 @@ namespace tcctestes.formularios
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
@@ -388,6 +354,5 @@ namespace tcctestes.formularios
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
     }
 }

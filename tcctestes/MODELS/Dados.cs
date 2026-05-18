@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace tcctestes.MODELS
 {
+    //pra jogos.cs e adicionarjogo.cs
     class Dados
     {
+        
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public string pathexe { get; set; }
@@ -19,7 +18,10 @@ namespace tcctestes.MODELS
         public DateTime frec { get; set; }
         public string sync { get; set; }
         public int idselecionado { get; set; }
+
+
     }
+    //para o filtro no jogos.cs
     class Filtro
     {
         public string txtprocurar { get; set; }
@@ -32,5 +34,14 @@ namespace tcctestes.MODELS
         public string combobox1 { get; set; }
         public string combobox2 { get; set; }
         public string camab { get; set; }
+    }
+
+    //para a paginaInicial.cs
+    class Paginanicial
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Categoria { get; set; }
+        public string CaminhoImagem { get; set; }
     }
 }

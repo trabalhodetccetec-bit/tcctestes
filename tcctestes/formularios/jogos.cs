@@ -103,7 +103,7 @@ namespace tcctestes.formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Houve um erro ao carregar os dados: "+ex.Message);
             }
         }
 
