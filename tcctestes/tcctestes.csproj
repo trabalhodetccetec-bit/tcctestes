@@ -111,6 +111,15 @@
     <Compile Include="formularios\adicionarjog.Designer.cs">
       <DependentUpon>adicionarjog.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="formularios\Gráfico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\Gráfico.Designer.cs">
+      <DependentUpon>Gráfico.cs</DependentUpon>
+    </Compile>
+=======
+>>>>>>> fb3fc723ed6b9fa36b1ffffdba41b8bb349b1d9c
     <Compile Include="formularios\jogos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +137,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formularios\adicionarjog.resx">
       <DependentUpon>adicionarjog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\Gráfico.resx">
+      <DependentUpon>Gráfico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\jogos.resx">
       <DependentUpon>jogos.cs</DependentUpon>
