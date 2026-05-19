@@ -1,10 +1,4 @@
 ﻿using System;
-using LiveCharts;
-using LiveCharts.WinForms;
-using OxyPlot;
-using OxyPlot.WindowsForms;
-using ScottPlot;
-using ScottPlot.WinForms;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +15,11 @@ namespace tcctestes.formularios
         public Gráfico()
         {
             InitializeComponent();
+        }
+
+        private void Gráfico_Load(object sender, EventArgs e)
+        {
+            label1.Text = chart1.Series[0].LegendText;
         }
     }
 }
