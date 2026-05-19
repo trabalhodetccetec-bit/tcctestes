@@ -154,5 +154,11 @@ namespace tcctestes.formularios
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void estatísticasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Gráfico form = new Gráfico();
+            form.Show();
+        }
     }
 }

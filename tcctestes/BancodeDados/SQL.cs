@@ -326,8 +326,7 @@ namespace tcctestes.BancodeDados
 
             return lista;
         }
-
-        public void AbrirRecente(int id) 
+        public void AbrirRecente(int id)
         {
             using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
             {
@@ -379,5 +378,45 @@ namespace tcctestes.BancodeDados
                 }
             }
         }
+        public List<MODELS.Grafico> Grafico(int tipodechart)
+        {
+            List<MODELS.Grafico> lista = new List<MODELS.Grafico>();
+            try
+            {
+                if (tipodechart == 0)
+                {
+                    using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                    {
+                        string  sql = @"
+                            SELECT joguei, COUNT(*) AS quantidade
+                            FROM Jogos
+                            GROUP BY joguei";
+
+                        conn.Open();
+
+                        using (var comando = new SQLiteCommand(sql, conn))
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                lista.Add(new MODELS.Grafico
+                                {
+                                    nome = reader["joguei"].ToString(),
+                                    quantidade = Convert.ToInt32(reader["quantidade"])
+                                });
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro na comunicação com o banco: " + ex.Message);
+            }
+
+            return lista;
+        }
     }
 }
+

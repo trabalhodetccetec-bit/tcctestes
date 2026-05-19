@@ -51,6 +51,7 @@ namespace tcctestes.formularios
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.estatísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -101,10 +102,11 @@ namespace tcctestes.formularios
             // 
             this.jogosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adicionarToolStripMenuItem,
-            this.verTodosOsJogosToolStripMenuItem});
+            this.verTodosOsJogosToolStripMenuItem,
+            this.estatísticasToolStripMenuItem});
             this.jogosToolStripMenuItem.Name = "jogosToolStripMenuItem";
-            this.jogosToolStripMenuItem.Size = new System.Drawing.Size(55, 21);
-            this.jogosToolStripMenuItem.Text = "Jogos";
+            this.jogosToolStripMenuItem.Size = new System.Drawing.Size(65, 21);
+            this.jogosToolStripMenuItem.Text = "Opções";
             // 
             // adicionarToolStripMenuItem
             // 
@@ -294,6 +296,13 @@ namespace tcctestes.formularios
             this.label7.Text = "Jogados recentemente";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // estatísticasToolStripMenuItem
+            // 
+            this.estatísticasToolStripMenuItem.Name = "estatísticasToolStripMenuItem";
+            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.estatísticasToolStripMenuItem.Text = "Estatísticas";
+            this.estatísticasToolStripMenuItem.Click += new System.EventHandler(this.estatísticasToolStripMenuItem_Click);
+            // 
             // paginaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,5 +363,6 @@ namespace tcctestes.formularios
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ToolStripMenuItem estatísticasToolStripMenuItem;
     }
 }
