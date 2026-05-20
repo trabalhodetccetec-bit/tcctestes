@@ -195,20 +195,25 @@ namespace tcctestes.BancodeDados
                 MessageBox.Show(ex.Message);
             }
         }
-        public void Abrir()
+        public void Abrir(int id)
         {
             try
             {
-                MODELS.Dados dados = new MODELS.Dados();
                 using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
                     conn.Open();
-                    string sqlUpdate = @"UPDATE Jogos SET freq = @data WHERE IDJogo = @id";
-                    using (var Update = new SQLiteCommand(sqlUpdate, conn))
+
+                    string sqlUpdate = @"
+                    UPDATE Jogos 
+                    SET freq = @data,
+                    vezesjogado = vezesjogado + 1
+                    WHERE IDJogo = @id";
+
+                    using (var update = new SQLiteCommand(sqlUpdate, conn))
                     {
-                        Update.Parameters.AddWithValue("@data", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                        Update.Parameters.AddWithValue("@id", dados.idselecionado);
-                        Update.ExecuteNonQuery();
+                        update.Parameters.AddWithValue("@data", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        update.Parameters.AddWithValue("@id", id);
+                        update.ExecuteNonQuery();
                     }
                 }
             }
@@ -223,10 +228,11 @@ namespace tcctestes.BancodeDados
             {
                 conn.Open();
 
-                string sql = @"SELECT Nome, Caminho, cate, aval,
-                       Caminhoimg, zerei, joguei, Desc
-                       FROM Jogos
-                       WHERE IDJogo = @id";
+                string sql = @"
+                        SELECT Nome, Caminho, cate, aval,
+                        Caminhoimg, zerei, joguei, Desc, vezesjogado
+                        FROM Jogos
+                        WHERE IDJogo = @id";
 
                 using (var cmd = new SQLiteCommand(sql, conn))
                 {
@@ -361,9 +367,10 @@ namespace tcctestes.BancodeDados
 
                 Process.Start(psi);
                 string sqlUpdate = @"
-                        UPDATE Jogos
-                        SET freq = @data
-                        WHERE IDJogo = @id";
+                    UPDATE Jogos 
+                    SET freq = @data,
+                    vezesjogado = vezesjogado + 1
+                    WHERE IDJogo = @id";
 
                 using (var update = new SQLiteCommand(sqlUpdate, conn))
                 {
@@ -371,7 +378,6 @@ namespace tcctestes.BancodeDados
                         "@data",
                         DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                     );
-
                     update.Parameters.AddWithValue("@id", id);
 
                     update.ExecuteNonQuery();
@@ -387,7 +393,32 @@ namespace tcctestes.BancodeDados
                 {
                     using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                     {
-                        string  sql = @"
+                        string sql = @"
+                            SELECT zerei, COUNT(*) AS quantidade
+                            FROM Jogos
+                            GROUP BY zerei";
+
+                        conn.Open();
+
+                        using (var comando = new SQLiteCommand(sql, conn))
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                lista.Add(new MODELS.Grafico
+                                {
+                                    nome = reader["zerei"].ToString(),
+                                    quantidade = Convert.ToInt32(reader["quantidade"])
+                                });
+                            }
+                        }
+                    }
+                }
+                else if (tipodechart == 1)
+                {
+                    using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                    {
+                        string sql = @"
                             SELECT joguei, COUNT(*) AS quantidade
                             FROM Jogos
                             GROUP BY joguei";
@@ -402,6 +433,85 @@ namespace tcctestes.BancodeDados
                                 lista.Add(new MODELS.Grafico
                                 {
                                     nome = reader["joguei"].ToString(),
+                                    quantidade = Convert.ToInt32(reader["quantidade"])
+                                });
+                            }
+                        }
+                    }
+                }
+                else if (tipodechart == 2)
+                {
+                    using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                    {
+                        string sql = @"
+                            SELECT cate, COUNT(*) AS quantidade
+                            FROM Jogos
+                            GROUP BY cate
+                        ";
+
+                        conn.Open();
+
+                        using (var comando = new SQLiteCommand(sql, conn))
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                lista.Add(new MODELS.Grafico
+                                {
+                                    nome = reader["cate"].ToString(),
+                                    quantidade = Convert.ToInt32(reader["quantidade"])
+                                });
+                            }
+                        }
+                    }
+                }
+                else if (tipodechart == 3)
+                {
+
+                    using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                    {
+                        string sql = @"
+                        SELECT Nome, vezesjogado
+                        FROM Jogos
+                        ORDER BY vezesjogado DESC
+                        LIMIT 5";
+
+                        conn.Open();
+
+                        using (var comando = new SQLiteCommand(sql, conn))
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                lista.Add(new MODELS.Grafico
+                                {
+                                    nome = reader["Nome"].ToString(),
+                                    quantidade = Convert.ToInt32(reader["vezesjogado"])
+                                });
+                            }
+                        }
+                    }
+                }
+                else if (tipodechart == 4)
+                {
+                    using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                    {
+                        string sql = @"
+                            SELECT aval, COUNT(*) AS quantidade
+                            FROM Jogos
+                            GROUP BY aval
+                        ";
+
+                        conn.Open();
+
+                        using (var comando = new SQLiteCommand(sql, conn))
+                        using (var reader = comando.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                lista.Add(new MODELS.Grafico
+                                {
+                                    nome = reader["aval"].ToString(),
                                     quantidade = Convert.ToInt32(reader["quantidade"])
                                 });
                             }

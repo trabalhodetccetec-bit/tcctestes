@@ -73,7 +73,6 @@ namespace tcctestes.formularios
                 int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
 
                 MODELS.Dados dados = sql.Mostrar(idSelecionado);
-
                 nome.Text = dados.Nome;
                 descricao.Text = dados.Descricao;
                 pictureBox1.Image = Image.FromFile(dados.pathimage);
@@ -105,13 +104,6 @@ namespace tcctestes.formularios
             {
                 MessageBox.Show("Houve um erro ao carregar os dados: "+ex.Message);
             }
-        }
-
-        private void jogos_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-            paginaInicial form = new paginaInicial();
-            form.Show();
         }
 
         private void btnalt_Click(object sender, EventArgs e)
@@ -212,7 +204,7 @@ namespace tcctestes.formularios
             try
             {
                 BancodeDados.SQL sql = new BancodeDados.SQL();
-                sql.Abrir();
+                sql.Abrir(Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value));
                 Process.Start(path.Text);
             }
             catch (Exception ex)
@@ -345,7 +337,11 @@ namespace tcctestes.formularios
                 naoze.Checked = true;
             }
         }
-    }
-    
 
+        private void jogos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            paginaInicial form = new paginaInicial();
+            form.Show();
+        }
+    }
 }

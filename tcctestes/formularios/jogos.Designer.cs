@@ -114,15 +114,16 @@ namespace tcctestes.formularios
             // 
             this.adicionarJogosToolStripMenuItem.Name = "adicionarJogosToolStripMenuItem";
             this.adicionarJogosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.adicionarJogosToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.adicionarJogosToolStripMenuItem.Text = "adicionar jogos";
+            this.adicionarJogosToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.adicionarJogosToolStripMenuItem.Text = "Adicionar jogos";
             this.adicionarJogosToolStripMenuItem.Click += new System.EventHandler(this.adicionarJogosToolStripMenuItem_Click);
             // 
             // paginaInicialToolStripMenuItem
             // 
             this.paginaInicialToolStripMenuItem.Name = "paginaInicialToolStripMenuItem";
-            this.paginaInicialToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.paginaInicialToolStripMenuItem.Text = "pagina inicial";
+            this.paginaInicialToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.paginaInicialToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.paginaInicialToolStripMenuItem.Text = "Pagina inicial";
             this.paginaInicialToolStripMenuItem.Click += new System.EventHandler(this.paginaInicialToolStripMenuItem_Click);
             // 
             // ajudaToolStripMenuItem
@@ -621,8 +622,8 @@ namespace tcctestes.formularios
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "jogos";
-            this.Text = "jogos";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.jogos_FormClosing);
+            this.ShowIcon = false;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.jogos_FormClosed);
             this.Load += new System.EventHandler(this.jogos_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

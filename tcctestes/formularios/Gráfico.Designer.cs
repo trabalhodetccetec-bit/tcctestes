@@ -29,15 +29,15 @@ namespace tcctestes.formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint16 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint17 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint18 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint19 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint20 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint11 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint12 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint13 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint14 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint15 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.jogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paginaInicialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,16 +47,22 @@ namespace tcctestes.formularios
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.selecao = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -74,7 +80,7 @@ namespace tcctestes.formularios
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(599, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(510, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -90,13 +96,15 @@ namespace tcctestes.formularios
             // paginaInicialToolStripMenuItem
             // 
             this.paginaInicialToolStripMenuItem.Name = "paginaInicialToolStripMenuItem";
-            this.paginaInicialToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.paginaInicialToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.paginaInicialToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.paginaInicialToolStripMenuItem.Text = "Pagina Inicial";
             // 
             // verTodosOsJogosToolStripMenuItem
             // 
             this.verTodosOsJogosToolStripMenuItem.Name = "verTodosOsJogosToolStripMenuItem";
-            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.verTodosOsJogosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.verTodosOsJogosToolStripMenuItem.Text = "Ver todos os Jogos";
             // 
             // ajudaToolStripMenuItem
@@ -116,39 +124,39 @@ namespace tcctestes.formularios
             this.chart1.BackColor = System.Drawing.SystemColors.Control;
             this.chart1.BackSecondaryColor = System.Drawing.SystemColors.Control;
             this.chart1.BorderlineColor = System.Drawing.SystemColors.Control;
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Enabled = false;
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(9, 70);
             this.chart1.Margin = new System.Windows.Forms.Padding(6);
             this.chart1.Name = "chart1";
             this.chart1.Padding = new System.Windows.Forms.Padding(6);
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series4.BackSecondaryColor = System.Drawing.SystemColors.Control;
-            series4.BorderColor = System.Drawing.SystemColors.Control;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Color = System.Drawing.SystemColors.Window;
-            series4.IsVisibleInLegend = false;
-            series4.Legend = "Legend1";
-            series4.Name = " ";
-            dataPoint16.LegendText = "hjdghjgj";
-            dataPoint17.LegendText = "jfdjfdj";
-            series4.Points.Add(dataPoint16);
-            series4.Points.Add(dataPoint17);
-            series4.Points.Add(dataPoint18);
-            series4.Points.Add(dataPoint19);
-            series4.Points.Add(dataPoint20);
-            this.chart1.Series.Add(series4);
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            series3.BackSecondaryColor = System.Drawing.SystemColors.Control;
+            series3.BorderColor = System.Drawing.SystemColors.Control;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Color = System.Drawing.SystemColors.Window;
+            series3.IsVisibleInLegend = false;
+            series3.Legend = "Legend1";
+            series3.Name = " ";
+            dataPoint11.LegendText = "hjdghjgj";
+            dataPoint12.LegendText = "jfdjfdj";
+            series3.Points.Add(dataPoint11);
+            series3.Points.Add(dataPoint12);
+            series3.Points.Add(dataPoint13);
+            series3.Points.Add(dataPoint14);
+            series3.Points.Add(dataPoint15);
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(300, 298);
             this.chart1.TabIndex = 1;
             this.chart1.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
-            title4.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title4.Name = "Title1";
-            title4.Text = "Jogos Zerados";
-            this.chart1.Titles.Add(title4);
+            title3.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "Title1";
+            title3.Text = "Jogos Zerados";
+            this.chart1.Titles.Add(title3);
             // 
             // selecao
             // 
@@ -170,6 +178,12 @@ namespace tcctestes.formularios
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel9);
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label8);
@@ -184,8 +198,85 @@ namespace tcctestes.formularios
             this.panel1.Location = new System.Drawing.Point(311, 47);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(254, 335);
+            this.panel1.Size = new System.Drawing.Size(180, 335);
             this.panel1.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(4, 119);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(20, 13);
+            this.panel3.TabIndex = 11;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(4, 92);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(20, 13);
+            this.panel2.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(26, 279);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "label8";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(26, 252);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "label7";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 225);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "label6";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(27, 173);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 146);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "label3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(27, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "label2";
             // 
             // label1
             // 
@@ -197,94 +288,61 @@ namespace tcctestes.formularios
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
-            // label2
+            // panel4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 119);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.panel4.Location = new System.Drawing.Point(4, 146);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(20, 13);
+            this.panel4.TabIndex = 12;
             // 
-            // label3
+            // panel5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 146);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
+            this.panel5.Location = new System.Drawing.Point(4, 173);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(20, 13);
+            this.panel5.TabIndex = 13;
             // 
-            // label4
+            // panel6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 173);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
+            this.panel6.Location = new System.Drawing.Point(4, 198);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(20, 13);
+            this.panel6.TabIndex = 14;
             // 
-            // label5
+            // panel7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(122, 92);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "label5";
+            this.panel7.Location = new System.Drawing.Point(4, 225);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(20, 13);
+            this.panel7.TabIndex = 15;
             // 
-            // label6
+            // panel8
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(122, 119);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "label6";
+            this.panel8.Location = new System.Drawing.Point(4, 252);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(20, 13);
+            this.panel8.TabIndex = 16;
             // 
-            // label7
+            // panel9
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(122, 146);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(122, 173);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "label8";
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(4, 92);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(20, 13);
-            this.panel2.TabIndex = 10;
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(4, 119);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(20, 13);
-            this.panel3.TabIndex = 11;
+            this.panel9.Location = new System.Drawing.Point(4, 279);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(20, 13);
+            this.panel9.TabIndex = 17;
             // 
             // Gráfico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 405);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(510, 405);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Gráfico";
-            this.Text = "Gráfico";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.Gráfico_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -317,5 +375,11 @@ namespace tcctestes.formularios
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
     }
 }

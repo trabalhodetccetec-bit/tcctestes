@@ -19,6 +19,5 @@ namespace tcctestes.MODELS
         public string sync { get; set; }
         public int idselecionado { get; set; }
 
-
     }
 }

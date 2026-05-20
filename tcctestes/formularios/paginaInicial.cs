@@ -47,7 +47,6 @@ namespace tcctestes.formularios
             Conectar();
         }
 
-        
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formularios.adicionarjog adjog = new formularios.adicionarjog();
@@ -121,7 +120,6 @@ namespace tcctestes.formularios
             panel3.BackColor = Color.LightGray;
         }
 
-
         private void Conectar()
         {
             try
@@ -160,5 +158,6 @@ namespace tcctestes.formularios
             Gráfico form = new Gráfico();
             form.Show();
         }
+
     }
 }

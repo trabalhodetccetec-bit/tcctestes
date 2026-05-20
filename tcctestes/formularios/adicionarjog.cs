@@ -88,7 +88,7 @@ namespace tcctestes.formularios
                 comboBox2.SelectedIndex = 1;
                 comboBox1.SelectedIndex = 0;
                 cam = "";
-                pictureBox1.Image = null;
+                pictureBox1.Image = Image.FromFile("..\\Resources\\addimage.png");
                 jajog.Checked = false;
                 naojog.Checked = false;
                 jaze.Checked = false;

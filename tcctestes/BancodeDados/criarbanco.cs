@@ -38,8 +38,10 @@ namespace tcctestes.BancodeDados
                         joguei TEXT NOT NULL,
                         Desc TEXT NOT NULL,
                         freq TEXT,
-                        sync TEXT NOT NULL
-                    );";
+                        sync TEXT NOT NULL,
+                        vezesjogado INTEGER NOT NULL DEFAULT 0
+                    );
+                ";
 
                 using (var cmd = new SQLiteCommand(sql, conn))
                 {

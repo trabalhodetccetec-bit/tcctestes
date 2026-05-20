@@ -35,6 +35,7 @@ namespace tcctestes.formularios
             this.jogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verTodosOsJogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estatísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comoAdicionarJogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,6 @@ namespace tcctestes.formularios
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.estatísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -111,16 +111,26 @@ namespace tcctestes.formularios
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.adicionarToolStripMenuItem.Text = "adicionar";
+            this.adicionarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.adicionarToolStripMenuItem.Text = "Adicionar jogos";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // verTodosOsJogosToolStripMenuItem
             // 
             this.verTodosOsJogosToolStripMenuItem.Name = "verTodosOsJogosToolStripMenuItem";
-            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.verTodosOsJogosToolStripMenuItem.Text = "ver todos os jogos";
+            this.verTodosOsJogosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.verTodosOsJogosToolStripMenuItem.Text = "Ver todos os jogos";
             this.verTodosOsJogosToolStripMenuItem.Click += new System.EventHandler(this.verTodosOsJogosToolStripMenuItem_Click);
+            // 
+            // estatísticasToolStripMenuItem
+            // 
+            this.estatísticasToolStripMenuItem.Name = "estatísticasToolStripMenuItem";
+            this.estatísticasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.estatísticasToolStripMenuItem.Text = "Estatísticas";
+            this.estatísticasToolStripMenuItem.Click += new System.EventHandler(this.estatísticasToolStripMenuItem_Click);
             // 
             // ajudaToolStripMenuItem
             // 
@@ -296,13 +306,6 @@ namespace tcctestes.formularios
             this.label7.Text = "Jogados recentemente";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // estatísticasToolStripMenuItem
-            // 
-            this.estatísticasToolStripMenuItem.Name = "estatísticasToolStripMenuItem";
-            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.estatísticasToolStripMenuItem.Text = "Estatísticas";
-            this.estatísticasToolStripMenuItem.Click += new System.EventHandler(this.estatísticasToolStripMenuItem_Click);
-            // 
             // paginaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,7 +322,7 @@ namespace tcctestes.formularios
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "paginaInicial";
-            this.Text = "TEstes";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.paginaInicial_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

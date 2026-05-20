@@ -251,7 +251,7 @@ namespace tcctestes.formularios
             this.Controls.Add(this.textBox1);
             this.MaximizeBox = false;
             this.Name = "adicionarjog";
-            this.Text = "adicionarjog";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.adicionarjog_Load_1);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
