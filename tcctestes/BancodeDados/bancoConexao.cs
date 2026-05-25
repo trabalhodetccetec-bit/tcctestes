@@ -10,7 +10,7 @@ namespace tcctestes.BancodeDados
 {
     public class bancoConexao
     {
-       public static string pasta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos");
-       public static string caminhosql = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DadosJogos", "prim.db");
+       public static string pasta = Path.Combine("SAVE", "DadosJogos");
+       public static string caminhosql = Path.Combine("SAVE", "DadosJogos", "prim.db");
     }
 }

@@ -68,39 +68,48 @@ namespace tcctestes.formularios
 
         private void adicionar_Click(object sender, EventArgs e)
         {
-            try {
-                MODELS.Dados dad = new MODELS.Dados();
-                BancodeDados.SQL sql = new BancodeDados.SQL();
-                dad.Nome = textBox1.Text;
-                dad.Descricao = textBox2.Text;
-                dad.pathexe = textBox3.Text;
-                dad.Categoria = comboBox2.SelectedItem.ToString();
-                dad.aval = comboBox1.SelectedItem.ToString();
-                dad.pathimage = cam;
-                if (jajog.Checked) { dad.jogou = jajog.Text; }
-                else { dad.jogou = naojog.Text; }
-                if (jaze.Checked) { dad.zerou = jaze.Text; }
-                else { dad.zerou = naoze.Text; }
-                sql.Adicionar(dad);
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                comboBox2.SelectedIndex = 1;
-                comboBox1.SelectedIndex = 0;
-                cam = "";
-                pictureBox1.Image = Image.FromFile("..\\Resources\\addimage.png");
-                jajog.Checked = false;
-                naojog.Checked = false;
-                jaze.Checked = false;
-                naoze.Checked = false;
-
-            }
-            catch (Exception ex) 
+            if (string.IsNullOrEmpty(textBox1.Text) || textBox1.Text == "Nome")
             {
-                MessageBox.Show("Houve um erro na comunicação com o banco. Erro: " + ex.Message);
+                MessageBox.Show("O campo nome não pode ser\"Nome\" e nem ser vazio");
+                return;
             }
-            
-            
+            else
+            {
+                try
+                {
+
+                    MODELS.Dados dad = new MODELS.Dados();
+                    BancodeDados.SQL sql = new BancodeDados.SQL();
+                    dad.Nome = textBox1.Text;
+                    dad.Descricao = textBox2.Text;
+                    dad.pathexe = textBox3.Text;
+                    dad.Categoria = comboBox2.SelectedItem.ToString();
+                    dad.aval = comboBox1.SelectedItem.ToString();
+                    dad.pathimage = cam;
+                    if (jajog.Checked) { dad.jogou = jajog.Text; }
+                    else { dad.jogou = naojog.Text; }
+                    if (jaze.Checked) { dad.zerou = jaze.Text; }
+                    else { dad.zerou = naoze.Text; }
+                    sql.Adicionar(dad);
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    comboBox2.SelectedIndex = 1;
+                    comboBox1.SelectedIndex = 0;
+                    cam = "";
+                    pictureBox1.Image = Image.FromFile("..\\imgs\\addimage.png");
+                    jajog.Checked = false;
+                    naojog.Checked = false;
+                    jaze.Checked = false;
+                    naoze.Checked = false;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Houve um erro na comunicação com o banco. Erro: " + ex.Message);
+                }
+            }
+
         }
 
         private void textBox1_MouseClick(object sender, MouseEventArgs e)

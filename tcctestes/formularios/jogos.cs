@@ -29,8 +29,6 @@ namespace tcctestes.formularios
 
         private void paginaInicialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            paginaInicial form = new paginaInicial();
-            form.Show();
             this.Close();
         }
 

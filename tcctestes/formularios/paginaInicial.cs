@@ -18,6 +18,8 @@ namespace tcctestes.formularios
         private void paginaInicial_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
+            Label[] labels = { label1, label2, label3, label4, label5, label6 };
+            for (int i = 0; i < labels.Length; i++) { labels[i].Text = ""; }
             pictureBox1.Click += AbrirJogoRecente;
             pictureBox2.Click += AbrirJogoRecente;
             pictureBox3.Click += AbrirJogoRecente;
@@ -159,5 +161,9 @@ namespace tcctestes.formularios
             form.Show();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

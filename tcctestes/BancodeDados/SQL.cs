@@ -85,22 +85,13 @@ namespace tcctestes.BancodeDados
                         sql += " AND aval = @aval";
                         cmd.Parameters.AddWithValue("@aval", info.combobox1);
                     }
-                    MessageBox.Show(
-                        "Busca: " + info.txtprocurar +
-                        "\nJogado: " + info.filtrojogado +
-                        "\nNaoJogado: " + info.filtronaojogado +
-                        "\nZerado: " + info.filtrozerado +
-                        "\nNaoZerado: " + info.filtronaozerado +
-                        "\nCombo1: " + info.combobox1 +
-                        "\nCombo2: " + info.combobox2
-                    );
+                    
                     cmd.CommandText = sql;
 
                     using (var dt = new SQLiteDataAdapter(cmd))
                     {
                         DataTable tabela = new DataTable();
                         dt.Fill(tabela);
-                        MessageBox.Show(tabela.Rows.Count.ToString());
                         return tabela;
                     }
                 }
