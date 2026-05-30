@@ -4,6 +4,12 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Data.SQLite;
 using System.IO;
+using System.Windows.Media.Animation;
+using System.Xml;
+using Microsoft.SqlServer.Server;
+using System.Net.Mail;
+using System.ComponentModel;
+using System.Runtime.Remoting.Messaging;
 
 namespace tcctestes.formularios
 {
@@ -19,7 +25,7 @@ namespace tcctestes.formularios
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
             Label[] labels = { label1, label2, label3, label4, label5, label6 };
-            for (int i = 0; i < labels.Length; i++) { labels[i].Text = ""; }
+            for (int i = 0; i < labels.Length; i++) 
             pictureBox1.Click += AbrirJogoRecente;
             pictureBox2.Click += AbrirJogoRecente;
             pictureBox3.Click += AbrirJogoRecente;
@@ -58,7 +64,6 @@ namespace tcctestes.formularios
         private void verTodosOsJogosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formularios.jogos all = new formularios.jogos();
-            this.Hide();
             all.Show();
         }
 
@@ -162,6 +167,57 @@ namespace tcctestes.formularios
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+
+       {
+            
+
+        }
+
+        private void trocarBackgroudToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog opf = new OpenFileDialog())
+            {
+                opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
+
+                if (opf.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox4.BackgroundImage = Image.FromFile(opf.FileName);
+                    
+                }
+            }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
 
         }

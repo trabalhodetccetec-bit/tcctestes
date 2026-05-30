@@ -218,6 +218,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="imgs\addimage.png" />
+    <None Include="Resources\Captura de tela 2026-05-30 162906.png" />
+    <Content Include="Resources\fundo.png" />
     <Content Include="imgs\filtro%281%29.png" />
     <Content Include="imgs\filtro.png" />
     <Content Include="Resources\usuario.png">

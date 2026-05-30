@@ -29,7 +29,7 @@ namespace tcctestes.formularios
 
         private void paginaInicialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
         }
 
         private void adicionarJogosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -338,8 +338,12 @@ namespace tcctestes.formularios
 
         private void jogos_FormClosed(object sender, FormClosedEventArgs e)
         {
-            paginaInicial form = new paginaInicial();
-            form.Show();
+         
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
