@@ -54,6 +54,7 @@ namespace tcctestes.formularios
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -164,7 +165,8 @@ namespace tcctestes.formularios
             this.jogosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adicionarToolStripMenuItem,
             this.verTodosOsJogosToolStripMenuItem,
-            this.estatísticasToolStripMenuItem});
+            this.estatísticasToolStripMenuItem,
+            this.loginToolStripMenuItem});
             this.jogosToolStripMenuItem.Name = "jogosToolStripMenuItem";
             this.jogosToolStripMenuItem.Size = new System.Drawing.Size(81, 27);
             this.jogosToolStripMenuItem.Text = "Opções";
@@ -389,6 +391,13 @@ namespace tcctestes.formularios
             this.pictureBox4.WaitOnLoad = true;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(293, 28);
+            this.loginToolStripMenuItem.Text = "Login";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            // 
             // paginaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -455,5 +464,6 @@ namespace tcctestes.formularios
         public System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.ToolStripMenuItem trocarBackgroudToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
     }
 }

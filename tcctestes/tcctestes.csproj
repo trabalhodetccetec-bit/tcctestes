@@ -163,6 +163,12 @@
     <Compile Include="formularios\jogos.Designer.cs">
       <DependentUpon>jogos.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\paginaInicial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\jogos.resx">
       <DependentUpon>jogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\paginaInicial.resx">
       <DependentUpon>paginaInicial.cs</DependentUpon>
@@ -222,6 +231,7 @@
     <Content Include="Resources\fundo.png" />
     <Content Include="imgs\filtro%281%29.png" />
     <Content Include="imgs\filtro.png" />
+    <None Include="Resources\login.png" />
     <Content Include="Resources\usuario.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

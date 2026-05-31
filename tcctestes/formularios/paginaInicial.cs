@@ -221,5 +221,11 @@ namespace tcctestes.formularios
         {
 
         }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formularios.Login log = new formularios.Login();
+            log.Show();
+        }
     }
 }
