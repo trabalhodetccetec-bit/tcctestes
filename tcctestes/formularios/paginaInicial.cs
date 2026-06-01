@@ -25,7 +25,10 @@ namespace tcctestes.formularios
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
             Label[] labels = { label1, label2, label3, label4, label5, label6 };
-            for (int i = 0; i < labels.Length; i++) 
+            label7.BackColor = Color.Transparent;
+            panel1.BackColor = Color.WhiteSmoke;
+            panel2.BackColor = Color.WhiteSmoke;
+            panel3.BackColor = Color.WhiteSmoke;
             pictureBox1.Click += AbrirJogoRecente;
             pictureBox2.Click += AbrirJogoRecente;
             pictureBox3.Click += AbrirJogoRecente;
@@ -166,31 +169,10 @@ namespace tcctestes.formularios
             form.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-
-       {
-            
-
+            formularios.Login log = new formularios.Login();
+            log.Show();
         }
 
         private void trocarBackgroudToolStripMenuItem_Click(object sender, EventArgs e)
@@ -201,31 +183,10 @@ namespace tcctestes.formularios
 
                 if (opf.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBox4.BackgroundImage = Image.FromFile(opf.FileName);
-                    
+                    this.BackgroundImage = Image.FromFile(opf.FileName);
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
                 }
             }
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formularios.Login log = new formularios.Login();
-            log.Show();
         }
     }
 }

@@ -50,5 +50,21 @@ namespace tcctestes.formularios
                 textBox1.ForeColor = Color.Gray;
             }
         }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                textBox2.Text = "senha";
+                textBox2.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBox2_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox2.Text)) { }
+            if (textBox2.Text == "senha") { textBox2.Text = ""; textBox2.ForeColor = Color.Black; }
+
+        }
     }
 }

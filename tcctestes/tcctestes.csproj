@@ -227,6 +227,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="imgs\addimage.png" />
+    <Content Include="Resources\vazio.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\Captura de tela 2026-05-30 162906.png" />
     <Content Include="Resources\fundo.png" />
     <Content Include="imgs\filtro%281%29.png" />

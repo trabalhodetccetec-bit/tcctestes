@@ -40,13 +40,14 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::tcctestes.Properties.Resources.usuario;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::tcctestes.Properties.Resources.login;
-            this.pictureBox1.Location = new System.Drawing.Point(101, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(102, 61);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 308);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(248, 242);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -80,25 +81,27 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(296, 47);
             this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "insira senha";
+            this.textBox2.Text = "senha";
+            this.textBox2.Click += new System.EventHandler(this.textBox2_Click);
+            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // label1
             // 
             this.label1.AllowDrop = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(80, 329);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(80, 339);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 29);
+            this.label1.Size = new System.Drawing.Size(78, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Nome";
             // 
             // label2
             // 
             this.label2.AllowDrop = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(80, 425);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 29);
+            this.label2.Size = new System.Drawing.Size(67, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "Senha ";
             // 
