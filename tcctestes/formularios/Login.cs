@@ -31,9 +31,24 @@ namespace tcctestes.formularios
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox1.Text)) { }
+            if (textBox1.Text == "nome de usuario") { textBox1.Text = ""; textBox1.ForeColor = Color.Black; }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                textBox1.Text = "nome de usuario";
+                textBox1.ForeColor = Color.Gray;
+            }
         }
     }
 }
