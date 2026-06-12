@@ -1,2 +1,3 @@
-
-anotações
+- Miguel -
+Adicionado os forms Ajuda e FeedBack;
+agora o plano de fundo fica salvo mesmo depois de fechar o form;
