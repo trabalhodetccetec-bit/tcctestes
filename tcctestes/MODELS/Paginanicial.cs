@@ -12,5 +12,6 @@ namespace tcctestes.MODELS
         public string Nome { get; set; }
         public string Categoria { get; set; }
         public string CaminhoImagem { get; set; }
+        public string planodefundo { get; set; }
     }
 }

@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Data.SQLite;
 using System.IO;
-using System.Windows.Media.Animation;
-using System.Xml;
-using Microsoft.SqlServer.Server;
-using System.Net.Mail;
-using System.ComponentModel;
-using System.Runtime.Remoting.Messaging;
+
 
 namespace tcctestes.formularios
 {
@@ -24,14 +17,18 @@ namespace tcctestes.formularios
         private void paginaInicial_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
+
             Label[] labels = { label1, label2, label3, label4, label5, label6 };
+
             label7.BackColor = Color.Transparent;
             panel1.BackColor = Color.WhiteSmoke;
             panel2.BackColor = Color.WhiteSmoke;
             panel3.BackColor = Color.WhiteSmoke;
+
             pictureBox1.Click += AbrirJogoRecente;
             pictureBox2.Click += AbrirJogoRecente;
             pictureBox3.Click += AbrirJogoRecente;
+
             Conectar();
         }
         private void AbrirJogoRecente(object sender, EventArgs e)
@@ -49,7 +46,7 @@ namespace tcctestes.formularios
 
                 int idJogo = Convert.ToInt32(pb.Tag);
                 sql.AbrirRecente(idJogo);
-               
+
             }
             catch (Exception ex)
             {
@@ -135,7 +132,7 @@ namespace tcctestes.formularios
             try
             {
                 BancodeDados.SQL sql = new BancodeDados.SQL();
-
+                MODELS.Paginanicial plano = sql.GETplanodefundo();
                 var jogos = sql.Recentes();
 
                 Label[] titulos = { label1, label2, label3 };
@@ -156,6 +153,15 @@ namespace tcctestes.formularios
                         imagens[i].Image = Image.FromFile(jogos[i].CaminhoImagem);
                     }
                 }
+
+                sql.GETplanodefundo();
+
+                if (!string.IsNullOrEmpty(plano.planodefundo))
+                {
+                    this.BackgroundImage = Image.FromFile(plano.planodefundo);
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+
             }
             catch (Exception ex)
             {
@@ -177,6 +183,8 @@ namespace tcctestes.formularios
 
         private void trocarBackgroudToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MODELS.Paginanicial pag = new MODELS.Paginanicial();
+            BancodeDados.SQL sql = new BancodeDados.SQL();
             using (OpenFileDialog opf = new OpenFileDialog())
             {
                 opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
@@ -185,8 +193,31 @@ namespace tcctestes.formularios
                 {
                     this.BackgroundImage = Image.FromFile(opf.FileName);
                     this.BackgroundImageLayout = ImageLayout.Stretch;
+                    pag.planodefundo = opf.FileName;
+                    sql.SETplanodefundo(pag);
                 }
             }
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            SERVICES.VerificarInternet verify = new SERVICES.VerificarInternet();
+            bool conectado = verify.Pingar();
+            if (conectado)
+            {
+                Feedback.Enabled = true;
+            }
+            else if (!conectado)
+            {
+                Feedback.Enabled = false;
+            }
+        }
+
+        private void Feedback_Click(object sender, EventArgs e)
+        {
+            FeedBack feedBack = new FeedBack();
+            feedBack.Show();
         }
     }
 }

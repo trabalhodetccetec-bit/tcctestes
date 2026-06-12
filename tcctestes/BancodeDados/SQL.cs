@@ -85,7 +85,7 @@ namespace tcctestes.BancodeDados
                         sql += " AND aval = @aval";
                         cmd.Parameters.AddWithValue("@aval", info.combobox1);
                     }
-                    
+
                     cmd.CommandText = sql;
 
                     using (var dt = new SQLiteDataAdapter(cmd))
@@ -517,6 +517,57 @@ namespace tcctestes.BancodeDados
             }
 
             return lista;
+        }
+        public MODELS.Paginanicial GETplanodefundo()
+        {
+            MODELS.Paginanicial plano = new MODELS.Paginanicial();
+
+            using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+            {
+                conn.Open();
+
+                string sql = "SELECT planodefundo FROM Form";
+
+                using (var cmd = new SQLiteCommand(sql, conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        plano.planodefundo = reader["planodefundo"].ToString();
+                    }
+                }
+            }
+
+            return plano;
+        }
+        public void SETplanodefundo(MODELS.Paginanicial pag)
+        {
+            try
+            {
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
+                {
+                    conn.Open();
+                    string sql = @"";
+                    if (pag.planodefundo == null)
+                    {
+                        sql = @"INSERT INTO Form (planodefundo) VALUES (@plano);";
+                    }
+                    else
+                    {
+                        sql = @"UPDATE Form SET planodefundo = @plano";
+                    }
+
+                    using (var cmd = new SQLiteCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@plano", pag.planodefundo);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

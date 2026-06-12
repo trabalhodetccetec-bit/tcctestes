@@ -22,24 +22,12 @@ namespace tcctestes.formularios
             InitializeComponent();
         }
 
-        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void paginaInicialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
+        
 
         private void adicionarJogosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formularios.adicionarjog adjog = new formularios.adicionarjog();
             adjog.Show();
-        }
-
-        private void excluirJogosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
         }
 
         private void jogos_Load(object sender, EventArgs e)
@@ -334,16 +322,6 @@ namespace tcctestes.formularios
                 painelop2.Enabled = false;
                 naoze.Checked = true;
             }
-        }
-
-        private void jogos_FormClosed(object sender, FormClosedEventArgs e)
-        {
-         
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
     }
 }
