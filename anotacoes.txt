@@ -1,3 +1,6 @@
-- Miguel 12/06/2026 -
+﻿- Miguel 12/06/2026 -
 Adicionado os forms Ajuda e FeedBack;
 agora o plano de fundo fica salvo mesmo depois de fechar o form;
+
+- Miguel 13/06/2026 -
+começando a preencher o formulario de feedback
