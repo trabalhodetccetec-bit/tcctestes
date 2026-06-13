@@ -233,6 +233,7 @@
     <Compile Include="MODELS\Paginanicial.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SERVICES\EnviarFeedback.cs" />
     <Compile Include="SERVICES\VerificarInternet.cs" />
     <EmbeddedResource Include="formularios\adicionarjog.resx">
       <DependentUpon>adicionarjog.cs</DependentUpon>
