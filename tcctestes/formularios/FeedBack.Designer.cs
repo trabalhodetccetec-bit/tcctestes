@@ -46,7 +46,7 @@ namespace tcctestes.formularios
             // 
             this.textBox1.Location = new System.Drawing.Point(27, 34);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 20);
+            this.textBox1.Size = new System.Drawing.Size(149, 20);
             this.textBox1.TabIndex = 1;
             // 
             // FeedBack
