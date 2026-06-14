@@ -30,7 +30,12 @@ namespace tcctestes.formularios
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtExperiencia = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExperiencia)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -42,12 +47,47 @@ namespace tcctestes.formularios
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome:";
             // 
-            // textBox1
+            // txtNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(27, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtNome.Location = new System.Drawing.Point(27, 34);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(149, 20);
+            this.txtNome.TabIndex = 1;
+            // 
+            // txtExperiencia
+            // 
+            this.txtExperiencia.Location = new System.Drawing.Point(49, 78);
+            this.txtExperiencia.Name = "txtExperiencia";
+            this.txtExperiencia.Size = new System.Drawing.Size(261, 45);
+            this.txtExperiencia.TabIndex = 2;
+            this.txtExperiencia.Value = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(328, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "numa escala de 0 a 10, como foi sua experiência usando esse app?\r\n";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(320, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "10";
             // 
             // FeedBack
             // 
@@ -55,11 +95,16 @@ namespace tcctestes.formularios
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(392, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtExperiencia);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "FeedBack";
             this.ShowIcon = false;
+            ((System.ComponentModel.ISupportInitialize)(this.txtExperiencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,6 +113,10 @@ namespace tcctestes.formularios
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TrackBar txtExperiencia;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
