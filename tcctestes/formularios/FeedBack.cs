@@ -16,5 +16,10 @@ namespace tcctestes.formularios
         {
             InitializeComponent();
         }
+
+        private void enviarFeedback_Click(object sender, EventArgs e)
+        {
+            try { } catch (FormatException ex) { MessageBox.Show(ex.Message); }
+        }
     }
 }
