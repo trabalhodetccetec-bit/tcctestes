@@ -207,10 +207,12 @@ namespace tcctestes.formularios
             if (conectado)
             {
                 Feedback.Enabled = true;
+                reportarErrosToolStripMenuItem.Enabled = true;
             }
             else if (!conectado)
             {
                 Feedback.Enabled = false;
+                reportarErrosToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -218,6 +220,12 @@ namespace tcctestes.formularios
         {
             FeedBack feedBack = new FeedBack();
             feedBack.Show();
+        }
+
+        private void reportarErrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Report reportar = new Report();
+            reportar.Show();
         }
     }
 }
