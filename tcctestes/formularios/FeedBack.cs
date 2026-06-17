@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.Json;
 
 namespace tcctestes.formularios
 {
@@ -19,7 +20,23 @@ namespace tcctestes.formularios
 
         private void enviarFeedback_Click(object sender, EventArgs e)
         {
-            try { } catch (FormatException ex) { MessageBox.Show(ex.Message); }
+            try
+            {
+                SERVICES.EnviarFeedback enviar = new SERVICES.EnviarFeedback();
+                enviar.Enviar(txtNome.Text, txtExperiencia.Value.ToString(), comboBox1.Text, recursos.Text, dificuldades.Text, comentario.Text);
+                while (!enviar.postado || !enviar.naopostado)
+                {
+
+                }
+                if (enviar.postado || enviar.naopostado)
+                {
+                    this.Close();
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
