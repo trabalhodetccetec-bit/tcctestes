@@ -12,7 +12,7 @@ using System.IO;
 using System.Data.SQLite;
 
 
-namespace tcctestes.formularios
+namespace Organizador_de_Jogos.formularios
 {
     public partial class adicionarjog : Form
     {
