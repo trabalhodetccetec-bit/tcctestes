@@ -16,6 +16,9 @@ namespace tcctestes.formularios
 
         private void paginaInicial_Load(object sender, EventArgs e)
         {
+            ajudaToolStripMenuItem.Visible = false;
+            sobreToolStripMenuItem.Visible = false;
+
             this.BackColor = Color.FromArgb(245, 245, 245);
 
             Label[] labels = { label1, label2, label3, label4, label5, label6 };
@@ -207,10 +210,12 @@ namespace tcctestes.formularios
             if (conectado)
             {
                 Feedback.Enabled = true;
+                reportarErrosToolStripMenuItem.Enabled = true;
             }
             else if (!conectado)
             {
                 Feedback.Enabled = false;
+                reportarErrosToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -218,6 +223,12 @@ namespace tcctestes.formularios
         {
             FeedBack feedBack = new FeedBack();
             feedBack.Show();
+        }
+
+        private void reportarErrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Report reportar = new Report();
+            reportar.Show();
         }
     }
 }

@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
-using System.Windows.Forms;
 using System.Net.Http;
+using System.Windows.Forms;
 
 namespace tcctestes.SERVICES
 {
-    class EnviarFeedback
+    class EnviarReport
     {
-        public async Task<bool> Enviar(string nome, string escala, string recomendacao, string recurso, string dificuldade, string comentario)
+        public async Task<bool> Enviar(string nome, string onde, string explicacao)
         {
-            string webhook = "https://discord.com/api/webhooks/1515073725676916848/b7VwzoJEwPTFhhJp6VBbbu-DZKNsVaBBfpuJ0wUvAyMRTjRMa_gjgYsvZaZ9gamvRSuc";
-            string msg = $"{Environment.NewLine}{Environment.NewLine}**NOVA AVALIAÇÃO**{Environment.NewLine}" +
+            string webhook = "https://discord.com/api/webhooks/1515472160343199896/UdyX0vyHiGoI93hg2GtLR9KzaYL-PeHdB31qu33iIL-gxdmIrBrNXZi0Rj50y2Dm9ZE8";
+            string msg = $"{Environment.NewLine}**NOVO REPORT**{Environment.NewLine}" +
                 $"**Nome**: {nome} {Environment.NewLine}" +
-                $"**Nível de experiência**: {escala}{Environment.NewLine}" +
-                $"**Recomendaria pra alguém**: {recomendacao}{Environment.NewLine}" +
-                $"**Recurso que deseja**: {recurso}{Environment.NewLine}" +
-                $"**Dificuldades que teve**: {dificuldade}{Environment.NewLine}" +
-                $"**Comentário sobre**: {comentario}{Environment.NewLine}";
+                $"**Nível de experiência**: {onde}{Environment.NewLine}" +
+                $"**Recomendaria pra alguém**: {explicacao}{Environment.NewLine}";
             try
             {
                 var msgn = new { content = msg };
@@ -31,10 +26,10 @@ namespace tcctestes.SERVICES
                     var conteudo = new StringContent(mensagem, Encoding.UTF8, "application/json");
                     HttpResponseMessage resposta = await httpsclient.PostAsync(webhook, conteudo);
 
-                    
+
                     if (resposta.IsSuccessStatusCode)
                     {
-                        MessageBox.Show("Avaliação enviada com sucesso!");
+                        MessageBox.Show("Reporte enviado com sucesso!");
                     }
                     else
                     {

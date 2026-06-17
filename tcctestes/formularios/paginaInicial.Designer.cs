@@ -55,6 +55,7 @@ namespace tcctestes.formularios
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.reportarErrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -137,7 +138,8 @@ namespace tcctestes.formularios
             this.verTodosOsJogosToolStripMenuItem,
             this.estatísticasToolStripMenuItem,
             this.loginToolStripMenuItem,
-            this.Feedback});
+            this.Feedback,
+            this.reportarErrosToolStripMenuItem});
             this.jogosToolStripMenuItem.Name = "jogosToolStripMenuItem";
             this.jogosToolStripMenuItem.Size = new System.Drawing.Size(65, 22);
             this.jogosToolStripMenuItem.Text = "Opções";
@@ -177,7 +179,7 @@ namespace tcctestes.formularios
             // 
             this.Feedback.Name = "Feedback";
             this.Feedback.Size = new System.Drawing.Size(233, 22);
-            this.Feedback.Text = "Feedback";
+            this.Feedback.Text = "Avaliação";
             this.Feedback.Click += new System.EventHandler(this.Feedback_Click);
             // 
             // ajudaToolStripMenuItem
@@ -203,8 +205,8 @@ namespace tcctestes.formularios
             // trocarBackgroudToolStripMenuItem
             // 
             this.trocarBackgroudToolStripMenuItem.Name = "trocarBackgroudToolStripMenuItem";
-            this.trocarBackgroudToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.trocarBackgroudToolStripMenuItem.Text = "trocar backgroud";
+            this.trocarBackgroudToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.trocarBackgroudToolStripMenuItem.Text = "Trocar plano de fundo";
             this.trocarBackgroudToolStripMenuItem.Click += new System.EventHandler(this.trocarBackgroudToolStripMenuItem_Click);
             // 
             // panel1
@@ -352,6 +354,13 @@ namespace tcctestes.formularios
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // reportarErrosToolStripMenuItem
+            // 
+            this.reportarErrosToolStripMenuItem.Name = "reportarErrosToolStripMenuItem";
+            this.reportarErrosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.reportarErrosToolStripMenuItem.Text = "Reportar erros";
+            this.reportarErrosToolStripMenuItem.Click += new System.EventHandler(this.reportarErrosToolStripMenuItem_Click);
+            // 
             // paginaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,5 +420,6 @@ namespace tcctestes.formularios
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Feedback;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem reportarErrosToolStripMenuItem;
     }
 }
