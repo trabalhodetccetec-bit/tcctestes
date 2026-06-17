@@ -16,7 +16,7 @@ namespace tcctestes.formularios
 
         private void paginaInicial_Load(object sender, EventArgs e)
         {
-            ajudaToolStripMenuItem.Visible = false;
+            ajudaToolStripMenuItem.Visible = true;
             sobreToolStripMenuItem.Visible = false;
 
             this.BackColor = Color.FromArgb(245, 245, 245);

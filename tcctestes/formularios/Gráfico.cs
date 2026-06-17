@@ -20,6 +20,8 @@ namespace tcctestes.formularios
 
         private void Gráfico_Load(object sender, EventArgs e)
         {
+            ajudaToolStripMenuItem.Visible = false;
+            sobreToolStripMenuItem.Visible = true;
             label1.Text = "";
             label2.Text = "";
             label3.Text = "";

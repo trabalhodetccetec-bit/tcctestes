@@ -32,6 +32,8 @@ namespace tcctestes.formularios
 
         private void jogos_Load(object sender, EventArgs e)
         {
+            ajudaToolStripMenuItem.Visible = false;
+            sobreToolStripMenuItem.Visible = false;
             panel4.Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             btnsalvar.Enabled = false;
