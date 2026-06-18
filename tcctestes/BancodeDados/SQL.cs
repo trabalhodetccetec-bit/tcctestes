@@ -547,26 +547,20 @@ namespace tcctestes.BancodeDados
                 using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
                     conn.Open();
-                    string sql = @"";
-                    if (pag.planodefundo == null)
-                    {
-                        sql = @"INSERT INTO Form (planodefundo) VALUES (@plano);";
-                    }
-                    else
-                    {
-                        sql = @"UPDATE Form SET planodefundo = @plano";
-                    }
+
+                    // O segredo está em passar o ID fixo como 1
+                    string sql = @"INSERT OR REPLACE INTO Form (id, planodefundo) VALUES (1, @plano);";
 
                     using (var cmd = new SQLiteCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@plano", pag.planodefundo);
+                        cmd.Parameters.AddWithValue("@plano", (object)pag.planodefundo ?? DBNull.Value);
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro ao salvar plano de fundo: " + ex.Message);
             }
         }
     }

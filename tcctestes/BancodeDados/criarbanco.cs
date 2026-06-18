@@ -44,6 +44,7 @@ namespace tcctestes.BancodeDados
 
                     CREATE TABLE IF NOT EXISTS Form
                     (
+                        id INTEGER PRIMARY KEY CHECK (id = 1),
                         planodefundo TEXT
                     );
                 ";
