@@ -29,6 +29,7 @@ namespace tcctestes.formularios
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.jogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarJogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +74,7 @@ namespace tcctestes.formularios
             this.txtfiltros = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.painel.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -604,6 +606,11 @@ namespace tcctestes.formularios
             this.panel4.Size = new System.Drawing.Size(143, 252);
             this.panel4.TabIndex = 8;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1500;
+            // 
             // jogos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -691,5 +698,6 @@ namespace tcctestes.formularios
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.RadioButton naojoguei;
         private System.Windows.Forms.RadioButton jajoguei;
+        private System.Windows.Forms.Timer timer1;
     }
 }

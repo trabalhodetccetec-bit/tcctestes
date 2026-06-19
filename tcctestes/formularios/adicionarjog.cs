@@ -97,7 +97,7 @@ namespace tcctestes.formularios
                     comboBox2.SelectedIndex = 1;
                     comboBox1.SelectedIndex = 0;
                     cam = "";
-                    pictureBox1.Image = Image.FromFile("..\\imgs\\addimage.png");
+                    pictureBox1.Image = Properties.Resources.addimage;
                     jajog.Checked = false;
                     naojog.Checked = false;
                     jaze.Checked = false;

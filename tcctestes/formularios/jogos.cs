@@ -215,6 +215,30 @@ namespace tcctestes.formularios
             }
             dataGridView1.DataSource = sql.CarregarDados();
             dataGridView1.Columns["IDJogo"].Visible = false;
+            ajudaToolStripMenuItem.Visible = false;
+            sobreToolStripMenuItem.Visible = false;
+            panel4.Visible = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            btnsalvar.Enabled = false;
+            try
+            {
+                dataGridView1.DataSource = sql.CarregarDados();
+                dataGridView1.Columns["IDJogo"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os dados: " + ex.Message);
+            }
+            pictureBox1.Image = null;
+            nome.Text = null;
+            path.Text = null;
+            descricao.Text = null;
+            cat.SelectedIndex = -1;
+            aval.SelectedIndex = -1;
+            jajoguei.Checked = false;
+            naojoguei.Checked = false;
+            jaze.Checked = false;
+            naoze.Checked = false;
         }
 
         private void txtfiltros_Click(object sender, EventArgs e)

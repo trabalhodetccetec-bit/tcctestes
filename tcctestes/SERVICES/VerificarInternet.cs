@@ -14,7 +14,7 @@ namespace tcctestes.SERVICES
             try
             {
                 Ping ping = new Ping();
-                PingReply reply = ping.Send("8.8.8.8", 500);
+                PingReply reply = ping.Send("8.8.8.8", 100);
                 return reply.Status == IPStatus.Success;
             }
             catch
