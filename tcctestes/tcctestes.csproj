@@ -191,12 +191,6 @@
     <Compile Include="formularios\adicionarjog.Designer.cs">
       <DependentUpon>adicionarjog.cs</DependentUpon>
     </Compile>
-    <Compile Include="formularios\Ajuda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formularios\Ajuda.Designer.cs">
-      <DependentUpon>Ajuda.cs</DependentUpon>
-    </Compile>
     <Compile Include="formularios\FeedBack.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,9 +238,6 @@
     <Compile Include="SERVICES\VerificarInternet.cs" />
     <EmbeddedResource Include="formularios\adicionarjog.resx">
       <DependentUpon>adicionarjog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formularios\Ajuda.resx">
-      <DependentUpon>Ajuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\FeedBack.resx">
       <DependentUpon>FeedBack.cs</DependentUpon>
@@ -297,6 +288,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="imgs\addimage.png" />
+    <Content Include="Paginas\adicionarjogos.html" />
+    <Content Include="Paginas\bootstrap\bootstrap.bundle.min.js" />
+    <Content Include="Paginas\bootstrap\bootstrap.min.css" />
     <Content Include="Resources\vazio.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
