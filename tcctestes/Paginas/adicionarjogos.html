@@ -5,11 +5,51 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
-    <title> </title>
+    <link rel="icon" type="image/x-icon" href="bootstrap/icon-ajuda.png">
+    <title>Ajuda</title>
+    <style>
+        .pagina {
+            display: none;
+        }
+
+        .ativa {
+            display: block;
+        }
+    </style>
 
 </head>
 <body>
+    <div class="container-fluid">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" onclick="trocarPagina('pagina1')">Action</a></li>
+                <li><a class="dropdown-item" onclick="trocarPagina('pagina2')">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+        <div id="pagina1" class="pagina">
+            <h1>Como adicionar o jogo?</h1>
+            <p> </p>
+        </div>
+        <div id="pagina2" class="pagina">
+            <h1>Como ver a tabela de </h1>
+            <p> </p>
+        </div>
 
+    </div>
+
+    <script>
+        function trocarPagina(id) {
+            document.querySelectorAll('.pagina').forEach(pagina => {
+                pagina.classList.remove('ativa');
+            });
+
+            document.getElementById(id).classList.add('ativa');
+        }
+    </script>
     <script src="bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
