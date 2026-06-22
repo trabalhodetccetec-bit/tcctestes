@@ -291,7 +291,9 @@
     <Content Include="Paginas\adicionarjogos.html" />
     <Content Include="Paginas\bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Paginas\bootstrap\bootstrap.min.css" />
+    <Content Include="Paginas\bootstrap\Captura de tela 2026-06-22 121955.png" />
     <Content Include="Paginas\bootstrap\icon-ajuda.png" />
+    <Content Include="Paginas\bootstrap\opcoespasso1.png" />
     <Content Include="Resources\vazio.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
