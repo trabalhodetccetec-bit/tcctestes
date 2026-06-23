@@ -30,16 +30,7 @@ namespace tcctestes.formularios
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog opf = new OpenFileDialog())
-            {
-                opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
-
-                if (opf.ShowDialog() == DialogResult.OK)
-                {
-                    pictureBox1.Image = Image.FromFile(opf.FileName);
-                    cam = opf.FileName;
-                }
-            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -162,6 +153,20 @@ namespace tcctestes.formularios
         {
             comboBox2.SelectedIndex = 1;
             comboBox1.SelectedIndex = 1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog opf = new OpenFileDialog())
+            {
+                opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
+
+                if (opf.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image = Image.FromFile(opf.FileName);
+                    cam = opf.FileName;
+                }
+            }
         }
     }
 }

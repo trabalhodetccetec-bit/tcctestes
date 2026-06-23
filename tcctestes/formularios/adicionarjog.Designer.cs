@@ -45,6 +45,7 @@ namespace tcctestes.formularios
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,20 +66,20 @@ namespace tcctestes.formularios
             "MOBA",
             "Estratégia",
             "Ritmo"});
-            this.comboBox2.Location = new System.Drawing.Point(363, 54);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Location = new System.Drawing.Point(408, 68);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(115, 24);
+            this.comboBox2.Size = new System.Drawing.Size(129, 28);
             this.comboBox2.TabIndex = 19;
             // 
             // adicionar
             // 
-            this.adicionar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.adicionar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.adicionar.Location = new System.Drawing.Point(16, 405);
-            this.adicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.adicionar.Location = new System.Drawing.Point(18, 506);
+            this.adicionar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.adicionar.Name = "adicionar";
-            this.adicionar.Size = new System.Drawing.Size(467, 28);
+            this.adicionar.Size = new System.Drawing.Size(525, 35);
             this.adicionar.TabIndex = 18;
             this.adicionar.Text = "adicionar";
             this.adicionar.UseVisualStyleBackColor = true;
@@ -87,25 +88,24 @@ namespace tcctestes.formularios
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(293, 246);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(330, 308);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(185, 27);
+            this.button1.Size = new System.Drawing.Size(208, 34);
             this.button1.TabIndex = 17;
-            this.button1.Text = "Linkar atalho";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Text = "Adicionar atalho";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox3
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(16, 247);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Location = new System.Drawing.Point(18, 309);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(267, 22);
+            this.textBox3.Size = new System.Drawing.Size(300, 26);
             this.textBox3.TabIndex = 16;
             this.textBox3.Text = "caminho";
             // 
@@ -114,21 +114,21 @@ namespace tcctestes.formularios
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.naoze);
             this.groupBox2.Controls.Add(this.jaze);
-            this.groupBox2.Location = new System.Drawing.Point(256, 169);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(288, 211);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(223, 70);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(251, 88);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
             // naoze
             // 
             this.naoze.AutoSize = true;
-            this.naoze.Location = new System.Drawing.Point(107, 25);
-            this.naoze.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.naoze.Location = new System.Drawing.Point(120, 31);
+            this.naoze.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.naoze.Name = "naoze";
-            this.naoze.Size = new System.Drawing.Size(86, 20);
+            this.naoze.Size = new System.Drawing.Size(101, 24);
             this.naoze.TabIndex = 1;
             this.naoze.TabStop = true;
             this.naoze.Text = "Não zerei";
@@ -137,10 +137,10 @@ namespace tcctestes.formularios
             // jaze
             // 
             this.jaze.AutoSize = true;
-            this.jaze.Location = new System.Drawing.Point(9, 25);
-            this.jaze.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jaze.Location = new System.Drawing.Point(10, 31);
+            this.jaze.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jaze.Name = "jaze";
-            this.jaze.Size = new System.Drawing.Size(75, 20);
+            this.jaze.Size = new System.Drawing.Size(89, 24);
             this.jaze.TabIndex = 0;
             this.jaze.TabStop = true;
             this.jaze.Text = "Já zerei";
@@ -151,21 +151,21 @@ namespace tcctestes.formularios
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.naojog);
             this.groupBox1.Controls.Add(this.jajog);
-            this.groupBox1.Location = new System.Drawing.Point(256, 87);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(288, 109);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(223, 70);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(251, 88);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             // 
             // naojog
             // 
             this.naojog.AutoSize = true;
-            this.naojog.Location = new System.Drawing.Point(107, 25);
-            this.naojog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.naojog.Location = new System.Drawing.Point(120, 31);
+            this.naojog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.naojog.Name = "naojog";
-            this.naojog.Size = new System.Drawing.Size(94, 20);
+            this.naojog.Size = new System.Drawing.Size(109, 24);
             this.naojog.TabIndex = 1;
             this.naojog.TabStop = true;
             this.naojog.Text = "Não joguei";
@@ -175,10 +175,10 @@ namespace tcctestes.formularios
             // jajog
             // 
             this.jajog.AutoSize = true;
-            this.jajog.Location = new System.Drawing.Point(9, 25);
-            this.jajog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jajog.Location = new System.Drawing.Point(10, 31);
+            this.jajog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jajog.Name = "jajog";
-            this.jajog.Size = new System.Drawing.Size(83, 20);
+            this.jajog.Size = new System.Drawing.Size(97, 24);
             this.jajog.TabIndex = 0;
             this.jajog.TabStop = true;
             this.jajog.Text = "Já joguei";
@@ -196,23 +196,23 @@ namespace tcctestes.formularios
             "Não gostei",
             "Gostei",
             "Amei"});
-            this.comboBox1.Location = new System.Drawing.Point(256, 54);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(288, 68);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(97, 24);
+            this.comboBox1.Size = new System.Drawing.Size(109, 28);
             this.comboBox1.TabIndex = 13;
             // 
             // textBox2
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.ForeColor = System.Drawing.Color.Gray;
-            this.textBox2.Location = new System.Drawing.Point(16, 279);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Location = new System.Drawing.Point(18, 349);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(461, 117);
+            this.textBox2.Size = new System.Drawing.Size(518, 145);
             this.textBox2.TabIndex = 12;
             this.textBox2.Text = "Descrição";
             this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
@@ -223,10 +223,10 @@ namespace tcctestes.formularios
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(256, 10);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(288, 12);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 22);
+            this.textBox1.Size = new System.Drawing.Size(248, 26);
             this.textBox1.TabIndex = 11;
             this.textBox1.Text = "Nome";
             this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
@@ -234,27 +234,38 @@ namespace tcctestes.formularios
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::tcctestes.Properties.Resources.addimage;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 230);
+            this.pictureBox1.Size = new System.Drawing.Size(253, 245);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(18, 265);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(253, 36);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Adicionar capa do jogo";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // adicionarjog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(487, 438);
+            this.ClientSize = new System.Drawing.Size(548, 548);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.adicionar);
@@ -265,7 +276,7 @@ namespace tcctestes.formularios
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "adicionarjog";
@@ -298,5 +309,6 @@ namespace tcctestes.formularios
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button2;
     }
 }
