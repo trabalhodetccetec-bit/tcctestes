@@ -295,6 +295,7 @@
     <Content Include="Paginas\bootstrap\cntla.jpg" />
     <Content Include="Paginas\bootstrap\icon-ajuda.png" />
     <Content Include="Paginas\bootstrap\opcoespasso1.png" />
+    <Content Include="Paginas\bootstrap\tutorial1.gif" />
     <Content Include="Resources\vazio.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
