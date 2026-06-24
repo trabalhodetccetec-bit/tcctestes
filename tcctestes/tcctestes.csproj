@@ -288,13 +288,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="imgs\addimage.png" />
+    <Content Include="imgs\Minecraft-Launcher.exe" />
+    <Content Include="imgs\Minecraft.jpg" />
+    <Content Include="imgs\minecraftNovo.png" />
     <Content Include="Paginas\adicionarjogos.html" />
     <Content Include="Paginas\bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Paginas\bootstrap\bootstrap.min.css" />
     <Content Include="Paginas\bootstrap\Captura de tela 2026-06-22 121955.png" />
+    <Content Include="Paginas\bootstrap\Captura de tela 2026-06-25 101135.png" />
     <Content Include="Paginas\bootstrap\cntla.jpg" />
+    <Content Include="Paginas\bootstrap\ctrl-t.jpg" />
     <Content Include="Paginas\bootstrap\icon-ajuda.png" />
     <Content Include="Paginas\bootstrap\opcoespasso1.png" />
+    <Content Include="Paginas\bootstrap\tutorial1.gif" />
     <Content Include="Resources\vazio.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

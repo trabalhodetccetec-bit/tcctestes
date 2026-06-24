@@ -32,7 +32,7 @@ namespace tcctestes.BancodeDados
                         Nome TEXT NOT NULL UNIQUE,
                         Caminho TEXT NOT NULL,
                         cate TEXT NOT NULL,
-                        aval TEXT NOT NULL,
+                        aval TEXT NOT NULL, 
                         Caminhoimg TEXT NOT NULL,
                         zerei TEXT NOT NULL,
                         joguei TEXT NOT NULL,

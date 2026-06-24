@@ -110,10 +110,11 @@ namespace tcctestes.BancodeDados
 
                 using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
-                    string sql = @"SELECT Caminhoimg FROM Jogos WHERE IDJogo = @id";
+                    string sql = @"SELECT Caminhoimg  FROM Jogos WHERE IDJogo = @id";
 
                     conn.Open();
 
+                    MessageBox.Show(img);
                     if (string.IsNullOrEmpty(img))
                     {
                         using (var comando = new SQLiteCommand(sql, conn))
@@ -150,7 +151,7 @@ namespace tcctestes.BancodeDados
                         comando.Parameters.AddWithValue("@exe", dados.pathexe);
                         comando.Parameters.AddWithValue("@cat", dados.Categoria);
                         comando.Parameters.AddWithValue("@aval", dados.aval);
-                        comando.Parameters.AddWithValue("@img", dados.pathimage);
+                        comando.Parameters.AddWithValue("@img", img);
                         comando.Parameters.AddWithValue("@zer", dados.zerou);
                         comando.Parameters.AddWithValue("@jog", dados.jogou);
                         comando.Parameters.AddWithValue("@Des", dados.Descricao);

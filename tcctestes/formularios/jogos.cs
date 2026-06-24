@@ -144,7 +144,7 @@ namespace tcctestes.formularios
             {
                 MODELS.Dados dados = new MODELS.Dados();
                 int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
-
+               
                 dados.idselecionado = idSelecionado;
                 dados.Nome = nome.Text;
                 dados.Descricao = descricao.Text;
