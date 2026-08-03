@@ -22,15 +22,11 @@ namespace tcctestes.formularios
             InitializeComponent();
             toolTip1.SetToolTip(this.pictureBox1, "dê preferencia a imagens altas e não largas");
         }
+
         private void adicionarjog_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 1;
             comboBox2.SelectedIndex = 0;
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,7 +66,7 @@ namespace tcctestes.formularios
                 {
 
                     MODELS.Dados dad = new MODELS.Dados();
-                    BancodeDados.SQL sql = new BancodeDados.SQL();
+                    SERVICES.cominicacao comunicacao = new SERVICES.cominicacao();
                     dad.Nome = textBox1.Text;
                     dad.Descricao = textBox2.Text;
                     dad.pathexe = textBox3.Text;
@@ -81,7 +77,7 @@ namespace tcctestes.formularios
                     else { dad.jogou = naojog.Text; }
                     if (jaze.Checked) { dad.zerou = jaze.Text; }
                     else { dad.zerou = naoze.Text; }
-                    sql.Adicionar(dad);
+                    comunicacao.adicionar(dad);
                     textBox1.Clear();
                     textBox2.Clear();
                     textBox3.Clear();
@@ -109,8 +105,6 @@ namespace tcctestes.formularios
             if (textBox1.Text == "Nome") { textBox1.Text = ""; textBox1.ForeColor = Color.Black; }
 
         }
-
-
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
