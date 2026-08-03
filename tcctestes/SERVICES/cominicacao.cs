@@ -23,14 +23,12 @@ namespace tcctestes.SERVICES
                 throw new Exception("Erro ao adicionar dados: " + ex.Message);
             }
         }
-        public Dados mostrar(int id, Dados dados)
+        public Dados Mostrar(int id)
         {
             try
             {
-
                 SQL sql = new SQL();
-                sql.Mostrar(id);
-                return dados;
+                return sql.Mostrar(id);
             }
             catch
             {
