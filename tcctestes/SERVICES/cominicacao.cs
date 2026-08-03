@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using tcctestes.MODELS;
+using tcctestes.BancodeDados;
+using System.windows.Forms;
 
 namespace tcctestes.SERVICES
 {
     internal class cominicacao
     {
-        public void adicionar(MODELS.Dados dados)
+        public void adicionar(Dados dados)
         {
             try
             {
-                BancodeDados.SQL sql = new BancodeDados.SQL();
+                SQL sql = new SQL();
                 sql.Adicionar(dados);
             }
             catch (Exception ex)
@@ -21,12 +23,12 @@ namespace tcctestes.SERVICES
                 throw new Exception("Erro ao adicionar dados: " + ex.Message);
             }
         }
-        public MODELS.Dados mostrar(int id, MODELS.Dados dados)
+        public Dados mostrar(int id, Dados dados)
         {
             try
             {
 
-                BancodeDados.SQL sql = new BancodeDados.SQL();
+                SQL sql = new SQL();
                 sql.Mostrar(id);
                 return dados;
             }
@@ -35,11 +37,11 @@ namespace tcctestes.SERVICES
                 return null;
             }
         }
-        public List<MODELS.Paginanicial> recentes()
+        public List<Paginanicial> recentes()
         {
             try
             {
-                BancodeDados.SQL sql = new BancodeDados.SQL();
+                SQL sql = new SQL();
                 return sql.Recentes();
             }
             catch
@@ -51,7 +53,7 @@ namespace tcctestes.SERVICES
         {
             try
             {
-                BancodeDados.SQL sql = new BancodeDados.SQL();
+                SQL sql = new SQL();
                 sql.AbrirRecente(id);
             }
             catch
@@ -60,10 +62,95 @@ namespace tcctestes.SERVICES
             }
 
         }
-        public List<MODELS.Grafico> grafico() {
-            return null;
+        public List<Grafico> grafico(int tipo)
+        {
+            SQL sql = new SQL();
+            return sql.Grafico(tipo);
         }
+        public DataTable carregardados()
+        {
 
-
+            try
+            {
+                SQL sql = new SQL();
+                return sql.CarregarDados();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public DataTable filtro(Filtro filtro)
+        {
+            try
+            {
+                SQL sql = new SQL();
+                return sql.Filtro(filtro);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public void salvar(Dados dados)
+        {
+            try
+            {
+                SQL sql = new SQL();
+                sql.Salvar(dados);
+            }
+            catch
+            {
+                throw new Exception("Erro ao salvar dados");
+            }
+        }
+        public void excluir(int id)
+        {
+            try
+            {
+                SQL sql = new SQL();
+                sql.Excluir(id);
+            }
+            catch
+            {
+                throw new Exception("Erro ao excluir dados");
+            }
+        }
+        public void abrir(int id)
+        {
+            try
+            {
+                SQL sql = new SQL();
+                sql.Abrir(id);
+            }
+            catch
+            {
+                throw new Exception("Erro ao abrir dados");
+            }
+        }
+        public void setplanodefundo(Paginanicial plano)
+        {
+            try
+            {
+                SQL sql = new SQL();
+                sql.SetPlanoDeFundo(plano);
+            }
+            catch
+            {
+                throw new Exception("Erro ao definir plano de fundo");
+            }
+        }
+        public Paginanicial getplanodefundo()
+        {
+            try
+            {
+                SQL sql = new SQL();
+                return sql.GetPlanoDeFundo();
+            }
+            catch
+            {
+                throw new Exception("Erro ao obter plano de fundo");
+            }
+        }
     }
 }
