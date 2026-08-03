@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Text.Json;
+using System.IO;
+using System.Diagnostics;
 using tcctestes.MODELS;
 using tcctestes.BancodeDados;
-using System.windows.Forms;
 
 namespace tcctestes.SERVICES
 {
@@ -131,7 +137,7 @@ namespace tcctestes.SERVICES
             try
             {
                 SQL sql = new SQL();
-                sql.SetPlanoDeFundo(plano);
+                sql.SETplanodefundo(plano);
             }
             catch
             {
@@ -143,7 +149,7 @@ namespace tcctestes.SERVICES
             try
             {
                 SQL sql = new SQL();
-                return sql.GetPlanoDeFundo();
+                return sql.GETplanodefundo();
             }
             catch
             {

@@ -75,7 +75,7 @@ namespace tcctestes.formularios
                     panel2, panel3, panel4, panel5,
                     panel6, panel7, panel8, panel9
                 };
-                BancodeDados.SQL sql = new BancodeDados.SQL();
+                SERVICES.cominicacao comunicacao = new SERVICES.cominicacao();
                 if (selecao.SelectedIndex == 0 || selecao.SelectedIndex == 1 || selecao.SelectedIndex == 4)
                 {
                     chart1.Series[0].ChartType = SeriesChartType.Pie;
@@ -90,7 +90,7 @@ namespace tcctestes.formularios
                 }
                 if (selecao.SelectedIndex == 0)
                 {
-                    var jogos = sql.Grafico(selecao.SelectedIndex);
+                    var jogos = comunicacao.grafico(selecao.SelectedIndex);
 
                     chart1.Series[0].Points.Clear();
 
@@ -137,7 +137,7 @@ namespace tcctestes.formularios
                 }
                 else if (selecao.SelectedIndex == 1)
                 {
-                    var jogos = sql.Grafico(selecao.SelectedIndex);
+                    var jogos = comunicacao.grafico(selecao.SelectedIndex);
 
                     chart1.Series[0].Points.Clear();
 
@@ -185,7 +185,7 @@ namespace tcctestes.formularios
                 }
                 else if (selecao.SelectedIndex == 2)
                 {
-                    var jogos = sql.Grafico(selecao.SelectedIndex);
+                    var jogos = comunicacao.grafico(selecao.SelectedIndex);
 
                     chart1.Series[0].Points.Clear();
 
@@ -233,7 +233,7 @@ namespace tcctestes.formularios
                 }
                 else if (selecao.SelectedIndex == 3)
                 {
-                    var jogos = sql.Grafico(selecao.SelectedIndex);
+                    var jogos = comunicacao.grafico(selecao.SelectedIndex);
 
                     chart1.Series[0].Points.Clear();
 
@@ -281,7 +281,7 @@ namespace tcctestes.formularios
                 }
                 else
                 {
-                    var jogos = sql.Grafico(selecao.SelectedIndex);
+                    var jogos = comunicacao.grafico(selecao.SelectedIndex);
 
                     chart1.Series[0].Points.Clear();
 

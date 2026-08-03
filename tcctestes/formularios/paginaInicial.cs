@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 
 namespace tcctestes.formularios
@@ -16,7 +17,6 @@ namespace tcctestes.formularios
 
         private void paginaInicial_Load(object sender, EventArgs e)
         {
-            ajudaToolStripMenuItem.Visible = false;
             sobreToolStripMenuItem.Visible = false;
 
             this.BackColor = Color.FromArgb(245, 245, 245);
@@ -38,7 +38,7 @@ namespace tcctestes.formularios
         {
             try
             {
-                BancodeDados.SQL sql = new BancodeDados.SQL();
+                SERVICES.cominicacao comunicacao = new SERVICES.cominicacao();
                 PictureBox pb = (PictureBox)sender;
 
                 if (pb.Tag == null)
@@ -48,7 +48,7 @@ namespace tcctestes.formularios
                 }
 
                 int idJogo = Convert.ToInt32(pb.Tag);
-                sql.AbrirRecente(idJogo);
+                comunicacao.abrirrecente(idJogo);
 
             }
             catch (Exception ex)
@@ -134,9 +134,9 @@ namespace tcctestes.formularios
         {
             try
             {
-                BancodeDados.SQL sql = new BancodeDados.SQL();
-                MODELS.Paginanicial plano = sql.GETplanodefundo();
-                var jogos = sql.Recentes();
+                SERVICES.cominicacao comunicacao = new SERVICES.cominicacao();
+                MODELS.Paginanicial plano = comunicacao.getplanodefundo();
+                var jogos = comunicacao.recentes();
 
                 Label[] titulos = { label1, label2, label3 };
                 Label[] categorias = { label4, label5, label6 };
@@ -157,7 +157,7 @@ namespace tcctestes.formularios
                     }
                 }
 
-                sql.GETplanodefundo();
+                comunicacao.getplanodefundo();
 
                 if (!string.IsNullOrEmpty(plano.planodefundo))
                 {
@@ -187,7 +187,7 @@ namespace tcctestes.formularios
         private void trocarBackgroudToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MODELS.Paginanicial pag = new MODELS.Paginanicial();
-            BancodeDados.SQL sql = new BancodeDados.SQL();
+            SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
             using (OpenFileDialog opf = new OpenFileDialog())
             {
                 opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
@@ -197,7 +197,7 @@ namespace tcctestes.formularios
                     this.BackgroundImage = Image.FromFile(opf.FileName);
                     this.BackgroundImageLayout = ImageLayout.Stretch;
                     pag.planodefundo = opf.FileName;
-                    sql.SETplanodefundo(pag);
+                    cominicacao.setplanodefundo(pag);
                 }
             }
         }
@@ -229,6 +229,11 @@ namespace tcctestes.formularios
         {
             Report reportar = new Report();
             reportar.Show();
+        }
+
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"..\\Paginas\\adicionarjogog.html");
         }
     }
 }

@@ -32,15 +32,14 @@ namespace tcctestes.formularios
 
         private void jogos_Load(object sender, EventArgs e)
         {
-            ajudaToolStripMenuItem.Visible = false;
             sobreToolStripMenuItem.Visible = false;
             panel4.Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             btnsalvar.Enabled = false;
             try
             {
-                BancodeDados.SQL sql = new BancodeDados.SQL();
-                dataGridView1.DataSource = sql.CarregarDados();
+                SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+                dataGridView1.DataSource = cominicacao.carregardados();
                 dataGridView1.Columns["IDJogo"].Visible = false;
             }
             catch (Exception ex)
@@ -159,9 +158,9 @@ namespace tcctestes.formularios
                 if (jaze.Checked) { dados.zerou = jaze.Text; }
                 else { dados.zerou = naoze.Text; }
 
-                BancodeDados.SQL sql = new BancodeDados.SQL();
-                sql.Salvar(dados);
-                dataGridView1.DataSource = sql.CarregarDados();
+                SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+                cominicacao.salvar(dados);
+                dataGridView1.DataSource = cominicacao.carregardados();
                 dataGridView1.Columns["IDJogo"].Visible = false;
             }
             catch (Exception ex)
@@ -191,8 +190,8 @@ namespace tcctestes.formularios
         {
             try
             {
-                BancodeDados.SQL sql = new BancodeDados.SQL();
-                sql.Abrir(Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value));
+                SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+                cominicacao.abrir(Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value));
                 Process.Start(path.Text);
             }
             catch (Exception ex)
@@ -204,16 +203,17 @@ namespace tcctestes.formularios
         private void btnexc_Click(object sender, EventArgs e)
         {
 
-            BancodeDados.SQL sql = new BancodeDados.SQL();
+            SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+
             if (MessageBox.Show("Deseja realmente excluir este jogo?", "Confirmar exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
             {
                 return;
             }
             else
             {
-                sql.Excluir(Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value));
+                cominicacao.excluir(Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value));
             }
-            dataGridView1.DataSource = sql.CarregarDados();
+            dataGridView1.DataSource = cominicacao.carregardados();
             dataGridView1.Columns["IDJogo"].Visible = false;
             ajudaToolStripMenuItem.Visible = false;
             sobreToolStripMenuItem.Visible = false;
@@ -222,7 +222,7 @@ namespace tcctestes.formularios
             btnsalvar.Enabled = false;
             try
             {
-                dataGridView1.DataSource = sql.CarregarDados();
+                dataGridView1.DataSource = cominicacao.carregardados();
                 dataGridView1.Columns["IDJogo"].Visible = false;
             }
             catch (Exception ex)
@@ -267,8 +267,9 @@ namespace tcctestes.formularios
             info.combobox2 = comboBox2.Text;
             try
             {
-                BancodeDados.SQL sql = new BancodeDados.SQL();
-                dataGridView1.DataSource = sql.Filtro(info);
+                SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+
+                dataGridView1.DataSource = cominicacao.filtro(info);
                 dataGridView1.Columns["IDJogo"].Visible = false;
             }
             catch (Exception ex)
@@ -348,6 +349,14 @@ namespace tcctestes.formularios
                 painelop2.Enabled = false;
                 naoze.Checked = true;
             }
+        }
+
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "..\\Paginas\\adicionarjogos.html"
+            });
         }
     }
 }

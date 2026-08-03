@@ -132,6 +132,7 @@ namespace tcctestes.formularios
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
             this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.ajudaToolStripMenuItem.Text = "ajuda";
+            this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
             // 
