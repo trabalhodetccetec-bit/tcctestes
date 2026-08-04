@@ -235,7 +235,7 @@ namespace tcctestes.formularios
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = @"C:\Users\EtecFP\source\repos\trabalhodetccetec-bit\tcctestes\tcctestes\Paginas\",
+                FileName = @"C:\Users\EtecFP\source\repos\trabalhodetccetec-bit\tcctestes\tcctestes\Paginas\adicionarjogos.html",
                 UseShellExecute = true
             });
         }
