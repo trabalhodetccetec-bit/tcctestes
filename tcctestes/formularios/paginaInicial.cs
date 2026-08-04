@@ -233,7 +233,11 @@ namespace tcctestes.formularios
 
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start(@"..\\Paginas\\adicionarjogog.html");
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = @"C:\Users\EtecFP\source\repos\trabalhodetccetec-bit\tcctestes\tcctestes\Paginas\",
+                UseShellExecute = true
+            });
         }
     }
 }
