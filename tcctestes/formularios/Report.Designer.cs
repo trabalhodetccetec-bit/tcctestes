@@ -115,7 +115,6 @@ namespace tcctestes.formularios
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(331, 25);
             this.progressBar1.TabIndex = 7;
-            this.progressBar1.Visible = false;
             // 
             // Report
             // 

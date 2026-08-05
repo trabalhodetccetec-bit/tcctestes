@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Microsoft.Web.WebView2;
 
 
 namespace tcctestes.formularios
@@ -233,9 +234,14 @@ namespace tcctestes.formularios
 
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string caminho = Path.Combine(
+                Application.StartupPath,
+                "Paginas",
+                "adicionarjogos.html");
+
             Process.Start(new ProcessStartInfo
             {
-                FileName = @"C:\Users\EtecFP\source\repos\trabalhodetccetec-bit\tcctestes\tcctestes\Paginas\adicionarjogos.html",
+                FileName = caminho,
                 UseShellExecute = true
             });
         }

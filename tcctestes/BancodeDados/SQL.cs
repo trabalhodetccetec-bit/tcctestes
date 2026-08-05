@@ -39,7 +39,7 @@ namespace tcctestes.BancodeDados
                 {
                     conn.Open();
 
-                    string sql = @"SELECT IDJogo, Nome, cate, joguei, zerei, aval FROM Jogos WHERE 1=1";
+                    string sql = @"SELECT IDJogo, Nome, cate, joguei, zerei, sync, aval FROM Jogos WHERE 1=1";
 
                     SQLiteCommand cmd = new SQLiteCommand(conn);
 
@@ -63,13 +63,22 @@ namespace tcctestes.BancodeDados
                     }
 
                     // checkbuttons
-                    if (info.filtrozerado)
+                    if (info.filtrozerado && !info.filtronaozerado)
                     {
                         sql += " AND zerei = 'Já zerei'";
                     }
-                    if (info.filtronaozerado)
+                    else if (!info.filtrozerado && info.filtronaozerado)
                     {
                         sql += " AND zerei = 'Não zerei'";
+                    }
+                    // Se os dois estiverem marcados ou os dois desmarcados,
+                    // não adiciona nenhum filtro.
+
+                    // avaliações
+                    if (info.posicaocombobox1 != -1)
+                    {
+                        sql += " AND aval = @aval";
+                        cmd.Parameters.AddWithValue("@aval", info.combobox1);
                     }
 
                     // categorias
@@ -79,13 +88,19 @@ namespace tcctestes.BancodeDados
                         cmd.Parameters.AddWithValue("@categoria", info.combobox2);
                     }
 
-                    // avaliações
-                    if (info.posicaocombobox1 != -1)
+                    // sincronização
+                    if (info.posicaocombobox3 != -1)
                     {
-                        sql += " AND aval = @aval";
-                        cmd.Parameters.AddWithValue("@aval", info.combobox1);
+                        string sincronizacao = null;
+                        if (info.combobox3 == "Sincronizado") sincronizacao = "SINCRONIZADO";
+                        else if (info.combobox3 == "Não sincronizado") sincronizacao = "NAOSINCRONIZADO";
+                        else sincronizacao = "ALTERADO";
+                        sql += " AND sync = @Sync";
+                        cmd.Parameters.AddWithValue("@Sync", sincronizacao);
                     }
 
+
+                    MessageBox.Show(sql);
                     cmd.CommandText = sql;
 
                     using (var dt = new SQLiteDataAdapter(cmd))
@@ -113,8 +128,6 @@ namespace tcctestes.BancodeDados
                     string sql = @"SELECT Caminhoimg  FROM Jogos WHERE IDJogo = @id";
 
                     conn.Open();
-
-                    MessageBox.Show(img);
                     if (string.IsNullOrEmpty(img))
                     {
                         using (var comando = new SQLiteCommand(sql, conn))
@@ -130,10 +143,9 @@ namespace tcctestes.BancodeDados
                             }
                         }
                     }
-
                     dados.pathimage = img;
 
-                    sql = @"UPDATE Jogos 
+                    sql = @"UPDATE Jogos
                     SET 
                     Nome = @nome,
                     Caminho = @exe,
@@ -142,7 +154,8 @@ namespace tcctestes.BancodeDados
                     Caminhoimg = @img,
                     zerei = @zer,
                     joguei = @jog,
-                    Desc = @Des
+                    Desc = @Des,
+                    sync = @Sync
                     WHERE IDJogo = @id";
 
                     using (var comando = new SQLiteCommand(sql, conn))
@@ -155,6 +168,7 @@ namespace tcctestes.BancodeDados
                         comando.Parameters.AddWithValue("@zer", dados.zerou);
                         comando.Parameters.AddWithValue("@jog", dados.jogou);
                         comando.Parameters.AddWithValue("@Des", dados.Descricao);
+                        comando.Parameters.AddWithValue("@Sync", dados.sync);
                         comando.Parameters.AddWithValue("@id", dados.idselecionado);
 
                         comando.ExecuteNonQuery();
@@ -163,7 +177,7 @@ namespace tcctestes.BancodeDados
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception(ex.Message);
             }
         }
         public void Excluir(int id)

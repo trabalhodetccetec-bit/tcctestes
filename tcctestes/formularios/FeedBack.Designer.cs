@@ -190,7 +190,6 @@ namespace tcctestes.formularios
             this.progressBar1.Size = new System.Drawing.Size(327, 23);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 15;
-            this.progressBar1.Visible = false;
             // 
             // FeedBack
             // 

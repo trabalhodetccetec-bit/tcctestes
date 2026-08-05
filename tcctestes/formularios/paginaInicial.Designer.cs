@@ -42,7 +42,6 @@ namespace tcctestes.formularios
             this.Feedback = new System.Windows.Forms.ToolStripMenuItem();
             this.reportarErrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comoAdicionarJogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trocarBackgroudToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -146,7 +145,7 @@ namespace tcctestes.formularios
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
             this.adicionarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.adicionarToolStripMenuItem.Text = "Adicionar jogos";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
@@ -154,7 +153,7 @@ namespace tcctestes.formularios
             // 
             this.verTodosOsJogosToolStripMenuItem.Name = "verTodosOsJogosToolStripMenuItem";
             this.verTodosOsJogosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.verTodosOsJogosToolStripMenuItem.Text = "Ver todos os jogos";
             this.verTodosOsJogosToolStripMenuItem.Click += new System.EventHandler(this.verTodosOsJogosToolStripMenuItem_Click);
             // 
@@ -162,45 +161,37 @@ namespace tcctestes.formularios
             // 
             this.estatísticasToolStripMenuItem.Name = "estatísticasToolStripMenuItem";
             this.estatísticasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.estatísticasToolStripMenuItem.Text = "Estatísticas";
             this.estatísticasToolStripMenuItem.Click += new System.EventHandler(this.estatísticasToolStripMenuItem_Click);
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // Feedback
             // 
             this.Feedback.Name = "Feedback";
-            this.Feedback.Size = new System.Drawing.Size(232, 22);
+            this.Feedback.Size = new System.Drawing.Size(233, 22);
             this.Feedback.Text = "Avaliação";
             this.Feedback.Click += new System.EventHandler(this.Feedback_Click);
             // 
             // reportarErrosToolStripMenuItem
             // 
             this.reportarErrosToolStripMenuItem.Name = "reportarErrosToolStripMenuItem";
-            this.reportarErrosToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.reportarErrosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.reportarErrosToolStripMenuItem.Text = "Reportar erros";
             this.reportarErrosToolStripMenuItem.Click += new System.EventHandler(this.reportarErrosToolStripMenuItem_Click);
             // 
             // ajudaToolStripMenuItem
             // 
-            this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.comoAdicionarJogosToolStripMenuItem});
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
             this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.ajudaToolStripMenuItem.Text = "ajuda";
             this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
-            // 
-            // comoAdicionarJogosToolStripMenuItem
-            // 
-            this.comoAdicionarJogosToolStripMenuItem.Name = "comoAdicionarJogosToolStripMenuItem";
-            this.comoAdicionarJogosToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.comoAdicionarJogosToolStripMenuItem.Text = "como adicionar jogos";
             // 
             // sobreToolStripMenuItem
             // 
@@ -211,7 +202,7 @@ namespace tcctestes.formularios
             // trocarBackgroudToolStripMenuItem
             // 
             this.trocarBackgroudToolStripMenuItem.Name = "trocarBackgroudToolStripMenuItem";
-            this.trocarBackgroudToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.trocarBackgroudToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.trocarBackgroudToolStripMenuItem.Text = "Trocar plano de fundo";
             this.trocarBackgroudToolStripMenuItem.Click += new System.EventHandler(this.trocarBackgroudToolStripMenuItem_Click);
             // 
@@ -393,7 +384,6 @@ namespace tcctestes.formularios
         private System.Windows.Forms.ToolStripMenuItem adicionarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verTodosOsJogosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem comoAdicionarJogosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;

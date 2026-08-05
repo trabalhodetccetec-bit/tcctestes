@@ -32,15 +32,20 @@ namespace tcctestes.formularios
 
         private void jogos_Load(object sender, EventArgs e)
         {
-            sobreToolStripMenuItem.Visible = false;
+            dataGridView1.RowHeadersVisible = false;
             panel4.Visible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             btnsalvar.Enabled = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             try
             {
                 SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
                 dataGridView1.DataSource = cominicacao.carregardados();
                 dataGridView1.Columns["IDJogo"].Visible = false;
+                dataGridView1.Columns["cate"].HeaderText = "Categoria";
+                dataGridView1.Columns["sync"].HeaderText = "Sincronização";
+                dataGridView1.Columns["aval"].HeaderText = "Avaliação";
+                dataGridView1.Columns["joguei"].HeaderText = "Jogado";
+                dataGridView1.Columns["zerei"].HeaderText = "Zerado";
             }
             catch (Exception ex)
             {
@@ -51,46 +56,7 @@ namespace tcctestes.formularios
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                painel.Enabled = true;
-
-                BancodeDados.SQL sql = new BancodeDados.SQL();
-
-                int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
-
-                MODELS.Dados dados = sql.Mostrar(idSelecionado);
-                nome.Text = dados.Nome;
-                descricao.Text = dados.Descricao;
-                pictureBox1.Image = Image.FromFile(dados.pathimage);
-                path.Text = dados.pathexe;
-                if (dados.jogou == "Já joguei")
-                {
-                    jajoguei.Checked = true;
-                    painelop2.Enabled = true;
-                }
-                else
-                {
-                    naojoguei.Checked = true;
-                    painelop2.Enabled = false;
-                }
-                if (dados.zerou == "Já zerei")
-                {
-                    jaze.Checked = true;
-                    naoze.Checked = false;
-                }
-                else
-                {
-                    naoze.Checked = true;
-                    jaze.Checked = false;
-                }
-                aval.Text = dados.aval;
-                cat.Text = dados.Categoria;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Houve um erro ao carregar os dados: "+ex.Message);
-            }
+            
         }
 
         private void btnalt_Click(object sender, EventArgs e)
@@ -159,13 +125,30 @@ namespace tcctestes.formularios
                 else { dados.zerou = naoze.Text; }
 
                 SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+                int id = dados.idselecionado;
+
                 cominicacao.salvar(dados);
+
+                dataGridView1.SelectionChanged -= dataGridView1_SelectionChanged;
+
                 dataGridView1.DataSource = cominicacao.carregardados();
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (Convert.ToInt32(row.Cells["IDJogo"].Value) == id)
+                    {
+                        dataGridView1.CurrentCell = row.Cells["Nome"];
+                        row.Selected = true;
+                        break;
+                    }
+                }
+
+                dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
                 dataGridView1.Columns["IDJogo"].Visible = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString());
             }
             btnsalvar.Enabled = false;
         }
@@ -179,8 +162,8 @@ namespace tcctestes.formularios
 
                 if (opf.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBox1.Image = Image.FromFile(opf.FileName);
-                    dados.pathimage = opf.FileName;
+                    cam = opf.FileName;
+                    pictureBox1.Image = Image.FromFile(cam);
                 }
             }
             btnsalvar.Enabled = true;
@@ -211,12 +194,43 @@ namespace tcctestes.formularios
             }
             else
             {
+                dataGridView1.SelectionChanged -= dataGridView1_SelectionChanged;
+
                 cominicacao.excluir(Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value));
+
+                dataGridView1.DataSource = cominicacao.carregardados();
+                dataGridView1.Columns["IDJogo"].Visible = false;
+
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    dataGridView1.ClearSelection();
+                    dataGridView1.Rows[0].Selected = true;
+                    dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells["Nome"];
+                }
+
+                dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    dataGridView1_SelectionChanged(null, EventArgs.Empty);
+                }
+                else
+                {
+                    pictureBox1.Image = null;
+                    nome.Clear();
+                    descricao.Clear();
+                    path.Clear();
+                    cat.SelectedIndex = -1;
+                    aval.SelectedIndex = -1;
+                    jajoguei.Checked = false;
+                    naojoguei.Checked = false;
+                    jaze.Checked = false;
+                    naoze.Checked = false;
+                }
+
             }
             dataGridView1.DataSource = cominicacao.carregardados();
             dataGridView1.Columns["IDJogo"].Visible = false;
             ajudaToolStripMenuItem.Visible = false;
-            sobreToolStripMenuItem.Visible = false;
             panel4.Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             btnsalvar.Enabled = false;
@@ -229,25 +243,13 @@ namespace tcctestes.formularios
             {
                 MessageBox.Show("Erro ao carregar os dados: " + ex.Message);
             }
-            pictureBox1.Image = null;
-            nome.Text = null;
-            path.Text = null;
-            descricao.Text = null;
-            cat.SelectedIndex = -1;
-            aval.SelectedIndex = -1;
-            jajoguei.Checked = false;
-            naojoguei.Checked = false;
-            jaze.Checked = false;
-            naoze.Checked = false;
         }
 
         private void txtfiltros_Click(object sender, EventArgs e)
         {
-            //botão pra abrir a tela de filtro
             txtfiltros.Enabled = false;
             panel4.Visible = true;
             panel1.Visible = true;
-            fltjog.Checked = false;
         }
 
         private void filtrar_Click(object sender, EventArgs e)
@@ -265,6 +267,8 @@ namespace tcctestes.formularios
             info.combobox1 = comboBox1.Text;
             info.posicaocombobox2 = comboBox2.SelectedIndex;
             info.combobox2 = comboBox2.Text;
+            info.posicaocombobox3 = comboBox3.SelectedIndex;
+            info.combobox3 = comboBox3.Text;
             try
             {
                 SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
@@ -301,11 +305,6 @@ namespace tcctestes.formularios
             filtrar_Click(sender, e);
         }
 
-        private void txtproc_ChangeUICues(object sender, UICuesEventArgs e)
-        {
-
-        }
-
         private void txtproc_Click(object sender, EventArgs e)
         {
             if (txtproc.Text == "Buscar...")
@@ -335,6 +334,7 @@ namespace tcctestes.formularios
             fltnaozercheck.Checked = false;
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
             filtrar_Click(sender, e);
         }
 
@@ -353,10 +353,67 @@ namespace tcctestes.formularios
 
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string caminho = Path.Combine(
+                Application.StartupPath,
+                "Paginas",
+                "adicionarjogos.html");
+
             Process.Start(new ProcessStartInfo
             {
-                FileName = "..\\Paginas\\adicionarjogos.html"
+                FileName = caminho,
+                UseShellExecute = true
             });
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow == null)
+                    return;
+
+                if (dataGridView1.CurrentRow.Cells["IDJogo"].Value == null ||
+                    dataGridView1.CurrentRow.Cells["IDJogo"].Value == DBNull.Value)
+                    return;
+                painel.Enabled = true;
+
+                SERVICES.cominicacao com = new SERVICES.cominicacao();
+
+                int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
+                MODELS.Dados dados = com.Mostrar(idSelecionado);
+
+                nome.Text = dados.Nome;
+                descricao.Text = dados.Descricao;
+                pictureBox1.Image = Image.FromFile(dados.pathimage);
+                path.Text = dados.pathexe;
+                if (dados.jogou == "Já joguei")
+                {
+                    jajoguei.Checked = true;
+                    painelop2.Enabled = true;
+                }
+                else
+                {
+                    naojoguei.Checked = true;
+                    painelop2.Enabled = false;
+                }
+                if (dados.zerou == "Já zerei")
+                {
+                    jaze.Checked = true;
+                    naoze.Checked = false;
+                }
+                else
+                {
+                    naoze.Checked = true;
+                    jaze.Checked = false;
+                }
+                aval.Text = dados.aval;
+                cat.Text = dados.Categoria;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
     }
 }
