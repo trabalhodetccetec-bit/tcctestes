@@ -99,8 +99,6 @@ namespace tcctestes.BancodeDados
                         cmd.Parameters.AddWithValue("@Sync", sincronizacao);
                     }
 
-
-                    MessageBox.Show(sql);
                     cmd.CommandText = sql;
 
                     using (var dt = new SQLiteDataAdapter(cmd))
