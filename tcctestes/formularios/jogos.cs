@@ -230,7 +230,7 @@ namespace tcctestes.formularios
             }
             dataGridView1.DataSource = cominicacao.carregardados();
             dataGridView1.Columns["IDJogo"].Visible = false;
-            ajudaToolStripMenuItem.Visible = false;
+            ajudaToolStripMenuItem.Visible = true;
             panel4.Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             btnsalvar.Enabled = false;
