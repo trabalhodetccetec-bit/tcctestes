@@ -22,7 +22,7 @@ namespace tcctestes.formularios
             InitializeComponent();
         }
 
-        
+
 
         private void adicionarJogosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -33,7 +33,7 @@ namespace tcctestes.formularios
         private void jogos_Load(object sender, EventArgs e)
         {
             dataGridView1.RowHeadersVisible = false;
-            panel4.Visible = false;
+            panel1.Visible = false;
             btnsalvar.Enabled = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             try
@@ -46,17 +46,18 @@ namespace tcctestes.formularios
                 dataGridView1.Columns["aval"].HeaderText = "Avaliação";
                 dataGridView1.Columns["joguei"].HeaderText = "Jogado";
                 dataGridView1.Columns["zerei"].HeaderText = "Zerado";
+                dataGridView1.Columns["favoritado"].HeaderText = "Favorito";
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar os dados: " + ex.Message);
+                MessageBox.Show("Erro ao carregar os dados: " + ex.ToString());
             }
 
         }
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void btnalt_Click(object sender, EventArgs e)
@@ -109,7 +110,7 @@ namespace tcctestes.formularios
             {
                 MODELS.Dados dados = new MODELS.Dados();
                 int idSelecionado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDJogo"].Value);
-               
+
                 dados.idselecionado = idSelecionado;
                 dados.Nome = nome.Text;
                 dados.Descricao = descricao.Text;
@@ -231,7 +232,7 @@ namespace tcctestes.formularios
             dataGridView1.DataSource = cominicacao.carregardados();
             dataGridView1.Columns["IDJogo"].Visible = false;
             ajudaToolStripMenuItem.Visible = true;
-            panel4.Visible = false;
+            panel1.Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             btnsalvar.Enabled = false;
             try
@@ -248,13 +249,11 @@ namespace tcctestes.formularios
         private void txtfiltros_Click(object sender, EventArgs e)
         {
             txtfiltros.Enabled = false;
-            panel4.Visible = true;
             panel1.Visible = true;
         }
 
         private void filtrar_Click(object sender, EventArgs e)
         {
-            panel4.Visible = false;
             panel1.Visible = false;
             txtfiltros.Enabled = true;
             MODELS.Filtro info = new MODELS.Filtro();
@@ -263,6 +262,7 @@ namespace tcctestes.formularios
             info.filtronaojogado = fltnaojog.Checked;
             info.filtrozerado = fltzercheck.Checked;
             info.filtronaozerado = fltnaozercheck.Checked;
+
             info.posicaocombobox1 = comboBox1.SelectedIndex;
             info.combobox1 = comboBox1.Text;
             info.posicaocombobox2 = comboBox2.SelectedIndex;
@@ -415,5 +415,21 @@ namespace tcctestes.formularios
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != dataGridView1.Columns["favoritado"].Index)
+                return;
+
+            int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["IDJogo"].Value);
+
+            bool favorito = Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells["favoritado"].Value);
+
+            favorito = !favorito;
+
+            dataGridView1.Rows[e.RowIndex].Cells["favoritado"].Value = favorito;
+
+            SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+            cominicacao.atualizarfavorito(id, favorito);
+        }
     }
 }

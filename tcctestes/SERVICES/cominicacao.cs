@@ -156,5 +156,17 @@ namespace tcctestes.SERVICES
                 throw new Exception("Erro ao obter plano de fundo");
             }
         }
+        public void atualizarfavorito(int id, bool favorito)
+        {
+            try
+            {
+                SQL sql = new SQL();
+                sql.AtualizarFavorito(id, favorito);
+            }
+            catch
+            {
+                throw new Exception("Erro ao realizar essa ação");
+            }
+        }
     }
 }

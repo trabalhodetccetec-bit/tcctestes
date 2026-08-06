@@ -57,6 +57,7 @@ namespace tcctestes.formularios
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -72,7 +73,9 @@ namespace tcctestes.formularios
             this.fltnaojog = new System.Windows.Forms.RadioButton();
             this.fltjog = new System.Windows.Forms.RadioButton();
             this.filtrar = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.flanaofavorito = new System.Windows.Forms.CheckBox();
+            this.fltfavorito = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.painel.SuspendLayout();
@@ -83,7 +86,7 @@ namespace tcctestes.formularios
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -409,6 +412,7 @@ namespace tcctestes.formularios
             this.dataGridView1.Size = new System.Drawing.Size(539, 336);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // timer1
@@ -420,6 +424,7 @@ namespace tcctestes.formularios
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -431,11 +436,21 @@ namespace tcctestes.formularios
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.filtrar);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Location = new System.Drawing.Point(12, 65);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(143, 299);
+            this.panel1.Size = new System.Drawing.Size(539, 87);
             this.panel1.TabIndex = 5;
             this.panel1.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(217, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Favorito";
             // 
             // comboBox3
             // 
@@ -446,7 +461,7 @@ namespace tcctestes.formularios
             "Sincronizado",
             "Não sincronizado",
             "Alterado"});
-            this.comboBox3.Location = new System.Drawing.Point(23, 223);
+            this.comboBox3.Location = new System.Drawing.Point(427, 19);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(96, 21);
             this.comboBox3.TabIndex = 10;
@@ -454,7 +469,7 @@ namespace tcctestes.formularios
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 207);
+            this.label5.Location = new System.Drawing.Point(424, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 9;
@@ -463,7 +478,7 @@ namespace tcctestes.formularios
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 168);
+            this.label4.Location = new System.Drawing.Point(322, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 8;
@@ -472,7 +487,7 @@ namespace tcctestes.formularios
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 130);
+            this.label3.Location = new System.Drawing.Point(322, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 7;
@@ -481,7 +496,7 @@ namespace tcctestes.formularios
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 67);
+            this.label2.Location = new System.Drawing.Point(114, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 6;
@@ -490,7 +505,7 @@ namespace tcctestes.formularios
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 6);
+            this.label1.Location = new System.Drawing.Point(11, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 5;
@@ -518,7 +533,7 @@ namespace tcctestes.formularios
             "Puzzle",
             "Simulação",
             "Competitivo"});
-            this.comboBox2.Location = new System.Drawing.Point(23, 183);
+            this.comboBox2.Location = new System.Drawing.Point(325, 59);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(96, 21);
             this.comboBox2.TabIndex = 4;
@@ -532,7 +547,7 @@ namespace tcctestes.formularios
             "Não gostei",
             "Gostei",
             "Amei"});
-            this.comboBox1.Location = new System.Drawing.Point(23, 144);
+            this.comboBox1.Location = new System.Drawing.Point(325, 19);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(96, 21);
             this.comboBox1.TabIndex = 3;
@@ -541,15 +556,15 @@ namespace tcctestes.formularios
             // 
             this.panel3.Controls.Add(this.fltnaozercheck);
             this.panel3.Controls.Add(this.fltzercheck);
-            this.panel3.Location = new System.Drawing.Point(23, 79);
+            this.panel3.Location = new System.Drawing.Point(117, 17);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(96, 48);
+            this.panel3.Size = new System.Drawing.Size(96, 63);
             this.panel3.TabIndex = 2;
             // 
             // fltnaozercheck
             // 
             this.fltnaozercheck.AutoSize = true;
-            this.fltnaozercheck.Location = new System.Drawing.Point(5, 26);
+            this.fltnaozercheck.Location = new System.Drawing.Point(5, 36);
             this.fltnaozercheck.Name = "fltnaozercheck";
             this.fltnaozercheck.Size = new System.Drawing.Size(81, 17);
             this.fltnaozercheck.TabIndex = 1;
@@ -559,7 +574,7 @@ namespace tcctestes.formularios
             // fltzercheck
             // 
             this.fltzercheck.AutoSize = true;
-            this.fltzercheck.Location = new System.Drawing.Point(5, 6);
+            this.fltzercheck.Location = new System.Drawing.Point(5, 9);
             this.fltzercheck.Name = "fltzercheck";
             this.fltzercheck.Size = new System.Drawing.Size(60, 17);
             this.fltzercheck.TabIndex = 0;
@@ -570,15 +585,15 @@ namespace tcctestes.formularios
             // 
             this.panel2.Controls.Add(this.fltnaojog);
             this.panel2.Controls.Add(this.fltjog);
-            this.panel2.Location = new System.Drawing.Point(23, 16);
+            this.panel2.Location = new System.Drawing.Point(14, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(96, 48);
+            this.panel2.Size = new System.Drawing.Size(96, 65);
             this.panel2.TabIndex = 1;
             // 
             // fltnaojog
             // 
             this.fltnaojog.AutoSize = true;
-            this.fltnaojog.Location = new System.Drawing.Point(4, 26);
+            this.fltnaojog.Location = new System.Drawing.Point(4, 37);
             this.fltnaojog.Name = "fltnaojog";
             this.fltnaojog.Size = new System.Drawing.Size(80, 17);
             this.fltnaojog.TabIndex = 1;
@@ -591,7 +606,7 @@ namespace tcctestes.formularios
             // 
             this.fltjog.AutoSize = true;
             this.fltjog.Checked = true;
-            this.fltjog.Location = new System.Drawing.Point(5, 6);
+            this.fltjog.Location = new System.Drawing.Point(5, 10);
             this.fltjog.Name = "fltjog";
             this.fltjog.Size = new System.Drawing.Size(60, 17);
             this.fltjog.TabIndex = 0;
@@ -603,22 +618,42 @@ namespace tcctestes.formularios
             // filtrar
             // 
             this.filtrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filtrar.Location = new System.Drawing.Point(23, 251);
+            this.filtrar.Location = new System.Drawing.Point(427, 48);
             this.filtrar.Name = "filtrar";
-            this.filtrar.Size = new System.Drawing.Size(96, 35);
+            this.filtrar.Size = new System.Drawing.Size(96, 33);
             this.filtrar.TabIndex = 0;
             this.filtrar.Text = "Filtrar";
             this.filtrar.UseVisualStyleBackColor = true;
             this.filtrar.Click += new System.EventHandler(this.filtrar_Click);
             // 
-            // panel4
+            // panel6
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.panel1);
-            this.panel4.Location = new System.Drawing.Point(419, 65);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(143, 299);
-            this.panel4.TabIndex = 8;
+            this.panel6.Controls.Add(this.flanaofavorito);
+            this.panel6.Controls.Add(this.fltfavorito);
+            this.panel6.Location = new System.Drawing.Point(220, 17);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(96, 63);
+            this.panel6.TabIndex = 11;
+            // 
+            // flanaofavorito
+            // 
+            this.flanaofavorito.AutoSize = true;
+            this.flanaofavorito.Location = new System.Drawing.Point(3, 36);
+            this.flanaofavorito.Name = "flanaofavorito";
+            this.flanaofavorito.Size = new System.Drawing.Size(96, 17);
+            this.flanaofavorito.TabIndex = 1;
+            this.flanaofavorito.Text = "Não favoritado";
+            this.flanaofavorito.UseVisualStyleBackColor = true;
+            // 
+            // fltfavorito
+            // 
+            this.fltfavorito.AutoSize = true;
+            this.fltfavorito.Location = new System.Drawing.Point(3, 9);
+            this.fltfavorito.Name = "fltfavorito";
+            this.fltfavorito.Size = new System.Drawing.Size(76, 17);
+            this.fltfavorito.TabIndex = 0;
+            this.fltfavorito.Text = "Favoritado";
+            this.fltfavorito.UseVisualStyleBackColor = true;
             // 
             // jogos
             // 
@@ -627,7 +662,7 @@ namespace tcctestes.formularios
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(744, 411);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lmpfiltro);
             this.Controls.Add(this.txtfiltros);
             this.Controls.Add(this.txtproc);
@@ -655,7 +690,8 @@ namespace tcctestes.formularios
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -705,7 +741,10 @@ namespace tcctestes.formularios
         private System.Windows.Forms.RadioButton fltnaojog;
         private System.Windows.Forms.RadioButton fltjog;
         private System.Windows.Forms.Button filtrar;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.CheckBox flanaofavorito;
+        private System.Windows.Forms.CheckBox fltfavorito;
     }
 }

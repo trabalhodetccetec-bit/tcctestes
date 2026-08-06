@@ -21,13 +21,14 @@ namespace tcctestes.BancodeDados
             using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
             {
                 conn.Open();
-                string sql = "SELECT IDJogo, Nome, cate, joguei, zerei, aval, sync FROM Jogos";
+                string sql = "SELECT IDJogo, Nome, cate, joguei, zerei, aval, sync, favoritado FROM Jogos";
                 using (var dt = new SQLiteDataAdapter(sql, conn))
                 {
                     DataTable tabela = new DataTable();
                     dt.Fill(tabela);
                     return tabela;
                 }
+
             }
         }
         public DataTable Filtro(MODELS.Filtro info)
@@ -39,7 +40,7 @@ namespace tcctestes.BancodeDados
                 {
                     conn.Open();
 
-                    string sql = @"SELECT IDJogo, Nome, cate, joguei, zerei, sync, aval FROM Jogos WHERE 1=1";
+                    string sql = @"SELECT IDJogo, Nome, cate, joguei, zerei, sync, aval, favoritado FROM Jogos WHERE 1=1";
 
                     SQLiteCommand cmd = new SQLiteCommand(conn);
 
@@ -574,6 +575,22 @@ namespace tcctestes.BancodeDados
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao salvar plano de fundo: " + ex.Message);
+            }
+        }
+        public void AtualizarFavorito(int id, bool favorito)
+        {
+            using (SQLiteConnection con = new SQLiteConnection($"Data Source={caminhosql}"))
+            {
+                con.Open();
+
+                SQLiteCommand cmd = new SQLiteCommand(
+                    "UPDATE Jogos SET favoritado = @fav WHERE IDJogo = @id",
+                    con);
+
+                cmd.Parameters.AddWithValue("@fav", favorito ? 1 : 0);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
             }
         }
     }

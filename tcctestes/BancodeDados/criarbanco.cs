@@ -39,6 +39,7 @@ namespace tcctestes.BancodeDados
                         Desc TEXT NOT NULL,
                         freq TEXT,
                         sync TEXT NOT NULL,
+                        favoritado BIT NOT NULL DEFAULT 0,
                         vezesjogado INTEGER NOT NULL DEFAULT 0
                     );
 

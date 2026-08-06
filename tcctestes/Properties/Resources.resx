@@ -142,4 +142,10 @@
   <data name="vazio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vazio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="favorito" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\favorito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="naofavorito" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\naofavorito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
