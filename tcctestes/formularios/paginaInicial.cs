@@ -33,7 +33,7 @@ namespace tcctestes.formularios
             pictureBox2.Click += AbrirJogoRecente;
             pictureBox3.Click += AbrirJogoRecente;
 
-            Conectar();
+            ConectarInicio();
         }
         private void AbrirJogoRecente(object sender, EventArgs e)
         {
@@ -56,7 +56,7 @@ namespace tcctestes.formularios
             {
                 MessageBox.Show("Erro ao abrir jogo: " + ex.Message);
             }
-            Conectar();
+            ConectarInicio();
         }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,7 +131,7 @@ namespace tcctestes.formularios
             panel3.BackColor = Color.LightGray;
         }
 
-        private void Conectar()
+        private void ConectarInicio()
         {
             try
             {
@@ -244,6 +244,44 @@ namespace tcctestes.formularios
                 FileName = caminho,
                 UseShellExecute = true
             });
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            recarregar();
+        }
+
+        private void recarregar()
+        {
+            try
+            {
+                SERVICES.cominicacao comunicacao = new SERVICES.cominicacao();
+                var jogos = comunicacao.recentes();
+
+                Label[] titulos = { label1, label2, label3 };
+                Label[] categorias = { label4, label5, label6 };
+                PictureBox[] imagens = { pictureBox1, pictureBox2, pictureBox3 };
+
+                for (int i = 0; i < jogos.Count; i++)
+                {
+                    titulos[i].Text = jogos[i].Nome;
+                    categorias[i].Text = jogos[i].Categoria;
+
+                    titulos[i].Tag = jogos[i].Id;
+                    categorias[i].Tag = jogos[i].Id;
+                    imagens[i].Tag = jogos[i].Id;
+
+                    if (File.Exists(jogos[i].CaminhoImagem))
+                    {
+                        imagens[i].Image = Image.FromFile(jogos[i].CaminhoImagem);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

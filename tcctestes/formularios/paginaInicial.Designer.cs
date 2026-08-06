@@ -55,6 +55,7 @@ namespace tcctestes.formularios
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -345,6 +346,12 @@ namespace tcctestes.formularios
             this.timer1.Interval = 800;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // paginaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,5 +411,6 @@ namespace tcctestes.formularios
         private System.Windows.Forms.ToolStripMenuItem Feedback;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem reportarErrosToolStripMenuItem;
+        private System.Windows.Forms.Timer timer2;
     }
 }
