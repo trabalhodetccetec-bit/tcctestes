@@ -13,6 +13,8 @@ namespace tcctestes.MODELS
         public bool filtronaojogado { get; set; }
         public bool filtrozerado { get; set; }
         public bool filtronaozerado { get; set; }
+        public bool fltfavorito { get; set; }
+        public bool fltnaofavorito { get; set; }
         public int posicaocombobox1 { get; set; }
         public int posicaocombobox2 { get; set; }
         public int posicaocombobox3 { get; set; }
@@ -20,5 +22,6 @@ namespace tcctestes.MODELS
         public string combobox2 { get; set; }
         public string combobox3 { get; set; }
         public string camab { get; set; }
+        public int ordem { get; set; }
     }
 }

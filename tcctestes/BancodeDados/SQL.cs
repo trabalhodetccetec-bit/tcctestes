@@ -21,7 +21,7 @@ namespace tcctestes.BancodeDados
             using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
             {
                 conn.Open();
-                string sql = "SELECT IDJogo, Nome, cate, joguei, zerei, aval, sync, favoritado FROM Jogos";
+                string sql = "SELECT IDJogo, Nome, cate, joguei, zerei, aval, sync, favoritado FROM Jogos ORDER BY LOWER(nome) ASC";
                 using (var dt = new SQLiteDataAdapter(sql, conn))
                 {
                     DataTable tabela = new DataTable();
@@ -72,6 +72,15 @@ namespace tcctestes.BancodeDados
                     {
                         sql += " AND zerei = 'Não zerei'";
                     }
+
+                    if (info.fltfavorito && !info.fltnaofavorito)
+                    {
+                        sql += " AND favoritado = 1";
+                    }
+                    else if (!info.fltfavorito && info.fltnaofavorito)
+                    {
+                        sql += " AND favoritado = 0";
+                    }
                     // Se os dois estiverem marcados ou os dois desmarcados,
                     // não adiciona nenhum filtro.
 
@@ -99,6 +108,19 @@ namespace tcctestes.BancodeDados
                         sql += " AND sync = @Sync";
                         cmd.Parameters.AddWithValue("@Sync", sincronizacao);
                     }
+
+                    if (info.ordem == 0)
+                        sql += " ORDER BY LOWER(nome) ASC";
+                    else if (info.ordem == 1)
+                        sql += " ORDER BY LOWER(nome) DESC";
+                    else if (info.ordem == 2)
+                        sql += " ORDER BY LOWER(favoritado) DESC, nome ASC";
+                    else if (info.ordem == 3)
+                        sql += " ORDER BY LOWER(favoritado) ASC, nome ASC";
+                    else if (info.ordem == 4)
+                        sql += " ORDER BY LOWER(aval) ASC, nome ASC";
+                    else if (info.ordem == 5)
+                        sql += " ORDER BY LOWER(aval) DESC, nome ASC";
 
                     cmd.CommandText = sql;
 

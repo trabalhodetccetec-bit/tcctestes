@@ -74,9 +74,10 @@ namespace tcctestes.formularios
             this.fltjog = new System.Windows.Forms.RadioButton();
             this.filtrar = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.flanaofavorito = new System.Windows.Forms.CheckBox();
+            this.fltnaofavorito = new System.Windows.Forms.CheckBox();
             this.fltfavorito = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.painel.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -369,7 +370,7 @@ namespace tcctestes.formularios
             this.txtproc.Location = new System.Drawing.Point(12, 35);
             this.txtproc.Multiline = true;
             this.txtproc.Name = "txtproc";
-            this.txtproc.Size = new System.Drawing.Size(457, 27);
+            this.txtproc.Size = new System.Drawing.Size(377, 27);
             this.txtproc.TabIndex = 3;
             this.txtproc.Text = "Buscar...";
             this.txtproc.Click += new System.EventHandler(this.txtproc_Click);
@@ -380,10 +381,11 @@ namespace tcctestes.formularios
             // 
             this.lmpfiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lmpfiltro.Image = global::tcctestes.Properties.Resources.filtro_1_;
-            this.lmpfiltro.Location = new System.Drawing.Point(515, 34);
+            this.lmpfiltro.Location = new System.Drawing.Point(431, 34);
             this.lmpfiltro.Name = "lmpfiltro";
             this.lmpfiltro.Size = new System.Drawing.Size(36, 29);
             this.lmpfiltro.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.lmpfiltro, "Limpa todos os filtros");
             this.lmpfiltro.UseVisualStyleBackColor = true;
             this.lmpfiltro.Click += new System.EventHandler(this.lmpfiltro_Click);
             // 
@@ -392,10 +394,11 @@ namespace tcctestes.formularios
             this.txtfiltros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtfiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtfiltros.Image = global::tcctestes.Properties.Resources.filtro;
-            this.txtfiltros.Location = new System.Drawing.Point(474, 34);
+            this.txtfiltros.Location = new System.Drawing.Point(392, 34);
             this.txtfiltros.Name = "txtfiltros";
             this.txtfiltros.Size = new System.Drawing.Size(36, 29);
             this.txtfiltros.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.txtfiltros, "Filtrar");
             this.txtfiltros.UseVisualStyleBackColor = true;
             this.txtfiltros.Click += new System.EventHandler(this.txtfiltros_Click);
             // 
@@ -424,6 +427,7 @@ namespace tcctestes.formularios
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.label5);
@@ -605,12 +609,10 @@ namespace tcctestes.formularios
             // fltjog
             // 
             this.fltjog.AutoSize = true;
-            this.fltjog.Checked = true;
             this.fltjog.Location = new System.Drawing.Point(5, 10);
             this.fltjog.Name = "fltjog";
             this.fltjog.Size = new System.Drawing.Size(60, 17);
             this.fltjog.TabIndex = 0;
-            this.fltjog.TabStop = true;
             this.fltjog.Text = "Jogado";
             this.fltjog.UseVisualStyleBackColor = true;
             this.fltjog.CheckedChanged += new System.EventHandler(this.fltjog_CheckedChanged);
@@ -628,22 +630,22 @@ namespace tcctestes.formularios
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.flanaofavorito);
+            this.panel6.Controls.Add(this.fltnaofavorito);
             this.panel6.Controls.Add(this.fltfavorito);
             this.panel6.Location = new System.Drawing.Point(220, 17);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(96, 63);
             this.panel6.TabIndex = 11;
             // 
-            // flanaofavorito
+            // fltnaofavorito
             // 
-            this.flanaofavorito.AutoSize = true;
-            this.flanaofavorito.Location = new System.Drawing.Point(3, 36);
-            this.flanaofavorito.Name = "flanaofavorito";
-            this.flanaofavorito.Size = new System.Drawing.Size(96, 17);
-            this.flanaofavorito.TabIndex = 1;
-            this.flanaofavorito.Text = "Não favoritado";
-            this.flanaofavorito.UseVisualStyleBackColor = true;
+            this.fltnaofavorito.AutoSize = true;
+            this.fltnaofavorito.Location = new System.Drawing.Point(3, 36);
+            this.fltnaofavorito.Name = "fltnaofavorito";
+            this.fltnaofavorito.Size = new System.Drawing.Size(96, 17);
+            this.fltnaofavorito.TabIndex = 1;
+            this.fltnaofavorito.Text = "Não favoritado";
+            this.fltnaofavorito.UseVisualStyleBackColor = true;
             // 
             // fltfavorito
             // 
@@ -655,6 +657,25 @@ namespace tcctestes.formularios
             this.fltfavorito.Text = "Favoritado";
             this.fltfavorito.UseVisualStyleBackColor = true;
             // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "A-Z",
+            "Z-A",
+            "Favoritos",
+            "Não Favoritos",
+            "Mais gostado",
+            "Menos gostado"});
+            this.comboBox4.Location = new System.Drawing.Point(472, 38);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(79, 21);
+            this.comboBox4.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.comboBox4, "Ordem de visualização");
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
             // jogos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -662,6 +683,7 @@ namespace tcctestes.formularios
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(744, 411);
+            this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lmpfiltro);
             this.Controls.Add(this.txtfiltros);
@@ -744,7 +766,8 @@ namespace tcctestes.formularios
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.CheckBox flanaofavorito;
+        private System.Windows.Forms.CheckBox fltnaofavorito;
         private System.Windows.Forms.CheckBox fltfavorito;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }

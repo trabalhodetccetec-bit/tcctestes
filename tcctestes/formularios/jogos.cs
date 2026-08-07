@@ -17,6 +17,7 @@ namespace tcctestes.formularios
     public partial class jogos : Form
     {
         string cam;
+        bool clicado = false;
         public jogos()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace tcctestes.formularios
 
         private void jogos_Load(object sender, EventArgs e)
         {
+            comboBox4.SelectedIndex = 0;
             dataGridView1.RowHeadersVisible = false;
             panel1.Visible = false;
             btnsalvar.Enabled = false;
@@ -248,8 +250,8 @@ namespace tcctestes.formularios
 
         private void txtfiltros_Click(object sender, EventArgs e)
         {
-            txtfiltros.Enabled = false;
-            panel1.Visible = true;
+            if (!clicado) { panel1.Visible = true; clicado = true; }
+            else { panel1.Visible = false; clicado = false; }
         }
 
         private void filtrar_Click(object sender, EventArgs e)
@@ -262,13 +264,15 @@ namespace tcctestes.formularios
             info.filtronaojogado = fltnaojog.Checked;
             info.filtrozerado = fltzercheck.Checked;
             info.filtronaozerado = fltnaozercheck.Checked;
-
+            info.fltfavorito = fltfavorito.Checked;
+            info.fltnaofavorito = fltnaofavorito.Checked;
             info.posicaocombobox1 = comboBox1.SelectedIndex;
             info.combobox1 = comboBox1.Text;
             info.posicaocombobox2 = comboBox2.SelectedIndex;
             info.combobox2 = comboBox2.Text;
             info.posicaocombobox3 = comboBox3.SelectedIndex;
             info.combobox3 = comboBox3.Text;
+            info.ordem = comboBox4.SelectedIndex;
             try
             {
                 SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
@@ -328,6 +332,8 @@ namespace tcctestes.formularios
         private void lmpfiltro_Click(object sender, EventArgs e)
         {
             txtproc.Text = "Buscar...";
+            fltfavorito.Checked = false;
+            fltnaofavorito.Checked = false;
             fltjog.Checked = false;
             fltnaojog.Checked = false;
             fltzercheck.Checked = false;
@@ -335,6 +341,7 @@ namespace tcctestes.formularios
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
+            clicado = false;
             filtrar_Click(sender, e);
         }
 
@@ -430,6 +437,12 @@ namespace tcctestes.formularios
 
             SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
             cominicacao.atualizarfavorito(id, favorito);
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            filtrar_Click(sender, e);
         }
     }
 }
