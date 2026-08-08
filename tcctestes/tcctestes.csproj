@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>tcctestes</RootNamespace>
     <AssemblyName>tcctestes</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -30,6 +30,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -83,22 +84,49 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gameloop.Vdf, Version=0.6.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Gameloop.Vdf.0.6.2\lib\net45\Gameloop.Vdf.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.5\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=7.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.7.5.1\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=7.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.7.5.1\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=7.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.7.5.1\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.7.5.1\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeMapping, Version=3.0.0.0, Culture=neutral, PublicKeyToken=680e2d5f226b327b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeMapping.3.0.1\lib\net462\MimeMapping.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Supabase.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Supabase.Core.1.2.0\lib\netstandard2.0\Supabase.Core.dll</HintPath>
+    <Reference Include="Supabase, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Supabase.1.0.5\lib\netstandard2.0\Supabase.dll</HintPath>
     </Reference>
-    <Reference Include="Supabase.Postgrest, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Supabase.Postgrest.4.4.0\lib\netstandard2.0\Supabase.Postgrest.dll</HintPath>
+    <Reference Include="Supabase.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Supabase.Core.1.0.0\lib\netstandard2.0\Supabase.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Supabase.Functions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Supabase.Functions.2.0.0\lib\netstandard2.0\Supabase.Functions.dll</HintPath>
+    </Reference>
+    <Reference Include="Supabase.Gotrue, Version=5.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Supabase.Gotrue.5.0.6\lib\netstandard2.0\Supabase.Gotrue.dll</HintPath>
+    </Reference>
+    <Reference Include="Supabase.Postgrest, Version=4.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Supabase.Postgrest.4.0.3\lib\netstandard2.0\Supabase.Postgrest.dll</HintPath>
+    </Reference>
+    <Reference Include="Supabase.Realtime, Version=7.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Supabase.Realtime.7.0.1\lib\netstandard2.0\Supabase.Realtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Supabase.Storage, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Supabase.Storage.2.0.2\lib\netstandard2.0\Supabase.Storage.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
@@ -107,12 +135,16 @@
       <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=7.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.7.5.1\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
@@ -138,6 +170,9 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive, Version=5.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.5.0.0\lib\net472\System.Reactive.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
@@ -173,10 +208,14 @@
     <Reference Include="System.Text.Json, Version=10.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Json.10.0.5\lib\net462\System.Text.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Threading.Channels, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.5.0.0\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -187,6 +226,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Websocket.Client, Version=4.7.0.0, Culture=neutral, PublicKeyToken=ae648c6d12f59b1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Websocket.Client.4.7.0\lib\netstandard2.0\Websocket.Client.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -218,6 +260,12 @@
     <Compile Include="formularios\jogos.Designer.cs">
       <DependentUpon>jogos.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\Cadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\Cadastro.Designer.cs">
+      <DependentUpon>Cadastro.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,13 +288,16 @@
     <Compile Include="MODELS\Filtro.cs" />
     <Compile Include="MODELS\Grafico.cs" />
     <Compile Include="MODELS\Paginanicial.cs" />
+    <Compile Include="MODELS\persistente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SERVICES\Cadastro.cs" />
     <Compile Include="SERVICES\cominicacao.cs" />
     <Compile Include="SERVICES\EnviarFeedback.cs" />
     <Compile Include="SERVICES\EnviarReport.cs" />
     <Compile Include="SERVICES\Login.cs" />
-    <Compile Include="SERVICES\Supabase.cs" />
+    <Compile Include="SERVICES\supabase.cs" />
+    <Compile Include="SERVICES\LogadorAutomatico.cs" />
     <Compile Include="SERVICES\VerificarInternet.cs" />
     <EmbeddedResource Include="formularios\adicionarjog.resx">
       <DependentUpon>adicionarjog.cs</DependentUpon>
@@ -260,6 +311,9 @@
     <EmbeddedResource Include="formularios\jogos.resx">
       <DependentUpon>jogos.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\Cadastro.resx">
+      <DependentUpon>Cadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

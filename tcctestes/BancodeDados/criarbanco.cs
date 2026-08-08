@@ -48,6 +48,11 @@ namespace tcctestes.BancodeDados
                         id INTEGER PRIMARY KEY CHECK (id = 1),
                         planodefundo TEXT
                     );
+
+                    CREATE TABLE IF NOT EXISTS usuario
+                    (
+                        perfil TEXT NOT NULL
+                    );
                 ";
 
                 using (var cmd = new SQLiteCommand(sql, conn))

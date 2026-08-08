@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
@@ -13,7 +12,7 @@ namespace tcctestes.SERVICES
     {
         public async Task<bool> Enviar(string nome, string escala, string recomendacao, string recurso, string dificuldade, string comentario)
         {
-            string webhook = "https://discord.com/api/webhooks/1515073725676916848/b7VwzoJEwPTFhhJp6VBbbu-DZKNsVaBBfpuJ0wUvAyMRTjRMa_gjgYsvZaZ9gamvRSuc";
+            string webhook = ConfigurationManager.AppSettings["webhookfeedback"];
             string msg = $"{Environment.NewLine}{Environment.NewLine}**NOVA AVALIAÇÃO**{Environment.NewLine}" +
                 $"**Nome**: {nome} {Environment.NewLine}" +
                 $"**Nível de experiência**: {escala}{Environment.NewLine}" +

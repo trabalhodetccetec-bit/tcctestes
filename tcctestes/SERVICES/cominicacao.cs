@@ -125,7 +125,7 @@ namespace tcctestes.SERVICES
             try
             {
                 SQL sql = new SQL();
-                sql.Abrir(id);
+                sql.AbrirRecente(id);
             }
             catch
             {

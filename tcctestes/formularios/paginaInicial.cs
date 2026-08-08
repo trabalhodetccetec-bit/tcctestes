@@ -180,7 +180,7 @@ namespace tcctestes.formularios
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formularios.Login log = new formularios.Login();
+            formularios.Cadastro log = new formularios.Cadastro();
             log.Show();
         }
 
