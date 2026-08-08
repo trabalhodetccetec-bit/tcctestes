@@ -123,18 +123,12 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>219, 17</value>
   </metadata>
-<<<<<<< HEAD
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>219, 17</value>
   </metadata>
-=======
-<<<<<<< HEAD
-=======
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>219, 17</value>
   </metadata>
->>>>>>> 312b0fbc410d30aad8e8165dae9683c537446e8c
->>>>>>> d9d26b6b0e1aa6f60978c5359a4f203264d96b71
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
