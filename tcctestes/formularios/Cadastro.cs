@@ -33,7 +33,13 @@ namespace tcctestes.formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            SERVICES.Cadastro cadastro = new SERVICES.Cadastro();
+            MODELS.usuario usuario = new MODELS.usuario();
+            usuario.email = Email.Text;
+            usuario.nome = nome.Text;
+            usuario.senha = senha.Text;
+            cadastro.cadastro(usuario);
+            usuario.camainhoimagem = pictureBox1.ImageLocation;
         }
 
         private void textBox1_Click(object sender, EventArgs e)

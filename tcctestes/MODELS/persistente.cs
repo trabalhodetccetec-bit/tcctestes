@@ -9,5 +9,6 @@ namespace tcctestes.MODELS
     public static class persistente
     {
         public static bool saiusemlogar = false;
+        public static string nome = "";
     }
 }

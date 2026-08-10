@@ -8,5 +8,18 @@ namespace tcctestes.SERVICES
 {
     class Login
     {
+        public void login(MODELS.usuario usuario)
+        {
+            try
+            {
+                BancodeDados.supabaseBanco supabase = new BancodeDados.supabaseBanco();
+                supabase.Login(usuario);
+            }
+            catch
+            {
+                throw new Exception("algo deu errado");
+            }
+
+        }
     }
 }

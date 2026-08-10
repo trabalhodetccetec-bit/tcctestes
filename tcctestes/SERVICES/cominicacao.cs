@@ -168,5 +168,29 @@ namespace tcctestes.SERVICES
                 throw new Exception("Erro ao realizar essa ação");
             }
         }
+        public void guardarperfil(Paginanicial plano)
+        {
+            try
+            {
+                SQL sql = new SQL();
+                sql.guardarimagemperfil(plano);
+            }
+            catch
+            {
+                throw new Exception("Erro ao definir plano de fundo");
+            }
+        }
+        public Paginanicial pegarperfil()
+        {
+            try
+            {
+                SQL sql = new SQL();
+                return sql.pegarimagemperfil();
+            }
+            catch
+            {
+                throw new Exception("Erro ao obter plano de fundo");
+            }
+        }
     }
 }
