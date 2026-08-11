@@ -157,7 +157,21 @@ namespace tcctestes.formularios
 
                 if (opf.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBox1.Image = Image.FromFile(opf.FileName);
+                    pictureBox1.BackgroundImage = Image.FromFile(opf.FileName);
+                    cam = opf.FileName;
+                }
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog opf = new OpenFileDialog())
+            {
+                opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
+
+                if (opf.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.BackgroundImage = Image.FromFile(opf.FileName);
                     cam = opf.FileName;
                 }
             }
