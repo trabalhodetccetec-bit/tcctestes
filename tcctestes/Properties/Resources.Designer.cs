@@ -19,7 +19,7 @@ namespace tcctestes.Properties {
     // através de uma ferramenta como ResGen ou Visual Studio.
     // Para adicionar ou remover um associado, edite o arquivo .ResX e execute ResGen novamente
     // com a opção /str, ou recrie o projeto do VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -66,6 +66,16 @@ namespace tcctestes.Properties {
         internal static System.Drawing.Bitmap addimage {
             get {
                 object obj = ResourceManager.GetObject("addimage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bordas {
+            get {
+                object obj = ResourceManager.GetObject("bordas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +146,96 @@ namespace tcctestes.Properties {
         internal static System.Drawing.Bitmap naofavorito {
             get {
                 object obj = ResourceManager.GetObject("naofavorito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro {
+            get {
+                object obj = ResourceManager.GetObject("quadro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro1 {
+            get {
+                object obj = ResourceManager.GetObject("quadro1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro2 {
+            get {
+                object obj = ResourceManager.GetObject("quadro2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro3 {
+            get {
+                object obj = ResourceManager.GetObject("quadro3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro4 {
+            get {
+                object obj = ResourceManager.GetObject("quadro4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro5 {
+            get {
+                object obj = ResourceManager.GetObject("quadro5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro6 {
+            get {
+                object obj = ResourceManager.GetObject("quadro6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro7 {
+            get {
+                object obj = ResourceManager.GetObject("quadro7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro8 {
+            get {
+                object obj = ResourceManager.GetObject("quadro8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -17,6 +17,46 @@ namespace tcctestes.formularios
 
         private void paginaInicial_Load(object sender, EventArgs e)
         {
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.BorderStyle = BorderStyle.None;
+            }
+            if (pictureBox2.Image != null)
+            {
+                pictureBox2.BorderStyle = BorderStyle.None;
+            }
+            if (pictureBox3.Image != null)
+            {
+                pictureBox3.BorderStyle = BorderStyle.None;
+            }
+
+
+            if (pictureBox1.Image == null)
+            {
+                panel1.Visible = false;
+            }
+            else
+            {
+                panel1.Visible = true;
+            }
+            if (pictureBox2.Image == null)
+            {
+                panel2.Visible = false;
+            }
+            else
+            {
+                panel2.Visible = true;
+            }
+            if (pictureBox2.Image == null)
+            {
+                panel3.Visible = false;
+            }
+            else
+            {
+                panel3.Visible = true;
+            }
+
+
             sobreToolStripMenuItem.Visible = false;
 
             this.BackColor = Color.FromArgb(245, 245, 245);
@@ -24,9 +64,7 @@ namespace tcctestes.formularios
             Label[] labels = { label1, label2, label3, label4, label5, label6 };
 
             label7.BackColor = Color.Transparent;
-            panel1.BackColor = Color.WhiteSmoke;
-            panel2.BackColor = Color.WhiteSmoke;
-            panel3.BackColor = Color.WhiteSmoke;
+           
 
             pictureBox1.Click += AbrirJogoRecente;
             pictureBox2.Click += AbrirJogoRecente;
@@ -68,66 +106,6 @@ namespace tcctestes.formularios
         {
             formularios.jogos all = new formularios.jogos();
             all.Show();
-        }
-
-        private void panel1_MouseEnter(object sender, EventArgs e)
-        {
-            panel1.BackColor = Color.LightGray;
-        }
-
-        private void panel1_MouseLeave(object sender, EventArgs e)
-        {
-            panel1.BackColor = Color.WhiteSmoke;
-        }
-
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
-        {
-            panel1.BackColor = Color.LightGray;
-        }
-
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
-        {
-            panel1.BackColor = Color.LightGray;
-        }
-
-        private void panel2_MouseEnter(object sender, EventArgs e)
-        {
-            panel2.BackColor = Color.LightGray;
-        }
-
-        private void panel2_MouseLeave(object sender, EventArgs e)
-        {
-            panel2.BackColor = Color.WhiteSmoke;
-        }
-
-        private void panel3_MouseEnter(object sender, EventArgs e)
-        {
-            panel3.BackColor = Color.LightGray;
-        }
-
-        private void panel3_MouseLeave(object sender, EventArgs e)
-        {
-            panel3.BackColor = Color.WhiteSmoke;
-        }
-
-        private void pictureBox2_MouseEnter(object sender, EventArgs e)
-        {
-            panel2.BackColor = Color.LightGray;
-        }
-
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
-        {
-            panel2.BackColor = Color.LightGray;
-        }
-
-        private void pictureBox3_MouseEnter(object sender, EventArgs e)
-        {
-            panel3.BackColor = Color.LightGray;
-        }
-
-        private void pictureBox3_MouseLeave(object sender, EventArgs e)
-        {
-            panel3.BackColor = Color.LightGray;
         }
 
         private void ConectarInicio()
@@ -247,6 +225,43 @@ namespace tcctestes.formularios
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.BorderStyle = BorderStyle.None;
+            }
+            if (pictureBox2.Image != null)
+            {
+                pictureBox2.BorderStyle = BorderStyle.None;
+            }
+            if (pictureBox3.Image != null)
+            {
+                pictureBox3.BorderStyle = BorderStyle.None;
+            }
+
+
+            if (pictureBox1.Image == null)
+            {
+                panel1.Visible = false;
+            }
+            else { 
+                panel1.Visible = true;
+            }
+            if (pictureBox2.Image == null)
+            {
+                panel2.Visible = false;
+            }
+            else
+            {
+                panel2.Visible = true;
+            }
+            if (pictureBox2.Image == null)
+            {
+                panel3.Visible = false;
+            }
+            else
+            {
+                panel3.Visible = true;
+            }
             recarregar();
         }
 
@@ -281,6 +296,11 @@ namespace tcctestes.formularios
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

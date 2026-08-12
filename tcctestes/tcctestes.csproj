@@ -404,12 +404,22 @@
     <Content Include="Paginas\bootstrap\tutorial1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\bordas.png" />
     <Content Include="Resources\favorito.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\naofavorito.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\quadro.png" />
+    <None Include="Resources\quadro1.png" />
+    <None Include="Resources\quadro2.png" />
+    <None Include="Resources\quadro3.png" />
+    <None Include="Resources\quadro4.png" />
+    <None Include="Resources\quadro5.png" />
+    <None Include="Resources\quadro6.png" />
+    <None Include="Resources\quadro7.png" />
+    <None Include="Resources\quadro8.png" />
     <Content Include="Resources\vazio.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
