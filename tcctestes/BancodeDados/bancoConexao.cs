@@ -13,5 +13,6 @@ namespace tcctestes.BancodeDados
         public static string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         public static string pasta = Path.Combine(appDataPath, "OrganizadorDeJogos", "SAVE", "DadosJogos");
         public static string caminhosql = Path.Combine(pasta, "prim.db");
+
     }
 }

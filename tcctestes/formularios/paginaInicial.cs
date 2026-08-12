@@ -156,12 +156,6 @@ namespace tcctestes.formularios
             form.Show();
         }
 
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formularios.Cadastro log = new formularios.Cadastro();
-            log.Show();
-        }
-
         private void trocarBackgroudToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MODELS.Paginanicial pag = new MODELS.Paginanicial();
@@ -189,11 +183,13 @@ namespace tcctestes.formularios
             {
                 Feedback.Enabled = true;
                 reportarErrosToolStripMenuItem.Enabled = true;
+                login.Enabled = true;
             }
             else if (!conectado)
             {
                 Feedback.Enabled = false;
                 reportarErrosToolStripMenuItem.Enabled = false;
+                login.Enabled = false;
             }
         }
 

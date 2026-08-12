@@ -18,6 +18,7 @@ namespace tcctestes.BancodeDados
     {
         public DataTable CarregarDados()
         {
+            
             using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
             {
                 conn.Open();
@@ -206,7 +207,7 @@ namespace tcctestes.BancodeDados
             try
             {
                 MODELS.Dados dados = new MODELS.Dados();
-                using (var conn = new SQLiteConnection($"Data Source={BancodeDados.bancoConexao.caminhosql}"))
+                using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
                     string sql = @"DELETE FROM Jogos WHERE IDJOgo = @id";
                     conn.Open();
@@ -615,45 +616,7 @@ namespace tcctestes.BancodeDados
                 }
             }
         }
-        public void guardarimagemperfil(MODELS.usuario usuario)
-        {
-            try
-            {
-                string sql = "";
-                using (SQLiteConnection conn = new SQLiteConnection($"Data Source={caminhosql}"))
-                {
-                    conn.Open();
-                    sql = @"INSERT OR REPLACE INTO usuario (perfil) values (@img)";
-                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@img", usuario.camainhoimagem);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch
-            {
-                throw new Exception("não foi possíver salvar a imagem");
-            }
-        }
-        public MODELS.usuario pegarimagemperfil()
-        {
-            MODELS.usuario usuario = new MODELS.usuario();
-            string sql = "";
-            using (SQLiteConnection conn = new SQLiteConnection($"Data Source={caminhosql}"))
-            {
-                sql = @"select perfil from usuario";
-                using (var cmd = new SQLiteCommand(sql, conn))
-                using (var reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        usuario.camainhoimagem = reader["perfil"].ToString();
-                    }
-                }
-            }
-            return usuario;
-        }
+
     }
 }
 

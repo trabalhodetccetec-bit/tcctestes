@@ -56,6 +56,7 @@ namespace tcctestes.formularios
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.login = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -104,10 +105,12 @@ namespace tcctestes.formularios
             this.jogosToolStripMenuItem,
             this.ajudaToolStripMenuItem,
             this.sobreToolStripMenuItem,
-            this.trocarBackgroudToolStripMenuItem});
+            this.trocarBackgroudToolStripMenuItem,
+            this.login});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.menuStrip1.Size = new System.Drawing.Size(767, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
@@ -130,7 +133,7 @@ namespace tcctestes.formularios
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
             this.adicionarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.adicionarToolStripMenuItem.Text = "Adicionar jogos";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
@@ -138,7 +141,7 @@ namespace tcctestes.formularios
             // 
             this.verTodosOsJogosToolStripMenuItem.Name = "verTodosOsJogosToolStripMenuItem";
             this.verTodosOsJogosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.verTodosOsJogosToolStripMenuItem.Text = "Ver todos os jogos";
             this.verTodosOsJogosToolStripMenuItem.Click += new System.EventHandler(this.verTodosOsJogosToolStripMenuItem_Click);
             // 
@@ -146,28 +149,21 @@ namespace tcctestes.formularios
             // 
             this.estatísticasToolStripMenuItem.Name = "estatísticasToolStripMenuItem";
             this.estatísticasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.estatísticasToolStripMenuItem.Text = "Estatísticas";
             this.estatísticasToolStripMenuItem.Click += new System.EventHandler(this.estatísticasToolStripMenuItem_Click);
-            // 
-            // loginToolStripMenuItem
-            // 
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.loginToolStripMenuItem.Text = "Login";
-            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // Feedback
             // 
             this.Feedback.Name = "Feedback";
-            this.Feedback.Size = new System.Drawing.Size(232, 22);
+            this.Feedback.Size = new System.Drawing.Size(233, 22);
             this.Feedback.Text = "Avaliação";
             this.Feedback.Click += new System.EventHandler(this.Feedback_Click);
             // 
             // reportarErrosToolStripMenuItem
             // 
             this.reportarErrosToolStripMenuItem.Name = "reportarErrosToolStripMenuItem";
-            this.reportarErrosToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.reportarErrosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.reportarErrosToolStripMenuItem.Text = "Reportar erros";
             this.reportarErrosToolStripMenuItem.Click += new System.EventHandler(this.reportarErrosToolStripMenuItem_Click);
             // 
@@ -187,7 +183,7 @@ namespace tcctestes.formularios
             // trocarBackgroudToolStripMenuItem
             // 
             this.trocarBackgroudToolStripMenuItem.Name = "trocarBackgroudToolStripMenuItem";
-            this.trocarBackgroudToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.trocarBackgroudToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.trocarBackgroudToolStripMenuItem.Text = "Trocar plano de fundo";
             this.trocarBackgroudToolStripMenuItem.Click += new System.EventHandler(this.trocarBackgroudToolStripMenuItem_Click);
             // 
@@ -260,7 +256,7 @@ namespace tcctestes.formularios
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Location = new System.Drawing.Point(21, 58);
+            this.pictureBox3.Location = new System.Drawing.Point(20, 58);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(176, 204);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -407,5 +403,6 @@ namespace tcctestes.formularios
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem reportarErrosToolStripMenuItem;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.ToolStripMenuItem login;
     }
 }

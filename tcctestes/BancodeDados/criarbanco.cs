@@ -14,7 +14,7 @@ namespace tcctestes.BancodeDados
         {
             if (!Directory.Exists(pasta)) { Directory.CreateDirectory(pasta); }
 
-            string caminhoDb = Path.Combine(pasta, "prim.db");
+            string caminhoDb = Path.Combine(pasta, $"prim.db");
 
             if (!File.Exists(caminhoDb))
             {
@@ -47,11 +47,6 @@ namespace tcctestes.BancodeDados
                     (
                         id INTEGER PRIMARY KEY CHECK (id = 1),
                         planodefundo TEXT
-                    );
-
-                    CREATE TABLE IF NOT EXISTS usuario
-                    (
-                        perfil TEXT NOT NULL
                     );
                 ";
 
