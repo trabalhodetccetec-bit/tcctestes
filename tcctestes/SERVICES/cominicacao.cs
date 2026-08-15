@@ -168,5 +168,17 @@ namespace tcctestes.SERVICES
                 throw new Exception("Erro ao realizar essa ação");
             }
         }
+        public void backup(string caminho)
+        {
+            try
+            {
+                Backup sql = new Backup();
+                sql.backup(caminho);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

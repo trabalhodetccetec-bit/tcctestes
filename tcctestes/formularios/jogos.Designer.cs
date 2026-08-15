@@ -77,6 +77,7 @@ namespace tcctestes.formularios
             this.fltnaofavorito = new System.Windows.Forms.CheckBox();
             this.fltfavorito = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.painel.SuspendLayout();
@@ -96,7 +97,8 @@ namespace tcctestes.formularios
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajudaToolStripMenuItem});
+            this.ajudaToolStripMenuItem,
+            this.backupToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
@@ -657,6 +659,13 @@ namespace tcctestes.formularios
             this.fltfavorito.Text = "Favoritado";
             this.fltfavorito.UseVisualStyleBackColor = true;
             // 
+            // backupToolStripMenuItem
+            // 
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(61, 22);
+            this.backupToolStripMenuItem.Text = "Backup";
+            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
+            // 
             // comboBox4
             // 
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -669,11 +678,10 @@ namespace tcctestes.formularios
             "Não Favoritos",
             "Mais gostado",
             "Menos gostado"});
-            this.comboBox4.Location = new System.Drawing.Point(472, 38);
+            this.comboBox4.Location = new System.Drawing.Point(471, 39);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(79, 21);
+            this.comboBox4.Size = new System.Drawing.Size(80, 21);
             this.comboBox4.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.comboBox4, "Ordem de visualização");
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // jogos
@@ -768,6 +776,7 @@ namespace tcctestes.formularios
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.CheckBox fltnaofavorito;
         private System.Windows.Forms.CheckBox fltfavorito;
+        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox4;
     }
 }

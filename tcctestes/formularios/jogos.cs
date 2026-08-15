@@ -256,6 +256,7 @@ namespace tcctestes.formularios
 
         private void filtrar_Click(object sender, EventArgs e)
         {
+            clicado = false;
             panel1.Visible = false;
             txtfiltros.Enabled = true;
             MODELS.Filtro info = new MODELS.Filtro();
@@ -439,10 +440,52 @@ namespace tcctestes.formularios
             cominicacao.atualizarfavorito(id, favorito);
         }
 
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+                string caminho = null;
+
+                using (var folderDialog = new FolderBrowserDialog())
+                {
+                    if (folderDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        caminho = folderDialog.SelectedPath;
+
+                        try
+                        {
+                            cominicacao.backup(caminho);
+
+                            MessageBox.Show($"Backup realizado com sucesso na pasta: {caminho}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (UnauthorizedAccessException)
+                        {
+                            MessageBox.Show("Você não tem permissão para gravar nesta pasta. Por favor, escolha outro diretório (como Documentos ou Área de Trabalho).", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Ocorreu um erro inesperado: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            filtrar_Click(sender, e);
+            try
+            {
+                filtrar_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

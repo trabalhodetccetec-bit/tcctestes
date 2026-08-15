@@ -154,6 +154,8 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.IO.Pipelines, Version=10.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.10.0.5\lib\net462\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -236,6 +238,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BancodeDados\Backup.cs" />
     <Compile Include="BancodeDados\bancoConexao.cs" />
     <Compile Include="BancodeDados\criarbanco.cs" />
     <Compile Include="BancodeDados\SQL.cs" />
