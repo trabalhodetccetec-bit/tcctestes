@@ -331,9 +331,9 @@ namespace tcctestes.BancodeDados
                 {
                     string sql = @"
                         SELECT Caminhoimg, IDJogo, Nome, cate
-                        FROM Jogos
+                        FROM Jogos Where vezesjogado > 0
                         ORDER BY freq DESC
-                        LIMIT 3";
+                        LIMIT 3 ";
 
                     conn.Open();
 

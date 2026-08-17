@@ -29,7 +29,7 @@ namespace tcctestes.formularios
             {
                 pictureBox3.BorderStyle = BorderStyle.None;
             }
-
+            
 
             if (pictureBox1.Image == null)
             {
@@ -142,7 +142,7 @@ namespace tcctestes.formularios
                     this.BackgroundImage = Image.FromFile(plano.planodefundo);
                     this.BackgroundImageLayout = ImageLayout.Stretch;
                 }
-
+               // if (pictureBox3.Image == null && pictureBox2.Image == null && pictureBox1.Image == null) MessageBox.Show("Você ainda não jogou nenhum jogo!");
             }
             catch (Exception ex)
             {
@@ -250,7 +250,7 @@ namespace tcctestes.formularios
             {
                 panel2.Visible = true;
             }
-            if (pictureBox2.Image == null)
+            if (pictureBox3.Image == null)
             {
                 panel3.Visible = false;
             }

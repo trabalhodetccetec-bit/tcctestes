@@ -84,7 +84,8 @@ namespace tcctestes.formularios
                     comboBox2.SelectedIndex = 1;
                     comboBox1.SelectedIndex = 0;
                     cam = "";
-                    pictureBox1.Image = Properties.Resources.addimage;
+                    pictureBox1.BackgroundImage = Properties.Resources.addimage;
+                    pictureBox1.Image = Properties.Resources.quadro8;
                     jajog.Checked = false;
                     naojog.Checked = false;
                     jaze.Checked = false;
@@ -150,20 +151,6 @@ namespace tcctestes.formularios
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog opf = new OpenFileDialog())
-            {
-                opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
-
-                if (opf.ShowDialog() == DialogResult.OK)
-                {
-                    pictureBox1.BackgroundImage = Image.FromFile(opf.FileName);
-                    cam = opf.FileName;
-                }
-            }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog opf = new OpenFileDialog())
             {
