@@ -20,6 +20,7 @@ namespace tcctestes.formularios
 
         private void Gráfico_Load(object sender, EventArgs e)
         {
+            chart1.BackgroundImageLayout = ImageLayout.Stretch;
             ajudaToolStripMenuItem.Visible = false;
             sobreToolStripMenuItem.Visible = true;
             label1.Text = "";

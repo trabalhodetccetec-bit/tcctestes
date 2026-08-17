@@ -376,6 +376,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\bordas.png" />
+    <None Include="Resources\casca.png" />
     <Content Include="Resources\favorito.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
