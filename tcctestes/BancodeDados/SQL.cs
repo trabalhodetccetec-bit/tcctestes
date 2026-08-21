@@ -147,7 +147,7 @@ namespace tcctestes.BancodeDados
 
                 using (var conn = new SQLiteConnection($"Data Source={caminhosql}"))
                 {
-                    string sql = @"SELECT Caminhoimg  FROM Jogos WHERE IDJogo = @id";
+                    string sql = @"SELECT Caminhoimg FROM Jogos WHERE IDJogo = @id";
 
                     conn.Open();
                     if (string.IsNullOrEmpty(img))
@@ -585,21 +585,22 @@ namespace tcctestes.BancodeDados
                 {
                     conn.Open();
 
-                    // O segredo está em passar o ID fixo como 1
                     string sql = @"INSERT OR REPLACE INTO Form (id, planodefundo) VALUES (1, @plano);";
 
                     using (var cmd = new SQLiteCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@plano", (object)pag.planodefundo ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@plano", string.IsNullOrEmpty(pag.planodefundo) ? (object)DBNull.Value : pag.planodefundo);
+
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao salvar plano de fundo: " + ex.Message);
+                MessageBox.Show("Erro ao salvar plano de fundo");
             }
         }
+
         public void AtualizarFavorito(int id, bool favorito)
         {
             using (SQLiteConnection conn = new SQLiteConnection($"Data Source={caminhosql}"))

@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
-using System.Text.Json;
-using System.IO;
-using System.Data.SQLite;
 
 
 namespace tcctestes.formularios
@@ -64,7 +56,6 @@ namespace tcctestes.formularios
             {
                 try
                 {
-
                     MODELS.Dados dad = new MODELS.Dados();
                     SERVICES.cominicacao comunicacao = new SERVICES.cominicacao();
                     dad.Nome = textBox1.Text;
@@ -72,7 +63,7 @@ namespace tcctestes.formularios
                     dad.pathexe = textBox3.Text;
                     dad.Categoria = comboBox2.SelectedItem.ToString();
                     dad.aval = comboBox1.SelectedItem.ToString();
-                    dad.pathimage = cam;
+                    dad.pathimage = comunicacao.salvarimagem(pictureBox1.Image, textBox1.Text.Trim() + ".jpg", pictureBox1.Image.RawFormat);
                     if (jajog.Checked) { dad.jogou = jajog.Text; }
                     else { dad.jogou = naojog.Text; }
                     if (jaze.Checked) { dad.zerou = jaze.Text; }
@@ -152,14 +143,18 @@ namespace tcctestes.formularios
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog opf = new OpenFileDialog())
+            using (OpenFileDialog dialogo = new OpenFileDialog())
             {
-                opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
+                dialogo.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                dialogo.Title = "Selecionar imagem";
 
-                if (opf.ShowDialog() == DialogResult.OK)
+                if (dialogo.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBox1.BackgroundImage = Image.FromFile(opf.FileName);
-                    cam = opf.FileName;
+                    //carrega uma cópia da imagem para a PictureBox, assim evita da imagem ficar bloqueada pra copia, exclusão, etc
+                    using (Image imagemOriginal = Image.FromFile(dialogo.FileName))
+                    {
+                        pictureBox1.Image = new Bitmap(imagemOriginal);
+                    }
                 }
             }
         }

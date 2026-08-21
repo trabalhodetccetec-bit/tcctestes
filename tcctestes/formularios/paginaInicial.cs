@@ -29,7 +29,7 @@ namespace tcctestes.formularios
             {
                 pictureBox3.BorderStyle = BorderStyle.None;
             }
-            
+
 
             if (pictureBox1.Image == null)
             {
@@ -59,12 +59,13 @@ namespace tcctestes.formularios
 
             sobreToolStripMenuItem.Visible = false;
 
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             this.BackColor = Color.FromArgb(245, 245, 245);
 
             Label[] labels = { label1, label2, label3, label4, label5, label6 };
 
             label7.BackColor = Color.Transparent;
-           
+
 
             pictureBox1.Click += AbrirJogoRecente;
             pictureBox2.Click += AbrirJogoRecente;
@@ -142,7 +143,7 @@ namespace tcctestes.formularios
                     this.BackgroundImage = Image.FromFile(plano.planodefundo);
                     this.BackgroundImageLayout = ImageLayout.Stretch;
                 }
-               // if (pictureBox3.Image == null && pictureBox2.Image == null && pictureBox1.Image == null) MessageBox.Show("Você ainda não jogou nenhum jogo!");
+                // if (pictureBox3.Image == null && pictureBox2.Image == null && pictureBox1.Image == null) MessageBox.Show("Você ainda não jogou nenhum jogo!");
             }
             catch (Exception ex)
             {
@@ -154,24 +155,6 @@ namespace tcctestes.formularios
         {
             Gráfico form = new Gráfico();
             form.Show();
-        }
-
-        private void trocarBackgroudToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MODELS.Paginanicial pag = new MODELS.Paginanicial();
-            SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
-            using (OpenFileDialog opf = new OpenFileDialog())
-            {
-                opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
-
-                if (opf.ShowDialog() == DialogResult.OK)
-                {
-                    this.BackgroundImage = Image.FromFile(opf.FileName);
-                    this.BackgroundImageLayout = ImageLayout.Stretch;
-                    pag.planodefundo = opf.FileName;
-                    cominicacao.setplanodefundo(pag);
-                }
-            }
         }
 
 
@@ -239,7 +222,8 @@ namespace tcctestes.formularios
             {
                 panel1.Visible = false;
             }
-            else { 
+            else
+            {
                 panel1.Visible = true;
             }
             if (pictureBox2.Image == null)
@@ -266,6 +250,7 @@ namespace tcctestes.formularios
             try
             {
                 SERVICES.cominicacao comunicacao = new SERVICES.cominicacao();
+                MODELS.Paginanicial plano = comunicacao.getplanodefundo();
                 var jogos = comunicacao.recentes();
 
                 Label[] titulos = { label1, label2, label3 };
@@ -286,6 +271,16 @@ namespace tcctestes.formularios
                         imagens[i].Image = Image.FromFile(jogos[i].CaminhoImagem);
                     }
                 }
+                if (this.BackgroundImage == null)
+                {
+                    comunicacao.getplanodefundo();
+
+                    if (!string.IsNullOrEmpty(plano.planodefundo))
+                    {
+                        this.BackgroundImage = Image.FromFile(plano.planodefundo);
+                        this.BackgroundImageLayout = ImageLayout.Stretch;
+                    }
+                }
 
             }
             catch (Exception ex)
@@ -294,9 +289,51 @@ namespace tcctestes.formularios
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void trocarPlanoDeFundoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MODELS.Paginanicial pag = new MODELS.Paginanicial();
+            SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+            using (OpenFileDialog dialogo = new OpenFileDialog())
+            {
+                dialogo.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                dialogo.Title = "Selecionar imagem";
 
+                if (dialogo.ShowDialog() == DialogResult.OK)
+                {
+                    // Carrega uma cópia da imagem para a PictureBox
+                    using (Image imagemOriginal = Image.FromFile(dialogo.FileName))
+                    {
+                        this.BackgroundImage = new Bitmap(imagemOriginal);
+                        if (this.BackgroundImage != null)
+                        {
+                            pag.planodefundo = cominicacao.salvarimagem(this.BackgroundImage, "background.jpg", this.BackgroundImage.RawFormat);
+                        }
+                        else
+                        {
+                            pag.planodefundo = null;
+                        }
+                        cominicacao.setplanodefundo(pag);
+                    }
+                }
+            }
+        }
+
+        private void removerPlanoDeFundoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.BackgroundImage = null;
+                MODELS.Paginanicial pag = new MODELS.Paginanicial();
+                SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+                pag.planodefundo = null;
+                cominicacao.setplanodefundo(pag);
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Erro ao remover plano de fundo");
+            }
         }
     }
 }

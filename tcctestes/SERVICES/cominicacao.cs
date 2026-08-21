@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Text.Json;
-using System.IO;
-using System.Diagnostics;
+using System.Drawing.Imaging;
 using tcctestes.MODELS;
 using tcctestes.BancodeDados;
 
@@ -174,6 +167,18 @@ namespace tcctestes.SERVICES
             {
                 Backup sql = new Backup();
                 sql.backup(caminho);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public string salvarimagem(Image imagem, string nome, ImageFormat formato)
+        {
+            try
+            {
+                SalvarImagem sql = new SalvarImagem();
+                return sql.Salvar(imagem, nome, formato);
             }
             catch (Exception ex)
             {
