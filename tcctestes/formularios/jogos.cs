@@ -158,15 +158,21 @@ namespace tcctestes.formularios
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            MODELS.Dados dados = new MODELS.Dados();
-            using (OpenFileDialog opf = new OpenFileDialog())
+            MODELS.Dados dad = new MODELS.Dados();
+            SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+            using (OpenFileDialog dialogo = new OpenFileDialog())
             {
-                opf.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp";
+                dialogo.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                dialogo.Title = "Selecionar imagem";
 
-                if (opf.ShowDialog() == DialogResult.OK)
+                if (dialogo.ShowDialog() == DialogResult.OK)
                 {
-                    cam = opf.FileName;
-                    pictureBox1.Image = Image.FromFile(cam);
+                    //carrega uma cópia da imagem para a PictureBox, assim evita da imagem ficar bloqueada pra copia, exclusão, etc
+                    using (Image imagemOriginal = Image.FromFile(dialogo.FileName))
+                    {
+                        cam = cominicacao.salvarimagem(pictureBox1.Image, nome.Text.Trim() + ".jpg", pictureBox1.Image.RawFormat);
+                        pictureBox1.Image = new Bitmap(imagemOriginal);
+                    }
                 }
             }
             btnsalvar.Enabled = true;

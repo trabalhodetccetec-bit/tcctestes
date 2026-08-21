@@ -241,6 +241,7 @@
     <Compile Include="BancodeDados\Backup.cs" />
     <Compile Include="BancodeDados\bancoConexao.cs" />
     <Compile Include="BancodeDados\criarbanco.cs" />
+    <Compile Include="BancodeDados\salvarImagem.cs" />
     <Compile Include="BancodeDados\SQL.cs" />
     <Compile Include="formularios\adicionarjog.cs">
       <SubType>Form</SubType>

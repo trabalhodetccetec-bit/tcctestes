@@ -30,6 +30,7 @@ namespace tcctestes.BancodeDados
                     @"if not exist ""%APPDATA%\OrganizadorDeJogos\SAVE\DadosJogos"" mkdir ""%APPDATA%\OrganizadorDeJogos\SAVE\DadosJogos""",
                     "echo Copiando novo banco de dados para o seu lugar...",
                     @"xcopy ""%~dp0prim.db"" ""%APPDATA%\OrganizadorDeJogos\SAVE\DadosJogos\"" /y /q",
+                    @"xcopy ""%~dp0Imagens"" ""%APPDATA%\OrganizadorDeJogos\SAVE\Imagens"" /E /I /Y /Q",
                     "echo.",
                     "echo Banco de dados atualizado com sucesso!",
                     "pause"
@@ -62,6 +63,16 @@ namespace tcctestes.BancodeDados
                     else
                     {
                         throw new FileNotFoundException("O banco de dados original (prim.db) não foi localizado em: " + caminhoBancoSqlite);
+                    }
+                    if (Directory.Exists(caminhoimagem))
+                    {
+                        foreach (string arquivo in Directory.GetFiles(caminhoimagem))
+                        {
+                            zip.CreateEntryFromFile(
+                                arquivo,
+                                Path.Combine("Imagens", Path.GetFileName(arquivo))
+                            );
+                        }
                     }
                 }
             }
