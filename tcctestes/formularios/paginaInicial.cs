@@ -14,7 +14,6 @@ namespace tcctestes.formularios
         {
             InitializeComponent();
         }
-
         private void paginaInicial_Load(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null)
@@ -96,19 +95,16 @@ namespace tcctestes.formularios
             }
             ConectarInicio();
         }
-
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formularios.adicionarjog adjog = new formularios.adicionarjog();
             adjog.Show();
         }
-
         private void verTodosOsJogosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formularios.jogos all = new formularios.jogos();
             all.Show();
         }
-
         private void ConectarInicio()
         {
             try
@@ -149,14 +145,11 @@ namespace tcctestes.formularios
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void estatísticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Gráfico form = new Gráfico();
             form.Show();
         }
-
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             SERVICES.VerificarInternet verify = new SERVICES.VerificarInternet();
@@ -172,19 +165,16 @@ namespace tcctestes.formularios
                 reportarErrosToolStripMenuItem.Enabled = false;
             }
         }
-
         private void Feedback_Click(object sender, EventArgs e)
         {
             FeedBack feedBack = new FeedBack();
             feedBack.Show();
         }
-
         private void reportarErrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Report reportar = new Report();
             reportar.Show();
         }
-
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string caminho = Path.Combine(
@@ -198,12 +188,10 @@ namespace tcctestes.formularios
                 UseShellExecute = true
             });
         }
-
         private void timer2_Tick(object sender, EventArgs e)
         {
             recarregar();
         }
-
         private void recarregar()
         {
             try
@@ -292,7 +280,6 @@ namespace tcctestes.formularios
                 jamostrou = true;
             }
         }
-
         private void trocarPlanoDeFundoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MODELS.Paginanicial pag = new MODELS.Paginanicial();
@@ -321,7 +308,6 @@ namespace tcctestes.formularios
                 }
             }
         }
-
         private void removerPlanoDeFundoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
