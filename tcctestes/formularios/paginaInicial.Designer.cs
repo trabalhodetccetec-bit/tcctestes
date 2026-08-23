@@ -156,6 +156,7 @@ namespace tcctestes.formularios
             // Feedback
             // 
             this.Feedback.Name = "Feedback";
+            this.Feedback.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.Feedback.Size = new System.Drawing.Size(233, 22);
             this.Feedback.Text = "Avaliação";
             this.Feedback.Click += new System.EventHandler(this.Feedback_Click);
@@ -163,6 +164,7 @@ namespace tcctestes.formularios
             // reportarErrosToolStripMenuItem
             // 
             this.reportarErrosToolStripMenuItem.Name = "reportarErrosToolStripMenuItem";
+            this.reportarErrosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
             this.reportarErrosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.reportarErrosToolStripMenuItem.Text = "Reportar erros";
             this.reportarErrosToolStripMenuItem.Click += new System.EventHandler(this.reportarErrosToolStripMenuItem_Click);

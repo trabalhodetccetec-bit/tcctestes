@@ -9,9 +9,9 @@ namespace tcctestes.formularios
 {
     public partial class paginaInicial : Form
     {
+        static bool jamostrou = false;
         public paginaInicial()
         {
-
             InitializeComponent();
         }
 
@@ -143,7 +143,6 @@ namespace tcctestes.formularios
                     this.BackgroundImage = Image.FromFile(plano.planodefundo);
                     this.BackgroundImageLayout = ImageLayout.Stretch;
                 }
-                // if (pictureBox3.Image == null && pictureBox2.Image == null && pictureBox1.Image == null) MessageBox.Show("Você ainda não jogou nenhum jogo!");
             }
             catch (Exception ex)
             {
@@ -166,13 +165,11 @@ namespace tcctestes.formularios
             {
                 Feedback.Enabled = true;
                 reportarErrosToolStripMenuItem.Enabled = true;
-                login.Enabled = true;
             }
             else if (!conectado)
             {
                 Feedback.Enabled = false;
                 reportarErrosToolStripMenuItem.Enabled = false;
-                login.Enabled = false;
             }
         }
 
@@ -204,44 +201,6 @@ namespace tcctestes.formularios
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null)
-            {
-                pictureBox1.BorderStyle = BorderStyle.None;
-            }
-            if (pictureBox2.Image != null)
-            {
-                pictureBox2.BorderStyle = BorderStyle.None;
-            }
-            if (pictureBox3.Image != null)
-            {
-                pictureBox3.BorderStyle = BorderStyle.None;
-            }
-
-
-            if (pictureBox1.Image == null)
-            {
-                panel1.Visible = false;
-            }
-            else
-            {
-                panel1.Visible = true;
-            }
-            if (pictureBox2.Image == null)
-            {
-                panel2.Visible = false;
-            }
-            else
-            {
-                panel2.Visible = true;
-            }
-            if (pictureBox3.Image == null)
-            {
-                panel3.Visible = false;
-            }
-            else
-            {
-                panel3.Visible = true;
-            }
             recarregar();
         }
 
@@ -249,6 +208,44 @@ namespace tcctestes.formularios
         {
             try
             {
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.BorderStyle = BorderStyle.None;
+                }
+                if (pictureBox2.Image != null)
+                {
+                    pictureBox2.BorderStyle = BorderStyle.None;
+                }
+                if (pictureBox3.Image != null)
+                {
+                    pictureBox3.BorderStyle = BorderStyle.None;
+                }
+
+
+                if (pictureBox1.Image == null)
+                {
+                    panel1.Visible = false;
+                }
+                else
+                {
+                    panel1.Visible = true;
+                }
+                if (pictureBox2.Image == null)
+                {
+                    panel2.Visible = false;
+                }
+                else
+                {
+                    panel2.Visible = true;
+                }
+                if (pictureBox3.Image == null)
+                {
+                    panel3.Visible = false;
+                }
+                else
+                {
+                    panel3.Visible = true;
+                }
                 SERVICES.cominicacao comunicacao = new SERVICES.cominicacao();
                 MODELS.Paginanicial plano = comunicacao.getplanodefundo();
                 var jogos = comunicacao.recentes();
@@ -281,11 +278,18 @@ namespace tcctestes.formularios
                         this.BackgroundImageLayout = ImageLayout.Stretch;
                     }
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+
+            if (jamostrou == false && pictureBox1.Image == null && pictureBox2.Image == null && pictureBox3.Image == null)
+            {
+                timer2.Stop();
+                MessageBox.Show("Você ainda não abriu nenhum jogo");
+                timer2.Start();
+                jamostrou = true;
             }
         }
 
