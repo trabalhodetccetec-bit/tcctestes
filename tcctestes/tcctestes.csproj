@@ -243,6 +243,12 @@
     <Compile Include="BancodeDados\criarbanco.cs" />
     <Compile Include="BancodeDados\salvarImagem.cs" />
     <Compile Include="BancodeDados\SQL.cs" />
+    <Compile Include="formularios\Acessibilidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\Acessibilidade.Designer.cs">
+      <DependentUpon>Acessibilidade.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\adicionarjog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +297,10 @@
     <Compile Include="SERVICES\EnviarFeedback.cs" />
     <Compile Include="SERVICES\EnviarReport.cs" />
     <Compile Include="SERVICES\VerificarInternet.cs" />
+    <Compile Include="Uteis\funcoesuteis.cs" />
+    <EmbeddedResource Include="formularios\Acessibilidade.resx">
+      <DependentUpon>Acessibilidade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formularios\adicionarjog.resx">
       <DependentUpon>adicionarjog.cs</DependentUpon>
     </EmbeddedResource>
