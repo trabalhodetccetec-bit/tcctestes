@@ -16,7 +16,7 @@ namespace tcctestes
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BancodeDados.criarbanco.InicializarBanco();
-            Application.Run(new formularios.Acessibilidade());    
+            Application.Run(new formularios.paginaInicial());    
             
         }
        
