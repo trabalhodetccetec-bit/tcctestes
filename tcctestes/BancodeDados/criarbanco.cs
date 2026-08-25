@@ -48,6 +48,12 @@ namespace tcctestes.BancodeDados
                         id INTEGER PRIMARY KEY CHECK (id = 1),
                         planodefundo TEXT
                     );
+                    CREATE TABLE IF NOT EXISTS Acesibilidade
+                    (
+                        Escala REAL DEFAULT 1.0,
+                        Tema BIT DEFAULT 0,
+                        Contraste BIT DEFAULT 0
+                    );
                 ";
 
                 using (var cmd = new SQLiteCommand(sql, conn))

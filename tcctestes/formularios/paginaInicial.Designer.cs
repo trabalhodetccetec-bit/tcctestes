@@ -194,14 +194,16 @@ namespace tcctestes.formularios
             // trocarPlanoDeFundoToolStripMenuItem
             // 
             this.trocarPlanoDeFundoToolStripMenuItem.Name = "trocarPlanoDeFundoToolStripMenuItem";
-            this.trocarPlanoDeFundoToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.trocarPlanoDeFundoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
+            this.trocarPlanoDeFundoToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.trocarPlanoDeFundoToolStripMenuItem.Text = "Trocar plano de fundo";
             this.trocarPlanoDeFundoToolStripMenuItem.Click += new System.EventHandler(this.trocarPlanoDeFundoToolStripMenuItem_Click);
             // 
             // removerPlanoDeFundoToolStripMenuItem
             // 
             this.removerPlanoDeFundoToolStripMenuItem.Name = "removerPlanoDeFundoToolStripMenuItem";
-            this.removerPlanoDeFundoToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.removerPlanoDeFundoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.R)));
+            this.removerPlanoDeFundoToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.removerPlanoDeFundoToolStripMenuItem.Text = "Remover plano de fundo";
             this.removerPlanoDeFundoToolStripMenuItem.Click += new System.EventHandler(this.removerPlanoDeFundoToolStripMenuItem_Click);
             // 
