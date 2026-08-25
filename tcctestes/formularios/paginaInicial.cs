@@ -54,7 +54,6 @@ namespace tcctestes.formularios
             {
                 panel3.Visible = true;
             }
-           
 
 
             sobreToolStripMenuItem.Visible = false;
@@ -235,7 +234,6 @@ namespace tcctestes.formularios
                 {
                     panel3.Visible = true;
                 }
-               
                 SERVICES.cominicacao comunicacao = new SERVICES.cominicacao();
                 MODELS.Paginanicial plano = comunicacao.getplanodefundo();
                 var jogos = comunicacao.recentes();
@@ -327,9 +325,5 @@ namespace tcctestes.formularios
                 MessageBox.Show("Erro ao remover plano de fundo");
             }
         }
-
-      
-
-       
     }
 }
