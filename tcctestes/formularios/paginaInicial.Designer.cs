@@ -58,6 +58,7 @@ namespace tcctestes.formularios
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.acessibilidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -123,7 +124,8 @@ namespace tcctestes.formularios
             this.verTodosOsJogosToolStripMenuItem,
             this.estatísticasToolStripMenuItem,
             this.Feedback,
-            this.reportarErrosToolStripMenuItem});
+            this.reportarErrosToolStripMenuItem,
+            this.acessibilidadeToolStripMenuItem});
             this.jogosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.jogosToolStripMenuItem.Name = "jogosToolStripMenuItem";
             this.jogosToolStripMenuItem.Size = new System.Drawing.Size(65, 22);
@@ -133,7 +135,7 @@ namespace tcctestes.formularios
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
             this.adicionarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.adicionarToolStripMenuItem.Text = "Adicionar jogos";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
@@ -141,7 +143,7 @@ namespace tcctestes.formularios
             // 
             this.verTodosOsJogosToolStripMenuItem.Name = "verTodosOsJogosToolStripMenuItem";
             this.verTodosOsJogosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.verTodosOsJogosToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.verTodosOsJogosToolStripMenuItem.Text = "Ver todos os jogos";
             this.verTodosOsJogosToolStripMenuItem.Click += new System.EventHandler(this.verTodosOsJogosToolStripMenuItem_Click);
             // 
@@ -149,7 +151,7 @@ namespace tcctestes.formularios
             // 
             this.estatísticasToolStripMenuItem.Name = "estatísticasToolStripMenuItem";
             this.estatísticasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.estatísticasToolStripMenuItem.Text = "Estatísticas";
             this.estatísticasToolStripMenuItem.Click += new System.EventHandler(this.estatísticasToolStripMenuItem_Click);
             // 
@@ -157,7 +159,7 @@ namespace tcctestes.formularios
             // 
             this.Feedback.Name = "Feedback";
             this.Feedback.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.Feedback.Size = new System.Drawing.Size(233, 22);
+            this.Feedback.Size = new System.Drawing.Size(232, 22);
             this.Feedback.Text = "Avaliação";
             this.Feedback.Click += new System.EventHandler(this.Feedback_Click);
             // 
@@ -165,7 +167,7 @@ namespace tcctestes.formularios
             // 
             this.reportarErrosToolStripMenuItem.Name = "reportarErrosToolStripMenuItem";
             this.reportarErrosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.reportarErrosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.reportarErrosToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.reportarErrosToolStripMenuItem.Text = "Reportar erros";
             this.reportarErrosToolStripMenuItem.Click += new System.EventHandler(this.reportarErrosToolStripMenuItem_Click);
             // 
@@ -194,14 +196,16 @@ namespace tcctestes.formularios
             // trocarPlanoDeFundoToolStripMenuItem
             // 
             this.trocarPlanoDeFundoToolStripMenuItem.Name = "trocarPlanoDeFundoToolStripMenuItem";
-            this.trocarPlanoDeFundoToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.trocarPlanoDeFundoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
+            this.trocarPlanoDeFundoToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.trocarPlanoDeFundoToolStripMenuItem.Text = "Trocar plano de fundo";
             this.trocarPlanoDeFundoToolStripMenuItem.Click += new System.EventHandler(this.trocarPlanoDeFundoToolStripMenuItem_Click);
             // 
             // removerPlanoDeFundoToolStripMenuItem
             // 
             this.removerPlanoDeFundoToolStripMenuItem.Name = "removerPlanoDeFundoToolStripMenuItem";
-            this.removerPlanoDeFundoToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.removerPlanoDeFundoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.R)));
+            this.removerPlanoDeFundoToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.removerPlanoDeFundoToolStripMenuItem.Text = "Remover plano de fundo";
             this.removerPlanoDeFundoToolStripMenuItem.Click += new System.EventHandler(this.removerPlanoDeFundoToolStripMenuItem_Click);
             // 
@@ -365,6 +369,14 @@ namespace tcctestes.formularios
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // acessibilidadeToolStripMenuItem
+            // 
+            this.acessibilidadeToolStripMenuItem.Name = "acessibilidadeToolStripMenuItem";
+            this.acessibilidadeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.acessibilidadeToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.acessibilidadeToolStripMenuItem.Text = "acessibilidade";
+            this.acessibilidadeToolStripMenuItem.Click += new System.EventHandler(this.acessibilidadeToolStripMenuItem_Click);
+            // 
             // paginaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,5 +439,6 @@ namespace tcctestes.formularios
         private System.Windows.Forms.ToolStripMenuItem login;
         private System.Windows.Forms.ToolStripMenuItem trocarPlanoDeFundoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removerPlanoDeFundoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acessibilidadeToolStripMenuItem;
     }
 }

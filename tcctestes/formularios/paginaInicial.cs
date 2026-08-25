@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using tcctestes.MODELS;
 
 
 namespace tcctestes.formularios
@@ -97,8 +98,13 @@ namespace tcctestes.formularios
         }
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formularios.adicionarjog adjog = new formularios.adicionarjog();
-            adjog.Show();
+            if (!persistente.aberto)
+            {
+                persistente.aberto = true;
+                formularios.adicionarjog adjog = new formularios.adicionarjog();
+                adjog.Show();
+                
+            }
         }
         private void verTodosOsJogosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -324,6 +330,12 @@ namespace tcctestes.formularios
             {
                 MessageBox.Show("Erro ao remover plano de fundo");
             }
+        }
+
+        private void acessibilidadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            personalizacao form = new personalizacao();
+            form.Show();
         }
     }
 }

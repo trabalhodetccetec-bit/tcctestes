@@ -11,5 +11,6 @@ namespace tcctestes.MODELS
         public static bool logado = false;
         public static bool saiusemlogar = false;
         public static string nome = "";
+        public static bool aberto = false;
     }
 }

@@ -238,11 +238,18 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acessibilidade\Acessibilidade.cs" />
     <Compile Include="BancodeDados\Backup.cs" />
     <Compile Include="BancodeDados\bancoConexao.cs" />
     <Compile Include="BancodeDados\criarbanco.cs" />
     <Compile Include="BancodeDados\salvarImagem.cs" />
     <Compile Include="BancodeDados\SQL.cs" />
+    <Compile Include="formularios\personalizacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\personalizacao.Designer.cs">
+      <DependentUpon>personalizacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\adicionarjog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +298,9 @@
     <Compile Include="SERVICES\EnviarFeedback.cs" />
     <Compile Include="SERVICES\EnviarReport.cs" />
     <Compile Include="SERVICES\VerificarInternet.cs" />
+    <EmbeddedResource Include="formularios\personalizacao.resx">
+      <DependentUpon>personalizacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formularios\adicionarjog.resx">
       <DependentUpon>adicionarjog.cs</DependentUpon>
     </EmbeddedResource>
