@@ -18,8 +18,8 @@ namespace tcctestes.Acessibilidade
                 case (false):
                     //tema claro
                     foreach (Control c in form.Controls) {
-                        form.BackColor = Color.WhiteSmoke;
-                        form.ForeColor = Color.Black;
+                    form.BackColor = Color.WhiteSmoke;
+                    form.ForeColor = Color.Black;
                     }
                     claroescuro = false;
                     break;
@@ -27,8 +27,8 @@ namespace tcctestes.Acessibilidade
                     //tema escuro
                     foreach (Control c in form.Controls)
                     {
-                        form.BackColor = Color.Black;
-                        form.ForeColor = Color.WhiteSmoke;
+                    form.BackColor = Color.Black;
+                    form.ForeColor = Color.WhiteSmoke;
                     }
                     
                     claroescuro = true;

@@ -24,12 +24,17 @@ namespace tcctestes.formularios
                 button1.Text = "Modo Escuro";
                 Acessibilidade.Acessibilidade.Tema(this, false);
                 button1.Text = "Modo Escuro";
+<<<<<<< HEAD
+=======
+
+>>>>>>> e0a3ecdab8eda482f2178c2c1681353aeaa9b841
             }
             else if (button1.Text == "Modo Escuro")
             {
                 button1.Text = "Modo Claro";
                 Acessibilidade.Acessibilidade.Tema(this, true);
                 button1.Text = "Modo Claro";
+<<<<<<< HEAD
             }
         }
 
@@ -44,5 +49,10 @@ namespace tcctestes.formularios
             panel1.Visible = false;
             panel3.Visible = true;
         }
+=======
+
+            }
+        }
+>>>>>>> e0a3ecdab8eda482f2178c2c1681353aeaa9b841
     }
 }
