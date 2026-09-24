@@ -148,7 +148,7 @@ namespace tcctestes.formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+               
             }
         }
         private void estatísticasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -234,7 +234,7 @@ namespace tcctestes.formularios
                 }
                 if (pictureBox3.Image == null)
                 {
-                    panel3.Visible = false;
+                    panel3.Visible =false;
                 }
                 else
                 {
@@ -275,7 +275,7 @@ namespace tcctestes.formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+               
             }
 
             if (jamostrou == false && pictureBox1.Image == null && pictureBox2.Image == null && pictureBox3.Image == null)
@@ -347,5 +347,7 @@ namespace tcctestes.formularios
 
             label1.Top = pictureBox1.Top - label1.Height - 10;
         }
+
+    
     }
 }

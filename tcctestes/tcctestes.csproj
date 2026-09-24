@@ -349,6 +349,7 @@
     </Content>
     <Content Include="Resources\addimage.png" />
     <Content Include="Resources\bordas.png" />
+    <None Include="Resources\bordas1.png" />
     <Content Include="Resources\Captura de tela 2026-05-30 162906.png" />
     <Content Include="Resources\casca.png" />
     <Content Include="Resources\favorito.png" />
