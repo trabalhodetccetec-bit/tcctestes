@@ -101,7 +101,7 @@ namespace tcctestes.formularios
             if (!persistente.aberto)
             {
                 persistente.aberto = true;
-                formularios.adicionarjog adjog = new formularios.adicionarjog();
+                formularios.adicionarjogo adjog = new formularios.adicionarjogo();
                 adjog.Show();
                 
             }
@@ -334,8 +334,6 @@ namespace tcctestes.formularios
 
         private void acessibilidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            personalizacao form = new personalizacao();
-            form.Show();
         }
     }
 }

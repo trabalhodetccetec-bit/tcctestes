@@ -102,35 +102,8 @@
     <Reference Include="MimeMapping, Version=3.0.0.0, Culture=neutral, PublicKeyToken=680e2d5f226b327b, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeMapping.3.0.1\lib\net462\MimeMapping.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Postgrest, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\postgrest-csharp.2.1.0\lib\netstandard2.0\Postgrest.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Supabase, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Supabase.1.0.5\lib\netstandard2.0\Supabase.dll</HintPath>
-    </Reference>
-    <Reference Include="Supabase.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Supabase.Core.1.2.0\lib\netstandard2.0\Supabase.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Supabase.Functions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Supabase.Functions.2.0.0\lib\netstandard2.0\Supabase.Functions.dll</HintPath>
-    </Reference>
-    <Reference Include="Supabase.Gotrue, Version=5.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Supabase.Gotrue.5.0.6\lib\netstandard2.0\Supabase.Gotrue.dll</HintPath>
-    </Reference>
-    <Reference Include="Supabase.Postgrest, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Supabase.Postgrest.4.4.0\lib\netstandard2.0\Supabase.Postgrest.dll</HintPath>
-    </Reference>
-    <Reference Include="Supabase.Realtime, Version=7.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Supabase.Realtime.7.0.1\lib\netstandard2.0\Supabase.Realtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Supabase.Storage, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Supabase.Storage.2.0.2\lib\netstandard2.0\Supabase.Storage.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -231,9 +204,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Websocket.Client, Version=4.7.0.0, Culture=neutral, PublicKeyToken=ae648c6d12f59b1b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Websocket.Client.4.7.0\lib\netstandard2.0\Websocket.Client.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -244,17 +214,15 @@
     <Compile Include="BancodeDados\criarbanco.cs" />
     <Compile Include="BancodeDados\salvarImagem.cs" />
     <Compile Include="BancodeDados\SQL.cs" />
-    <Compile Include="formularios\personalizacao.cs">
+    <Compile Include="formularios\adicionarjogo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formularios\personalizacao.Designer.cs">
-      <DependentUpon>personalizacao.cs</DependentUpon>
+    <Compile Include="formularios\adicionarjogo.Designer.cs">
+      <DependentUpon>adicionarjogo.cs</DependentUpon>
     </Compile>
-    <Compile Include="formularios\adicionarjog.cs">
+    <Compile Include="formularios\adicionarjogo.metodos.cs">
+      <DependentUpon>adicionarjogo.cs</DependentUpon>
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formularios\adicionarjog.Designer.cs">
-      <DependentUpon>adicionarjog.cs</DependentUpon>
     </Compile>
     <Compile Include="formularios\FeedBack.cs">
       <SubType>Form</SubType>
@@ -298,11 +266,8 @@
     <Compile Include="SERVICES\EnviarFeedback.cs" />
     <Compile Include="SERVICES\EnviarReport.cs" />
     <Compile Include="SERVICES\VerificarInternet.cs" />
-    <EmbeddedResource Include="formularios\personalizacao.resx">
-      <DependentUpon>personalizacao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formularios\adicionarjog.resx">
-      <DependentUpon>adicionarjog.cs</DependentUpon>
+    <EmbeddedResource Include="formularios\adicionarjogo.resx">
+      <DependentUpon>adicionarjogo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\FeedBack.resx">
       <DependentUpon>FeedBack.cs</DependentUpon>
@@ -349,10 +314,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="imgs\addimage.png" />
-    <Content Include="imgs\Minecraft-Launcher.exe" />
-    <Content Include="imgs\Minecraft.jpg" />
-    <Content Include="imgs\minecraftNovo.png" />
     <Content Include="Paginas\adicionarjogos.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -386,43 +347,27 @@
     <Content Include="Paginas\bootstrap\tutorial1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\bordas.png" />
-    <None Include="Resources\casca.png" />
-    <Content Include="Resources\favorito.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\naofavorito.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\quadro.png" />
-    <None Include="Resources\quadro1.png" />
-    <None Include="Resources\quadro2.png" />
-    <None Include="Resources\quadro3.png" />
-    <None Include="Resources\quadro4.png" />
-    <None Include="Resources\quadro5.png" />
-    <None Include="Resources\quadro6.png" />
-    <None Include="Resources\quadro7.png" />
-    <None Include="Resources\quadro8.png" />
-    <Content Include="Resources\vazio.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\Captura de tela 2026-05-30 162906.png" />
+    <Content Include="Resources\addimage.png" />
+    <Content Include="Resources\bordas.png" />
+    <Content Include="Resources\Captura de tela 2026-05-30 162906.png" />
+    <Content Include="Resources\casca.png" />
+    <Content Include="Resources\favorito.png" />
+    <Content Include="Resources\filtro%281%29.png" />
+    <Content Include="Resources\filtro.png" />
     <Content Include="Resources\fundo.png" />
-    <Content Include="imgs\filtro%281%29.png" />
-    <Content Include="imgs\filtro.png" />
-    <None Include="Resources\login.png" />
-    <Content Include="Resources\usuario.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\filtro%281%29.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\filtro.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\addimage.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Content Include="Resources\login.png" />
+    <Content Include="Resources\naofavorito.png" />
+    <Content Include="Resources\quadro.png" />
+    <Content Include="Resources\quadro1.png" />
+    <Content Include="Resources\quadro2.png" />
+    <Content Include="Resources\quadro3.png" />
+    <Content Include="Resources\quadro4.png" />
+    <Content Include="Resources\quadro5.png" />
+    <Content Include="Resources\quadro6.png" />
+    <Content Include="Resources\quadro7.png" />
+    <Content Include="Resources\quadro8.png" />
+    <Content Include="Resources\usuario.png" />
+    <Content Include="Resources\vazio.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

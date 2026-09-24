@@ -22,12 +22,9 @@ namespace tcctestes.formularios
         {
             InitializeComponent();
         }
-
-
-
         private void adicionarJogosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formularios.adicionarjog adjog = new formularios.adicionarjog();
+            formularios.adicionarjogo adjog = new formularios.adicionarjogo();
             adjog.Show();
         }
 
@@ -54,11 +51,6 @@ namespace tcctestes.formularios
             {
                 MessageBox.Show("Erro ao carregar os dados: " + ex.ToString());
             }
-
-        }
-
-        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
 
