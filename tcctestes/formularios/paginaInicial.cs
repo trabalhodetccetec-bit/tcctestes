@@ -335,5 +335,17 @@ namespace tcctestes.formularios
         private void acessibilidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
         }
+
+        private void paginaInicial_Resize(object sender, EventArgs e)
+        {
+
+            label4.Top = pictureBox1.Bottom + 2;
+        }
+
+        private void label1_Layout(object sender, LayoutEventArgs e)
+        {
+
+            label1.Top = pictureBox1.Top - label1.Height - 10;
+        }
     }
 }
