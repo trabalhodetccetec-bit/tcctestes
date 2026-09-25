@@ -15,6 +15,15 @@ namespace tcctestes.formularios
         {
             InitializeComponent();
         }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
         private void paginaInicial_Load(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null)
@@ -47,7 +56,7 @@ namespace tcctestes.formularios
             {
                 panel2.Visible = true;
             }
-            if (pictureBox2.Image == null)
+            if (pictureBox3.Image == null)
             {
                 panel3.Visible = false;
             }
@@ -95,6 +104,7 @@ namespace tcctestes.formularios
                 MessageBox.Show("Erro ao abrir jogo: " + ex.Message);
             }
             ConectarInicio();
+
         }
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -103,7 +113,7 @@ namespace tcctestes.formularios
                 persistente.aberto = true;
                 formularios.adicionarjogo adjog = new formularios.adicionarjogo();
                 adjog.Show();
-                
+
             }
         }
         private void verTodosOsJogosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,7 +129,7 @@ namespace tcctestes.formularios
                 MODELS.Paginanicial plano = comunicacao.getplanodefundo();
                 var jogos = comunicacao.recentes();
 
-                Label[] titulos = { label1, label2, label3 };
+                Label[] titulos = { label8, label9, label10 };
                 Label[] categorias = { label4, label5, label6 };
                 PictureBox[] imagens = { pictureBox1, pictureBox2, pictureBox3 };
 
@@ -148,7 +158,7 @@ namespace tcctestes.formularios
             }
             catch (Exception ex)
             {
-               
+                MessageBox.Show(ex.ToString());
             }
         }
         private void estatísticasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -234,7 +244,7 @@ namespace tcctestes.formularios
                 }
                 if (pictureBox3.Image == null)
                 {
-                    panel3.Visible =false;
+                    panel3.Visible = false;
                 }
                 else
                 {
@@ -244,7 +254,7 @@ namespace tcctestes.formularios
                 MODELS.Paginanicial plano = comunicacao.getplanodefundo();
                 var jogos = comunicacao.recentes();
 
-                Label[] titulos = { label1, label2, label3 };
+                Label[] titulos = { label8, label9, label10 };
                 Label[] categorias = { label4, label5, label6 };
                 PictureBox[] imagens = { pictureBox1, pictureBox2, pictureBox3 };
 
@@ -275,7 +285,7 @@ namespace tcctestes.formularios
             }
             catch (Exception ex)
             {
-               
+                MessageBox.Show(ex.ToString());
             }
 
             if (jamostrou == false && pictureBox1.Image == null && pictureBox2.Image == null && pictureBox3.Image == null)
@@ -288,30 +298,37 @@ namespace tcctestes.formularios
         }
         private void trocarPlanoDeFundoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MODELS.Paginanicial pag = new MODELS.Paginanicial();
-            SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
-            using (OpenFileDialog dialogo = new OpenFileDialog())
+            try
             {
-                dialogo.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-                dialogo.Title = "Selecionar imagem";
-
-                if (dialogo.ShowDialog() == DialogResult.OK)
+                MODELS.Paginanicial pag = new MODELS.Paginanicial();
+                SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
+                using (OpenFileDialog dialogo = new OpenFileDialog())
                 {
-                    // Carrega uma cópia da imagem para a PictureBox
-                    using (Image imagemOriginal = Image.FromFile(dialogo.FileName))
+                    dialogo.Filter = "Imagens|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                    dialogo.Title = "Selecionar imagem";
+
+                    if (dialogo.ShowDialog() == DialogResult.OK)
                     {
-                        this.BackgroundImage = new Bitmap(imagemOriginal);
-                        if (this.BackgroundImage != null)
+                        // Carrega uma cópia da imagem para a PictureBox
+                        using (Image imagemOriginal = Image.FromFile(dialogo.FileName))
                         {
-                            pag.planodefundo = cominicacao.salvarimagem(this.BackgroundImage, "background.jpg", this.BackgroundImage.RawFormat);
+                            this.BackgroundImage = new Bitmap(imagemOriginal);
+                            if (this.BackgroundImage != null)
+                            {
+                                pag.planodefundo = cominicacao.salvarimagem(this.BackgroundImage, "background", this.BackgroundImage.RawFormat);
+                            }
+                            else
+                            {
+                                pag.planodefundo = null;
+                            }
+                            cominicacao.setplanodefundo(pag);
                         }
-                        else
-                        {
-                            pag.planodefundo = null;
-                        }
-                        cominicacao.setplanodefundo(pag);
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         private void removerPlanoDeFundoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -323,10 +340,8 @@ namespace tcctestes.formularios
                 SERVICES.cominicacao cominicacao = new SERVICES.cominicacao();
                 pag.planodefundo = null;
                 cominicacao.setplanodefundo(pag);
-
-
             }
-            catch(Exception ex)
+            catch
             {
                 MessageBox.Show("Erro ao remover plano de fundo");
             }
@@ -338,16 +353,29 @@ namespace tcctestes.formularios
 
         private void paginaInicial_Resize(object sender, EventArgs e)
         {
-
             label4.Top = pictureBox1.Bottom + 2;
+            label5.Top = pictureBox2.Bottom + 2;
+            label6.Top = pictureBox3.Bottom + 2;
         }
-
-        private void label1_Layout(object sender, LayoutEventArgs e)
+        private Bitmap ComporBordaComFundo(Bitmap fundoCompleto, Rectangle areaDoCard, Image bordaPng)
         {
+            Bitmap resultado = new Bitmap(areaDoCard.Width, areaDoCard.Height);
+            using (Graphics g = Graphics.FromImage(resultado))
+            {
+                // recorta exatamente o pedaço do fundo que fica atrás do card
+                g.DrawImage(fundoCompleto,
+                    new Rectangle(0, 0, areaDoCard.Width, areaDoCard.Height),
+                    areaDoCard, GraphicsUnit.Pixel);
 
-            label1.Top = pictureBox1.Top - label1.Height - 10;
+                // desenha a borda PNG por cima, respeitando o alpha dela normalmente
+                g.DrawImage(bordaPng, 0, 0, areaDoCard.Width, areaDoCard.Height);
+            }
+            return resultado;
         }
 
-    
+        private void panelRecentes_Scroll(object sender, ScrollEventArgs e)
+        {
+            timer2.Enabled = (e.Type == ScrollEventType.EndScroll);
+        }
     }
 }
